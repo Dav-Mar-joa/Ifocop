@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript & DOM : Le Modèle Objet du Document - Exercice 16</title>
+    <style>
+
+
+      .masque {
+            /* width: 220px;  */
+            width: 220px; 
+            height: 220px; 
+            overflow: hidden; 
+            position: relative; 
+            transition: left 0.1s linear, top 0.1s linear;
+            z-index: 1;
+            /* top: 450px; */
+            /* top: 48vh; */
+            top: 38vh;
+            
+            
+        }
+        .masque img {
+            position: absolute; 
+            left: 0; 
+            /* top: 0;  */
+        }
+
+        .fond {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0; /* Background layer */
+        background-image: url('fond.png');
+      }
+      #pikachu {
+        width:20%;
+        display: none;
+        position: absolute;
+        top: 41vh;
+        left: 78vw;
+        z-index: 2;
+      }
+    </style>
+    <script>
+      // Énoncé :
+      /*
+        En JavaScript, on a accès à des objets qui contiennent les informations relatives au navigateur : le DOM. L'objet qui permet d'accéder au DOM est l'objet window. Cet objet est l'objet de plus haut niveau en JavaScript. L'objet window contient des sous-objets que nous allons exploiter.
+
+        Lorsque le navigateur Internet exécute la méthode correspondant à un évènement, il lui transmet en paramètre un objet d'événement, cet objet d'événement contient des informations relatives à l'évènement qui est survenu. Les objets d'évènements sont documentés ici dans le MDN : https://developer.mozilla.org/fr/docs/Web/API/Event
+      */
+
+      /*
+        1. Que fait le code ci-dessous ? Au chargement du document, lorsqu'on presse une touche, on récupère le code correspondant à la touche. Selon ce code, on affiche une boite de dialogue. Essayez ce code.
+      */
+      var dplX=0
+      var dplXGlobal=0
+      var vitesse = 20
+
+      window.onload = function () {
+        window.onkeydown = function (event) {
+          var code = event.keyCode;
+          switch (code) {
+            case 37:
+            var dplImage=document.querySelector("#image")
+            var dplImageGlobal=document.querySelector("#container")
+               dplImage.style.transform="scaleX(-1)"
+               dplXGlobal+=vitesse
+                dplX-=233
+                dplImage.style.left=dplX+"px"
+                if(dplX<-1200){
+                  dplX = 0;
+                  dplImage.style.left = dplX + "px";
+                  dplImageGlobal.style.left=dplXGlobal+"px"
+                }
+              break;
+              case 32:
+
+              break;  
+            case 38:
+              // *instructions*
+              alert("haut");
+
+              break;
+            case 39:
+                var dplImage=document.querySelector("#image")
+                var dplImageGlobal=document.querySelector("#container")
+                dplImage.style.transform=""
+                // console.dir(dplX)
+                dplXGlobal+=vitesse
+                dplX-=233
+                dplImage.style.left=dplX+"px"
+                dplImageGlobal.style.left=dplXGlobal+"px"
+                console.dir("dplXGlobal :"+dplXGlobal)
+                
+                if(dplXGlobal>1200){
+                // if(dplXGlobal>1650){
+                  dplXGlobal=0
+                  dplImageGlobal.style.left=dplXGlobal+"px"
+                  const newImg = document.createElement("img");
+                  newImg.src="pikachu.png"
+                  document.querySelector("#pikachu").style.display = "block";
+                  
+                }  
+                  // if(dplXGlobal>1300){
+                  if(dplXGlobal>900){
+                  document.querySelector("#pikachu").style.display = "none";
+                  }
+                
+                if(dplX<-1200){
+                  dplImage.style.left
+                  dplX = 0;
+                  dplImage.style.left = dplX + "px";
+                }
+              break;
+            case 40:
+              // *instructions*
+              alert("bas");
+
+              break;
+          }
+        };
+      };
+
+      /*
+        Ce document comporte une balise img dans une div. La div sert de masque pour le sprite chargé à l'aide de la balise img. Un sprite est une image qui présent les décompositions d'un mouvement.
+      */
+
+      /*
+        1. Cherchez un sprite sur Google. Chargez le sprite dans le document Web. Paramétrez les styles de la div "masque" pour qu'une seule décomposition de mouvement du sprite soit visible (utilisez la propriété de style overflow:hidden). La div doit être en position absolute. L'image dans la div doit être en position absolute.
+      */
+
+      /*
+        2. En utilisant comme base le code fourni, lorsque je presse une direction, déclenchez du code Javascript (dans la zone avec le sigle *instructions*) qui va déplacer de 2 px dans cette direction la div masque.
+      */
+
+      /*
+        3. En utilisant comme base le code fourni, lorsque je presse la même direction, déclenchez du code Javascript (dans la zone avec le sigle *instructions*) qui va déplacer l'image dans le masque de façon à afficher la décomposition suivante du mouvement.
+      */
+
+      /*
+        4. Reproduire cela pour les directions restantes.
+      */
+
+      /*
+        5. Trouvez le code numérique qui correspond à la touche "entrée". Dans le cas où l'utilisateur appuie sur la touche entrée, affichez un "mouvement spécial" de votre sprite (coup d'épée, explosion ou autre). L'événement contraire de onkeydown est onkeyup. Inspirez-vous du code fourni pour faire en sorte que lorsque l'utilisateur relâche la touche entrée, le sprite revienne à son état initial.
+      */
+    </script>
+  </head>
+  <body>
+    <h1>p</h1>
+    <div >
+      <div id="container" class="masque">
+        <img src="exo16.png" id="image" class="sprite" alt="Animation" />
+      </div>
+      <div><img src="fond_3.png" class="fond"> </div>
+      <div><img src="pikachu.png" id="pikachu"> </div>
+
+    </div>
+    <noscript>
+      <p>Veuillez activer JavaScript</p>
+    </noscript>
+  </body>
+</html>

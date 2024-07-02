@@ -1,0 +1,39 @@
+.info{
+    position:absolute;
+    left:-23%;
+    width: 20rem;
+    padding: 1rem;
+    border: .5rem solid coral;
+    transition: left 1s ease ease-in-out;
+    border-radius: .5rem;
+    z-index:20;
+    background-color: white;
+}
+/* //--modifie le comportement */
+.info--visible{
+    left:calc(50% - 11.5rem)
+
+}
+
+.voile{
+    position: fixed;
+    display: none;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index: 5;
+}
+.info--visible{
+    display: block;
+}
+
+.action{
+    display: flex;
+    justify-content: center;
+}
+.action--clique{
+    margin-right: 1rem;
+
+}
+

@@ -1,0 +1,60 @@
+<!-----------------------------------------------------
+------------------  Exercice 1 - 09  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	Le CSS permet d'appliquer du style
+
+	L'utilisation de styles CSS dans la page HTML peut se faire en déclarant ceux-ci dans l'en-tête de la page entre deux balises : <style> </style>.
+
+	Dans celle-ci. On écrit les styles de la façon suivante :
+
+	balise {
+		nom du style appliqué : valeur choisie;
+	}
+
+	Par exemple, pour l'ensemble de la page :
+	body {
+		color: blue;
+	}
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Bâtissez la structure de base d'une page HTML.
+	2 - Placez deux paragraphes.
+	3 - Mettez un h1 avant les deux paragraphes.
+	4 - Appliquez une couleur aux paragraphe et une autre couleur au titre en vous aidant des noms de couleurs donnés à la page https://developer.mozilla.org/fr/docs/CSS/Premiers_pas/Couleurs.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-01-Exercice_09</title>
+	<style>
+		h1{
+			color: blue;
+		}
+		.couleur_paragraphe{
+			color: brown;
+		}
+	</style>
+  </head>
+  <body>
+    <h1>Titre 1 coloré</h1>
+	<div class="couleur_paragraphe">
+		<div>
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero iusto
+		perspiciatis sapiente.
+		</div>
+		<div>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, maiores
+		dignissimos. Minus iure nihil culpa quisquam id vero quidem magni. Beatae
+		id est vero quam.
+		</div>
+	</div>	
+  </body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery : Exercice 18</title>
+		<link rel="stylesheet" href="../src/styles.css">
+		<script>
+      /*********************************
+      ***********PRESENTATION***********
+      **********************************
+        jQuery permet de masquer ou afficher un élément grâce aux trois méthodes ci-dessous :
+        _ hide() : masque l'élément visé
+        _ show() : affiche l'élément visé
+        _ toggle() : masque ou affiche l'élément visé.
+
+        Par défaut, ces animations se déroulent en 400 milliseconde (valeur normal).
+        On peut aussi indiquer show('fast') ainsi que hider('slow'). Par défaut, fast équivaut à 200 milliseconde et slow 800.
+        On peut, bien entendu, indiquer une valeur numérique plutôt qu'un texte : toggle(1400).
+
+        Il est possible de modifier les valeurs de l'objet jQuery.fx.speeds. Par exemple :
+        jQuery.fx.speeds.normal = 600 ou jQuery.fx.speeds.slow = 1200.
+        Enfin, On peut ajouter des valeurs à cet objet comme suit :
+        jQuery.fx.speeds['veryLong'] = 3000;
+      */
+
+      /**********************************
+      *************EXERCICES*************
+      ***********************************
+        Créez une page contenant trois images.
+        À la fin du chargement du document, prévoyez le script suivant :
+        Au survol d'une image, masquez les autres images. Quand le survol cesse, revenez à l'été initial. Pour se faire, veillez à récupérer l'id de l'image survolée de telle façon à masquer toutes les images sauf celle survolée.
+
+        Utilisez les méthodes hide(), show() mouseover() et attr().
+
+    </script>
+	</head>
+	<body>
+
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

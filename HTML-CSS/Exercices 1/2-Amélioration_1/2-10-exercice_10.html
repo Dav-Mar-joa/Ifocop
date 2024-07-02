@@ -1,0 +1,57 @@
+<!-----------------------------------------------------
+------------------  Exercice 2 - 10  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	En HTML, on réalise des listes à puce de la façon suivante :
+		<ul>
+			<li>Élément 1</li>
+			<li>Élément 2</li>
+			<li>Élément 3</li>
+		</ul>
+	et des listes numérotées :
+		<ol>
+			<li>Élément 1</li>
+			<li>Élément 2</li>
+			<li>Élément 3</li>
+		</ol>
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Créez un document.
+	2 - Vous y insérez une liste à puce et une liste numérotée.
+	3 - Dans chaque liste, faites alterner les couleurs entre les éléments impairs et les éléments pairs.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<style>
+		.liste-numero li:nth-child(odd) {
+    background-color: #f0f0f0; /* Couleur pour les éléments impairs */
+		}
+		.liste-numero li:nth-child(even) {
+    background-color: #e0e0e0; /* Couleur pour les éléments pairs */
+}
+	</style>
+</head>
+<body>
+	<ul>
+		<li> Element 1	</li>
+		<li> Element 2	</li>
+		<li> Element 3	</li>
+	</ul>
+
+	<ol class="liste-numero">
+		<li> Element 1	</li>
+		<li> Element 2	</li>
+		<li> Element 3	</li>
+</bodyl>
+	
+</body>
+</html>

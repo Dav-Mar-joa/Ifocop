@@ -1,0 +1,8 @@
+.couleur{
+color: blue;
+font-size: 25px;
+}
+
+p.couleur cite{
+    color: rgb(255, 81, 0);
+}

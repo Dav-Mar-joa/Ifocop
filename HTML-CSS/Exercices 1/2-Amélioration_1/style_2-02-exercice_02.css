@@ -1,0 +1,6 @@
+p > strong {
+    font-weight: 300;
+}
+
+p.couleur > cite > strong {
+background-color: blue}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript & DOM : Les Objets - Exercice 3</title>
+    <script>
+      // Énoncé :
+      /*
+      1. Dans les exercices de JavaScript "procédural" vous avez créé plusieurs fonctions.
+      Vous devez regrouper toutes ces fonctions (au moins 5 d’entre-elles) dans un objet littéral.
+      Déclarez un objet dans lequel chaque propriété contiendra une fonction parmi celles créées précédemment.
+      */
+      var obj ={
+        fct1 : function () { "fonction1"},
+        fct2 : function () { "fonction1"}, 
+        fct3 : function () { "fonction1"}, 
+        fct4 : function () { "fonction1"}, 
+        fct5 : function () { "fonction1"} 
+      }
+
+      /*
+      2. Exécutez chacune des méthodes créés dans cet objet pour les tester.
+      */
+
+      /*
+      3. Déclarez 1 objet littéral qui contient :
+
+      -> 1 propriété qui contient une méthode (fonction dans une propriété) :
+        - qui prend en argument 1 nombre.
+        - qui affiche ce nombre dans une une boite de dialogue.
+        - qui RETOURNE ce nombre multiplié par 100.
+      -> Exécutez cette méthode et AFFICHEZ la VALEUR DE RETOUR dans une boite de dialogue.
+
+      -> 1 propriété qui contient une méthode :
+        - qui prend en argument 1 texte.
+        - qui affiche ce texte dans une boite de dialogue.
+        - qui RETOURNE ce texte concaténé avec la chaîne de caractères 'hello'.
+      -> Exécutez cette méthode et AFFICHEZ la VALEUR DE RETOUR dans une boite de dialogue.
+
+      -> 1 propriété qui contient une méthode :
+        - qui prend en argument un tableau de 3 éléments.
+        - qui affiche le contenu à l'index 1
+        - qui remplace ce que contient l'index 1 par ce qui est contenu dans l'index 2.
+        - qui RETOURNE ce tableau de 3 éléments modifié.
+      -> Exécutez cette méthode et AFFICHEZ la valeur du 2è index de la VALEUR DE RETOUR dans une boite de dialogue.
+
+      -> 1 propriété qui contient une méthode :
+        - qui prend en argument un objet de 5 propriétés qui contiennent chacune un nombre.
+        - qui met dans la 4è  propriété la somme de chacun des nombre de chacune des propriétés.
+        - qui RETOURNE 1 objet de 5 propriétés.
+      -> Exécutez cette méthode et AFFICHEZ la valeur de la 4è propriété de la VALEUR RETOURNÉE dans une boite de dialogue.
+      */
+      
+      var fct1= function(a){
+        alert("Voici le nombre pris en argument :"+a);
+        a*=100;
+        return a;
+      }
+
+      var fct2= function(b){
+        alert("Voici le text pris en argument : "+b);
+        b+="hello";
+        return b;
+      }
+
+      var fct3= function(c){
+        alert("Tab [1] : "+c[1]);
+        c[1]=c[2];
+        return c;
+      }
+
+      var fct4= function(a,b,c,d,e){
+        alert("a, b, c, d , e : "+a+" ,"+b+" ,"+c+" ,"+d+" ,"+e);
+        d=a+b+c+d+e
+        var objFct4={
+          prop1:a,
+          prop2:b,
+          prop3:c,
+          prop4:d,
+          prop5:e,
+        }
+        return objFct4;
+      }
+
+      var objet = {
+        numero1:fct1(5),
+        numero2:fct2("Bonjour : "),
+        numero3:fct3([1,2,3]),
+        numero4:fct4(10,20,30,40,50)
+      }
+
+      alert("Etape 1 : "+objet.numero1)
+      alert("Etape 2 : "+objet.numero2)
+      alert("Etape 3 : "+objet.numero3[1])
+      alert("Etape 4 : "+objet.numero4.prop4)
+
+    </script>
+  </head>
+  <body>
+    <h1>Titre principal</h1>
+    <ul>
+      <li>Premier point</li>
+      <li>Deuxième point</li>
+      <li>Troisième point</li>
+    </ul>
+    <div>
+      <h2><span>1.</span> Titre de la première section</h2>
+      <p><span>1.1.</span> Premier paragraphe de la première section.</p>
+      <p><span>1.2.</span> Deuxième paragraphe de la deuxième section.</p>
+    </div>
+    <div>
+      <h2><span>2.</span> Titre de la deuxième section</h2>
+      <p><span>2.1.</span> Premier paragraphe de la deuxième section.</p>
+      <p><span>2.2.</span> Deuxième paragraphe de la deuxième section.</p>
+    </div>
+    <div>
+      <h2><span>3.</span> Titre de la troisième section</h2>
+      <p><span>3.1.</span> Premier paragraphe de la troisième section.</p>
+      <p><span>3.2.</span> Deuxième paragraphe de la troisième section.</p>
+    </div>
+  </body>
+</html>

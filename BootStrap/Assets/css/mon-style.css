@@ -1,0 +1,32 @@
+.tomato{
+    background-color: tomato;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: greenyellow;
+}
+.red{
+    background-color: red;
+}
+.pink{
+    background-color:pink;
+}
+.green{
+    background-color:green;
+}
+.orange{
+    background-color: orange;
+}
+.black{
+    background-color: black;
+}
+.blue{
+    background-color: blue;
+}
+
+.myBouton i{
+    font-size: 3em;
+    color: yellow;
+}

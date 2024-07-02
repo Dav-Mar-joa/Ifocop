@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 41</title>
+		<script type="text/javascript">
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				l'attribut d'événement onbeforeunload sur la balise body déclenche des instructions juste avant la fermeture du document.
+			*/
+
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Juste avant la fermeture du document Web, affichez une popup vers un site Internet de votre choix.
+
+				Pensez à désactiver le bloqueur de PopUp de votre navigateur pour faire vos tests.
+			*/
+
+			var function1=function (){
+			confirm("Vous quittez la fénetre !")
+			}
+		</script>
+	</head>
+	<body onbeforeunload="function1()">
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

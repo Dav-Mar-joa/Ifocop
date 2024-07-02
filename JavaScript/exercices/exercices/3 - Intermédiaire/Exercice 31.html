@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 31</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Réalisez le programme (algorithme) suivant :
+				Quand l'utilisateur sur le premier paragraphe, une B.d.D lui demande s'il souhaite aller sur Google :
+				_ S'il clique sur oui, ouvrez une fenêtre vers Google.
+				_ Sinon affichez une B.d.D avec un champ de saisie avec le texte : « Veuillez saisir l'url d'un site alternatif ».
+					_ Si l'utilisateur saisit un texte, ce texte est utilisé comme url pour ouvrir une nouvelle fenêtre.
+					_ Sinon un message s'affiche dans une b.d.d avec le texte : « Tant pis ! ».
+			*/
+			var function1 =function () {
+				var google =confirm("Voulez vous allez sur google ?")
+				if (google==true){
+					open('http://www.google.com','Google','directories=no,menubar=no');
+				}
+				else{
+					var alternative = prompt("Veuillez saisir l'url d'un site alternatif selon le format : www.google.com")
+					if(typeof alternative!== 'string' || alternative.trim() === '' || !isNaN(alternative)) 
+					{
+						alert("Tanpis !!")
+					}
+					else{
+					var new_url = "http://"+ alternative
+					// new_url = "http://www.google.com"
+					open(new_url,'Google','directories=no,menubar=no');
+					}
+					
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p onclick = "function1()">Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

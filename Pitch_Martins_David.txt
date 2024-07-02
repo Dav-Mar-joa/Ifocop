@@ -1,0 +1,8 @@
+Qui suis-je ?
+<Qui suis-je/> : David Martins, développeur web passionné en JavaScript, HTML, CSS, et .Net. Avec une formation complète en développement Full-Stack et une expérience riche en ingénierie et simulation numérique, je suis prêt à relever les défis du développement web.
+
+Pourquoi devrions nous nous rencontrer ?
+Nous devrions nous rencontrer parce que je possède une combinaison rare de compétences techniques et pratiques parfaitement alignées avec vos besoins. Mon expertise en développement Full-Stack, ma gestion de projets réussie et ma rapidité d'apprentissage font de moi un atout précieux pour votre équipe. Je suis prêt à m'investir pleinement dans des projets innovants utilisant Angular, React, NodeJS, et MongoDB, le tout dans un environnement cloud.
+
+Pourquoi moi ?
+Parce que je suis un développeur polyvalent et réactif, avec une formation solide et une expérience diversifiée, idéal pour rejoindre votre équipe Product. Ma capacité à collaborer, à maîtriser rapidement de nouvelles technologies et à m'adapter à différents environnements de développement me rend parfait pour vous aider à atteindre les objectifs de performance et de durabilité. Mon engagement envers l'excellence et mon goût pour les défis correspondent parfaitement à vos valeurs. Rencontrons-nous pour discuter de la manière dont je peux contribuer à votre succès continu !

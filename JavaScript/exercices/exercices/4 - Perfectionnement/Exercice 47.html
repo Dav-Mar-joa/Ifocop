@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 47</title>
+		<script type="text/javascript">
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Créez une fonction qui renvoie le nombre de digits d’un nombre passé en argument.
+
+				Un « digit » est un des chiffres qui composent le nombre.
+
+				Exemple : pour 101, les digits sont 1, 0, 1, il y a donc 3 digits.
+			*/
+
+			var demandeNombre=function (){
+				let  nb = parseInt(prompt("Entrez un nombre"))
+				calculDigit(nb)
+			}
+		
+			var calculDigit = function(nb){
+				var nb_lettre=nb.toString()
+				let nb_digit=nb_lettre.length
+				alert(nb_digit)
+			}
+			
+			
+			
+		</script>
+	</head>
+	<body>
+		<h1 onclick="demandeNombre()">Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

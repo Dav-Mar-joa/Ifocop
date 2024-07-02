@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>L'aventure JavaScript</title>
+    <style>
+        .masque {
+            width: 220px;
+            height: 220px;
+            
+            overflow: hidden;
+            position: absolute;
+            top: 50vh;
+            z-index: 1;
+            /* border: 5px solid black; */
+        }
+        .masque img {
+            position: absolute;
+        }
+
+        .masqueOiseau {
+            width: 151px; 
+            height: 180px; 
+            transform: scale(0.7);
+            overflow: hidden;
+            position: absolute;
+            top: 0.1vh;
+            z-index: 2;
+            /* border: 5px solid black; */
+        }
+        .masqueOiseau img {
+            position: absolute;
+            /* top: 0;
+            left: 0; */
+        }
+
+        .masqueChaudron {
+            width: 180px; 
+            height: 280px; 
+            transform: scale(0.6);
+            overflow: hidden;
+            position: absolute;
+            /* display:none; */
+            top: 20vh;
+            z-index: 2;
+            border-radius: 100px;
+            border: 20px solid gold;
+        }
+        .masqueChaudron img {
+            position: absolute;
+            /* top: 0;
+            left: 0; */
+        }
+        
+        .fond {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            transition: opacity 1s ease-in-out;    
+        }
+        .fond.hidden{
+          opacity: 0;
+        }
+
+        @keyframes rotateRightToLeft {
+            0% {
+                transform: rotate(-30deg);
+            }
+            50% {
+                transform: rotate(30deg);
+            }
+            100% {
+                transform: rotate(-30deg);
+            }
+        }
+        @keyframes borderPulseCoins {
+            0% {
+                border-width: 4px;
+                width:2%;
+            }
+            50% {
+                border-width: 2px;
+                width:4%;
+            }
+            100% {
+                border-width: 5px;
+                width:3%;
+            }
+        }
+        @keyframes borderPulseCoins {
+            0% {
+                border-width: 4px;
+                width:2%;
+            }
+            50% {
+                border-width: 2px;
+                width:4%;
+            }
+            100% {
+                border-width: 5px;
+                width:3%;
+            }
+        }
+        @keyframes borderPulse {
+            0% {
+                border-width: 4px;
+            }
+            50% {
+                border-width: 2px;
+            }
+            100% {
+                border-width: 5px;
+            }
+        }
+        
+        #magicPotions {
+            width:8%;
+            /* transform: rotate(45deg);  */
+            /* display: inline-block; */
+            animation: rotateRightToLeft 4s linear infinite, borderPulse 0.7s infinite;
+            position: absolute;
+            top: 42vh;
+            left: 50vw;
+            z-index: 2;
+            /* border-radius: 40px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+            border-radius: 50px;
+            border: 2px solid rgb(255, 255, 255);
+            /* animation: borderPulse 0.7s infinite; */
+            background: rgba(219, 32, 32, 0.863);
+        }
+
+           
+      
+        #bouclier {
+            width: 8%;
+            position: absolute;
+            top: 20vh;
+            left: 32vw;
+            z-index: 2;
+            /* border-radius: 40px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+        }
+
+        
+        #papyrus2 {
+            width: 7%;
+            position: absolute;
+            top: 45vh;
+            left:75vw;
+            z-index: 2;
+            /* border-radius: 40px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+        }
+        #phoenix {
+            width: 10%;
+            position: absolute;
+            top: 20vh;
+            left:85vw;
+            z-index: 2;
+            /* border-radius: 40px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+        }
+        #sword {
+            width: 7%;
+            position: absolute;
+            top: 20vh;
+            left:14vw;
+            z-index: 2;
+            /* border-radius: 40px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+        }
+        #CoinsA {
+            width: 3%;
+            position: absolute;
+            top: 65vh;
+            left:30vw;
+            z-index: 2;
+            /* border-radius: 80px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+        }
+        #CoinsB {
+            width: 3%;
+            position: absolute;
+            top: 70vh;
+            left:50vw;
+            z-index: 2;
+            /* border-radius: 80px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+        }
+        #CoinsD {
+            width: 6%;
+            position: absolute;
+            top: 30vh;
+            left:60vw;
+            z-index: 2;
+            /* border-radius: 80px;
+            border: 2px solid black;
+            animation: borderPulse 0.5s infinite; */
+        }
+        #CoinsC {
+            width: 4%;
+            position: absolute;
+            top:30vh;
+            left:80vw;
+            z-index: 2;
+            /* border-radius: 80px;
+            border: 2px solid gold;
+            animation: borderPulse 0.5s infinite; */
+        }
+
+        #bouclier,#papyrus2,#phoenix,#sword{
+            border-radius: 50px;
+            border: 2px solid rgb(255, 255, 255);
+            animation: borderPulse 0.7s infinite;
+            background: rgba(219, 32, 32, 0.863);
+        }
+
+        #CoinsA,#CoinsB,#CoinsC,#CoinsD{
+
+            border-radius: 80px;
+            border: 2px solid gold;
+            animation: borderPulseCoins 1.3s infinite;
+            background: rgba(160, 82, 45, 0.863);
+
+        }
+        
+
+        #compteurDePoints{
+          background-color: rgb(4, 31, 31);
+            width: 10%;
+            text-align: center;
+            color: aliceblue;
+            position: absolute;
+            top: 4vh;
+            left:4vw;
+            height: 6vh;
+            font-size: 20px;
+            font-weight: bold;
+            border: 2px solid color white;
+            border-radius: 10px;
+            z-index: 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <script>
+        var dplX = 0;
+        var dplXOiseau = 0;
+        var dplXChaudron = 0;
+        var dplXGlobal = 0;
+        var dplXGlobalOiseau = 0;
+        var dplXGlobalChaudron = 0;
+        var vitesse = 30;
+        var compteurDeClic=0
+        var vitesseOiseau = 15;
+        var vitesseChaudron = 0;
+        var direction=0;
+
+        window.onload = function () {
+            window.onkeydown = function (event) {
+                var code = event.keyCode;
+                var dplImage = document.querySelector("#image");
+                var dplImageGlobal = document.querySelector("#container");
+
+                var fondJeux = document.querySelector("#fond")
+               var compteurDePoints = document.querySelector("#compteurDePoints")
+               compteurDePoints.innerText = "Nb de skills : " +compteurDeClic;
+               var dplImageChaudron = document.querySelector("#imageChaudron");
+               dplImageChaudron.style.display = "none";
+              
+                if (compteurDeClic > 4 && compteurDeClic < 7)  {
+                    fondJeux.src = "fond.png"; 
+                    dplImageChaudron.style.display = "none";
+                }
+                if (compteurDeClic >= 7) {
+                    fondJeux.src = "fond_2.png";
+                    dplImageGlobal.style.top="60vh"
+                    dplImageChaudron.style.display = "block";
+                }
+
+                switch (code) {
+                    case 37: // Left arrow
+                        moveLeft(dplImage, dplImageGlobal);
+                        break;
+                    case 39: // Right arrow
+                        moveRight(dplImage, dplImageGlobal);
+                        break;
+                    case 32: // Space bar (Jump)
+                        jump(dplImageGlobal);
+                        break;
+                }
+                checkCollision(dplImageGlobal, document.querySelector("#magicPotions"));
+                checkCollision(dplImageGlobal, document.querySelector("#bouclier"));
+                checkCollision(dplImageGlobal, document.querySelector("#papyrus2"));
+                checkCollision(dplImageGlobal, document.querySelector("#phoenix"));
+                checkCollision(dplImageGlobal, document.querySelector("#sword"));
+                checkCollision(dplImageGlobal, document.querySelector("#CoinsA"));
+                checkCollision(dplImageGlobal, document.querySelector("#CoinsB"));
+                checkCollision(dplImageGlobal, document.querySelector("#CoinsC"));
+                checkCollision(dplImageGlobal, document.querySelector("#CoinsD"));
+                // checkCollision(document.querySelector("#containerOiseau"), document.querySelector("#imageOiseau"));
+                checkCollision(dplImageGblobal, document.querySelector("#imageOiseau"));
+                checkCollision(dplImageGblobal, document.querySelector("#imageChaudron"));
+               
+            };
+
+            function moveLeft(dplImage, dplImageGlobal) {
+                dplImage.style.transform = "scaleX(-1)";
+                dplXGlobal -= vitesse;
+                dplX -= 233;
+                dplImage.style.left = dplX + "px";
+                dplImageGlobal.style.left = dplXGlobal + "px";
+
+                if (dplX < -1250) {
+                    dplX = 0;
+                    dplImage.style.left = dplX + "px";
+                }
+
+                if (dplXGlobal < 0) {
+                    dplXGlobal = 1200;
+                    dplImageGlobal.style.left = dplXGlobal + "px";
+                }
+            }
+
+            function changeDirection() {
+                direction = Math.floor(Math.random() * 100);
+                console.log("Nouvelle direction: " + direction); 
+            }
+            setInterval(changeDirection, 2000);
+
+            function moveOiseau() {
+                var dplImageOiseau = document.querySelector("#imageOiseau");
+                var dplImageGlobalOiseau = document.querySelector("#containerOiseau");
+                console.log(direction)
+           
+                if(direction%2==0){
+
+                    dplImageOiseau.style.transform = "";
+                    dplXGlobalOiseau += vitesseOiseau;
+                    dplXOiseau -= 156;      
+                }
+                else{
+                    dplImageOiseau.style.transform = "scaleX(-1)";
+                    dplXGlobalOiseau -= vitesseOiseau;
+                    dplXOiseau -= 159;      
+                     
+                }
+
+                // dplXGlobalOiseau += vitesseOiseau;
+                // dplXOiseau -= 156; // Ajustez le déplacement horizontal de l'oiseau
+                dplImageGlobalOiseau.style.transition = "top 0.5s linear";
+
+                // Appliquer les positions mises à jour aux éléments
+                dplImageOiseau.style.left = dplXOiseau + "px";
+                dplImageGlobalOiseau.style.left = dplXGlobalOiseau + "px";
+
+                // Réinitialisation lorsque l'oiseau sort de l'écran à gauche
+                if (dplXOiseau <= -950 ) {
+                    dplXOiseau = 0;
+                }
+                
+                if (dplXGlobalOiseau > 1350) {
+                    dplXGlobalOiseau = 0;
+                    dplImageGlobalOiseau.style.left = dplXGlobalOiseau + "px";
+                }
+
+                if (dplXGlobalOiseau < 0) {
+                    dplXGlobalOiseau = 1350;
+                    dplImageGlobalOiseau.style.right = dplXGlobalOiseau + "px";
+                }
+            }
+
+            setInterval(moveOiseau, 80); 
+            //------------------------------------------------
+            function moveChaudron() {
+                var dplImageChaudron = document.querySelector("#imageChaudron");
+                var dplImageGlobalChaudron = document.querySelector("#containerChaudron");
+                // dplImageChaudron.style.display = "none";
+                console.log(direction)
+           
+                // if(direction%2==0){
+
+                //     dplImageOiseau.style.transform = "";
+                    dplXGlobalGlobal=800;
+                //     dplXOiseau -= 156;      
+                // }
+                // else{
+                    // dplImageOiseau.style.transform = "scaleX(-1)";
+                    dplXGlobalChaudron+= vitesseChaudron;
+                    // dplXChaudron -= 180;    
+                    dplXChaudron -= 180;   
+                     
+                // }
+
+                // dplXGlobalOiseau += vitesseOiseau;
+                // dplXOiseau -= 156; // Ajustez le déplacement horizontal de l'oiseau
+                dplImageGlobalChaudron.style.transition = "top 0.5s linear";
+
+                // Appliquer les positions mises à jour aux éléments
+                dplImageChaudron.style.left = dplXChaudron + "px";
+                dplImageGlobalChaudron.style.right = dplXGlobalChaudron+ "px";
+
+                // Réinitialisation lorsque l'oiseau sort de l'écran à gauche
+                // (dplXChaudron <= -620)
+                if (dplXChaudron <= -620) {
+                    dplXChaudron = 0;
+                }
+                
+                // if (dplXGlobalOiseau > 1350) {
+                //     dplXGlobalOiseau = 0;
+                //     dplImageGlobalOiseau.style.left = dplXGlobalOiseau + "px";
+                // }
+
+                // if (dplXGlobalOiseau < 0) {
+                //     dplXGlobalOiseau = 1350;
+                //     dplImageGlobalOiseau.style.right = dplXGlobalOiseau + "px";
+                // }
+            }
+
+            setInterval(moveChaudron, 80);
+
+            //---------------------------------
+
+            function moveRight(dplImage, dplImageGlobal) {
+                dplImage.style.transform = "";
+                dplXGlobal += vitesse;
+                dplX -= 233;
+                dplImage.style.left = dplX + "px";
+                dplImageGlobal.style.left = dplXGlobal + "px";
+
+                if (dplX < -1300) {
+                    dplX = 0;
+                    dplImage.style.left = dplX + "px";
+                }
+
+                if (dplXGlobal > 1200) {
+                    dplXGlobal = 0;
+                    dplImageGlobal.style.left = dplXGlobal + "px";
+                }
+            }
+
+            function jump(dplImageGlobal) {
+                var rect = dplImageGlobal.getBoundingClientRect();
+                var initialTop = rect.top;
+                var jumpHeight = 300;
+                var finalTop = initialTop - jumpHeight;
+
+                dplImageGlobal.style.top = finalTop + "px";
+                setTimeout(function () {
+                    dplImageGlobal.style.top = initialTop + "px";
+                    
+                }, 400);
+                dplImageGlobal.style.transition = "top 0.4s linear";
+                // dplImageGlobal.style.transition = "";
+                
+            }
+            
+
+            function checkCollision(dplImageGlobal, dplImageX) {
+                var rect1 = dplImageGlobal.getBoundingClientRect();
+                var rect2 = dplImageX.getBoundingClientRect();
+
+                if (
+                    rect1.left+80 < rect2.right &&
+                    rect1.right-80 > rect2.left &&
+                    rect1.top+80 < rect2.bottom &&
+                    rect1.bottom+80> rect2.top
+                ) {
+                    dplImageX.style.display = "none";
+                    compteurDeClic+=1;
+                }
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1 id="h1"></h1>
+    <div>
+        <div id="container" class="masque">
+            <img src="exo16.png" id="image" class="sprite" alt="Animation" />
+        </div>
+        <div id="containerOiseau" class="masqueOiseau">
+            <img src="spriteBirdsRed.png" id="imageOiseau" class="sprite" alt="Animation" />
+        </div>
+        <div id="containerChaudron" class="masqueChaudron">
+            <img src="chaudronSprite.PNG" id="imageChaudron" class="sprite" alt="Animation" />
+        </div>
+        <div><img src="fond_3.png" class="fond" id="fond" /></div>
+        <div><img src="magicPotions.png" id="magicPotions" /></div>
+        <div><img src="bracelet.png" id="bouclier" /></div>
+        <div><img src="papyrus2.png" id="papyrus2" /></div>
+        <div><img src="phoenix.png" id="phoenix" /></div>
+        <div><img src="sword.png" id="sword" /></div>
+        <div><img src="coins.png" id="CoinsA" /></div>
+        <div><img src="coins.png" id="CoinsB" /></div>
+        <div><img src="coins.png" id="CoinsC" /></div>
+        <div><img src="coins.png" id="CoinsD" /></div> 
+        <div id="compteurDePoints"> </div>
+    </div>
+    <noscript>
+        <p>Le JavaScript est désactivé sur votre navigateur. Veuillez l'activer pour voir le contenu.</p>
+    </noscript>
+</body>
+</html>

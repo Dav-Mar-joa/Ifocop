@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation de Rotation</title>
+    <style>
+        @keyframes rotateRightToLeft {
+            0% {
+                transform: rotate(-30deg);
+            }
+            50% {
+                transform: rotate(30deg);
+            }
+            100% {
+                transform: rotate(-30deg);
+            }
+        }
+
+        #magicPotions {
+            width: 5%;
+            animation: rotateRightToLeft 2s linear infinite;
+            position: absolute;
+            top: 42vh;
+            left: 50vw;
+            z-index: 2;
+            border-radius: 40px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="magicPotions">
+        <!-- Contenu à faire tourner -->
+        <img src="https://via.placeholder.com/150" alt="Image à faire tourner" style="width: 100%;">
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../jquery.js"></script>
+    <title>Document</title>
+</head>
+<script>
+    window.onload=function(){
+        console.log(jQuery('p'))
+        $('.fin').html('Changement de <strong> texte </strong> dans le paragraphe')
+        $('h2:first-child').css('margin-left','50px')
+        $('p +h2').css('color','orange').html('Nouveau texte pour le titre !')
+    }
+</script>
+<body>
+    <h1>Exemple 1-1</h1>
+    <div class=""conteneur>
+        <h2>Un sous titre</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo libero, assumenda nisi ad, ab esse qui quas vero deleniti a quia, nesciunt velit reiciendis modi? Consequatur inventore beatae .</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo libero, assumenda nisi ad, ab esse qui quas vero deleniti a quia, nesciunt velit reiciendis modi? Consequatur inventore beatae .</p>
+
+        <h2>Un sous titre 2</h2>
+        <p class="emplacement">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo libero, assumenda nisi ad, ab esse qui quas vero deleniti a quia, nesciunt velit reiciendis modi? Consequatur inventore beatae .</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo libero, assumenda nisi ad, ab esse qui quas vero deleniti a quia, nesciunt velit reiciendis modi? Consequatur inventore beatae .</p>
+
+        <h2>Un sous titre 3</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo libero, assumenda nisi ad, ab esse qui quas vero deleniti a quia, nesciunt velit reiciendis modi? Consequatur inventore beatae .</p>
+        <p class="fin">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nemo libero, assumenda nisi ad, ab esse qui quas vero deleniti a quia, nesciunt velit reiciendis modi? Consequatur inventore beatae .</p>
+
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 35</title>
+		<script>
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				Une fonction peut retourner une fonction. Ainsi :
+				var enAttente = function(nombre){
+						return function(message){
+							alert(message + nombre);
+					}
+				};
+
+				var stock = enAttente(5);
+				stock('Le nombre saisi est ');
+
+				La boite de dialogue affiche : Le nombre saisi est 5
+				On appel ce mécanisme une fermeture (closure en anglais). Les fermetures utilisent des variables libres; c'est à dire que la fonction contenue dans la fonction se souvient de l'environnement dans lequel elle est défini.
+
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+			Réalisez le programme (algorithme) suivant :
+			En vous inspirant du mécanisme des fermetures, balayez le tableau ci-dessous pour afficher dans une boite de dialogue la phrase :
+			Il est 8h, je me lève. Il est 13h, je déjeune. Il est 23h, je vais dormir.
+			Utilisez une boucle while avec compteur.
+			*/
+			var mots = [8,'je me lève', 13, 'je déjeune', 23, 'je vais dormir'];
+			var phrase=""
+			var compteur=0
+			// var phrase="";
+			// var function1=function(){
+			// 	for (let i=0;i<mots.length/2;i++){
+			// 		phrase+="Il est "+mots[2*i]+"h, "+mots[(2*i)+1]+"."
+			// 	}
+			// 	alert(phrase)
+			// }
+
+			var maFonctionEn2Temps=function (heure){
+				return function(action){
+					return'Il est '+heure+'h, '+action +'.'
+				};
+			};
+
+			var compteur = 0
+				while(mots[compteur]){
+					var fonctionPhrase = maFonctionEn2Temps(mots[compteur])
+					phrase+= fonctionPhrase(mots[compteur +1]) +" "
+					compteur +=2
+				}
+
+				alert(phrase)
+
+		</script>
+	</head>
+	<body onload="function1()">
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

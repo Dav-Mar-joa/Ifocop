@@ -1,0 +1,40 @@
+<!-----------------------------------------------------
+------------------  Exercice 6 - 10  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+  Une animation css permet de faire évoluer une ou plusieurs propriétés CSS d'un élément durant une période.
+  Il faut, au-minimum, deux déclarations sur l'élément lui-même :
+  - la durée de l'animation ;
+  - le nom de l'animation.
+
+  Dans une déclaration à part, l'animation, on précise la façon dont la ou les propriétés CSS évoluent. Cette animation débute toujours par le mot-clef @keyframes et porte ensuite le nom de son choix.
+
+  Cela donne par exemple :
+
+  p {
+    animation-duration: 5s;
+    animation-name: slidefromtop;
+  }
+
+  @keyframes slidefromtop {
+    from {
+      margin-top: 0;
+    }
+
+    to {
+      margin-top: 250px;
+    }
+  }
+
+  Ici, le texte se déplace de 250 pixels sur la droite en 5 secondes.
+
+  D'autres déclarations peuvent être ajoutées sur la balise telles :
+  - animation-iteration-count : nombre de répétition de l'animation;
+  - animation-direction : façon dont l'animation se déroule (sens normal, sens inversé, en alternance).
+  -->
+
+<!----------------   Réalisation   -------------------
+  Créez une page contenant un titre principal et une balise image.
+  Prévoyez une animation de l'image qui entraîne un déplacement alterné de celle-ci de la gauche vers la droite puis un retour à la position de départ et ce de façon continue.
+-->

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>jQuery : Exercice 20</title>
+		<link rel="stylesheet" href="../src/styles.css">
+		<script>
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				La méthode animate() permet de créer une animation un élément en modifiant les propriétés css indiquées. Cela agit uniquement sur les propriétés css qui ont une valeur numérique.
+
+				Par exemple, un changement de taille de police et d'opacité pour un paragraphe en 800 millisecondes :
+				$('p').animate({opacity:0.5,fontSize:'2em'},800);
+
+				La méthode delay() permet d'introduire une pause avant de continuer l'exécution du code, ici 2 secondes :
+
+				$('#truc').delay(2000).hide();
+
+				Quand vous ciblez plusieurs éléments, vous pouvez conserver uniquement le premier avec first(). Si vous ciblez un seul élément, vous pouvez cibler le suivant (balise voisine dans le même conteneur) avec next().
+			*/
+
+			/**********************************
+			*************EXERCICES*************
+			***********************************
+			** 1 **
+				Reprenez le code de l'exercice précédent.
+				À la fin du chargement du document, prévoyez le script suivant :
+				Les
+				Après trois secondes, les images changent de taille et d'opacité en une seconde.
+
+				Utilisez les méthodes delay() et animate().
+			*/
+
+			/*
+			** 2 **
+				Pour l'instant, l'animation s'applique aux trois images en même temps. D'une part, il est possible d'exécuter une fonction à la fin de nombreuses méthodes jQuery dont animate(); d'autre part, on peut sélectionner un seul élément avec la méthode first() puis chaque élément qui suit avec next().
+				Animez successivement en deux secondes les images.
+
+				Utilisez les méthodes delay(), first(), animate() et next(). Utilisez le principe de récursivité (une fonctionne qui s'appelle elle-même).
+			*/
+
+
+		</script>
+	</head>
+	<body>
+
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

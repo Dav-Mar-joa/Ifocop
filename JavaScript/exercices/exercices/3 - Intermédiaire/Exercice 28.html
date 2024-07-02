@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 28</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Dans l'exercice précédent, le nombre de saisies de l'utilisateur est écrit dans le code.
+				
+				Reprenez le code de l'exercice précédent. Après chaque saisie, demandez à l'utilisateur s'il souhaite faire une nouvelle saisie.
+				Quand il répond par la négative, affichez successivement toutes ses saisies dans des B.d.D.
+				
+				Utilisez l'attribut d'événement onload, la fonction prompt(), une boucle for, des boucles while et la fonction alert().
+			*/
+
+			var function1 = function(){
+				var res = prompt("Veuillez entrez un chiffre : ")
+				res = parseFloat(res);
+				while(isNaN(res)!=false){
+				var res = prompt("Veuillez entrez un chiffre : ")
+				res = parseFloat(res);
+				}
+			alert("Merci d'avoir entré un chiffre ! "+res);
+			return res;
+			}
+
+			var fonctionNbDemande=function(){
+				let nb=prompt("Entrez le nombre de demandes à faire :")
+				return nb
+			}
+
+			var function2 = function(){
+			var nb=fonctionNbDemande()
+				var i =0;
+				var res = [];
+				while(i<nb){
+				res.push(function1())
+				i++
+				}
+			return res
+			}
+			
+			var affichage=function(){
+			var res=function2()
+			for (var i=0;i<res.length;i++)
+			alert("Indice : "+i+" --> : "+res[i])
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p onclick="affichage()">Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

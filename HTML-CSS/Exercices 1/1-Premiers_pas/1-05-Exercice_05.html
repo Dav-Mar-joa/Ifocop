@@ -1,0 +1,48 @@
+<!-----------------------------------------------------
+------------------  Exercice 1 - 05  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	Le langage html permet d'écrire des commentaires html tel le texte que vous lisez actuellement. Il faut utiliser pour cela les bons délimiteurs (cf. début et fin de ce commentaire). Un commentaire ne s'affichera pas dans le navigateur.
+
+	La création d'un lien vers une page externe se fait au moyen de la balise inline suivante :
+<a href="adresse">Élément mis en lien</a>
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Créez un document html contenant trois div.
+	2 - Chaque div contient deux paragraphes avec du texte.
+	3 - Dans la première div, faites un lien sur un mot du texte.
+	4 - Dans la seconde div, faites un lien pour un paragraphe.
+	5 - Sur la troisième div, faites un lien pour toute la div.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>1-01-Exercice_05</title>
+</head>
+<body>
+	<div>
+        <p>Voici un exemple de texte avec un <a href="https://www.google.com">lien</a> sur un mot.</p>
+    </div>
+
+    <div>
+        <a href="https://www.google.com">
+            <p>Paragraphe entier qui est un lien.</p>
+        </a>
+    </div>
+
+
+    <a href="https://www.google.com">
+        <div >
+            <p>Ceci est une div entière qui est un lien.</p>
+        </div>
+    </a>
+	
+</body>
+</html>

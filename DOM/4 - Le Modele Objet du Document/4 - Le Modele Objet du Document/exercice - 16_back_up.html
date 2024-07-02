@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript & DOM : Le Modèle Objet du Document - Exercice 16</title>
+    <style>
+
+
+      .masque {
+            width: 220px; 
+            height: 220px; 
+            overflow: hidden; 
+            position: relative; 
+            /* transition: left 0.1s linear, top 0.1s linear; */
+            z-index: 1;
+            /* top: 450px; */
+            /* top: 48vh; */
+            top:39vh
+            
+        }
+        .masque img {
+            position: absolute; 
+            left: 0; 
+            top: 48; 
+        }
+
+        .fond {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0; 
+      }
+
+      #pikachu {
+        width:10%;
+        display: none;
+        position: absolute;
+        top: 48vh;
+        left: 45vw;
+        z-index: 1;
+        display: block;
+      }
+
+      #pikachuB {
+        width:10%;
+        display: none;
+        position: absolute;
+        top: 48vh;
+        left: 45vw;
+        z-index: 1;
+        display: block;
+      }
+
+
+      #pikachuC {
+        width:10%;
+        display: none;
+        position: absolute;
+        top: 48vh;
+        left: 45vw;
+        z-index: 1;
+        display: block;
+      }
+    </style>
+    <script>
+      // Énoncé :
+      /*
+        En JavaScript, on a accès à des objets qui contiennent les informations relatives au navigateur : le DOM. L'objet qui permet d'accéder au DOM est l'objet window. Cet objet est l'objet de plus haut niveau en JavaScript. L'objet window contient des sous-objets que nous allons exploiter.
+
+        Lorsque le navigateur Internet exécute la méthode correspondant à un évènement, il lui transmet en paramètre un objet d'événement, cet objet d'événement contient des informations relatives à l'évènement qui est survenu. Les objets d'évènements sont documentés ici dans le MDN : https://developer.mozilla.org/fr/docs/Web/API/Event
+      */
+
+      /*
+        1. Que fait le code ci-dessous ? Au chargement du document, lorsqu'on presse une touche, on récupère le code correspondant à la touche. Selon ce code, on affiche une boite de dialogue. Essayez ce code.
+      */
+      var dplX=0
+      var dplXGlobal=0
+      var vitesse =30
+      var largeurImagePerso =0
+      var hauteurImagePerso =0
+      var ImagePikachuX =0
+      var ImagePikachuX1 =0
+      var ImagePikachuY =0
+      var ImagePikachuY1 =0
+
+      window.onload = function () {
+        window.onkeydown = function (event) {
+          var code = event.keyCode;
+          // document.querySelector("#pikachu").style.display = "block";
+
+          // function appartitionPikachu(){
+          //   console.log("apparation")
+          //   document.querySelector("#pikachu").style.display = "none";
+          // }
+        
+          switch (code) {
+            case 37:
+            // setInterval((appartitionPikachu,2000))
+              // document.querySelector("#pikachu").style.display = "block";
+              var dplImage=document.querySelector("#image")
+              var dplImageGlobal=document.querySelector("#container")
+              dplImage.style.transform="scaleX(-1)"
+              dplXGlobal-=vitesse
+              dplX-=233
+              dplImage.style.left=dplX+"px"
+              dplImageGlobal.style.left=dplXGlobal+"px"
+
+              // fantine rudent cv miaoutchi 2.0
+              // effet paralaxe
+
+
+               //---------------------------------------------------------
+
+                //recuperation des coordonnées des 4 coins de l'image
+                var tailleImage = window.getComputedStyle(dplImageGlobal);
+                largeurImagePerso = parseFloat(tailleImage.width);
+                hauteurImagePerso = parseFloat(tailleImage.height);
+                //coordonnées y --> y+hauteur
+                coordonneesY = window.getComputedStyle(dplImageGlobal);
+                positionY = Math.round(parseFloat(coordonneesY.top));
+                // console.dir("coordonnées y0 Global : " + positionY);
+                positionY1 = positionY+ hauteurImagePerso
+                // console.dir("coordonnées y1 Global : " + positionY1);
+                //coordonnées x --> x+largeur
+                coordonneesX = window.getComputedStyle(dplImageGlobal);
+                positionX = Math.round(parseFloat(coordonneesX.left));
+                console.dir("coordonnées x0 Global : " + positionX);
+                positionX1 = positionX+ largeurImagePerso
+                console.dir("coordonnées y1 Global : " + positionX1);
+
+                //---------------------------------------------------------
+
+                 //recuperation des coordonnées des 4 coins de l'image Pikachu
+                 var dplImagePikachu=document.querySelector("#pikachu")
+                var tailleImagePikachu = window.getComputedStyle(dplImagePikachu);
+                ImagePikachuX = parseFloat(tailleImagePikachu.left);
+                ImagePikachuX1 = parseFloat(tailleImagePikachu.width) + ImagePikachuX ;
+                ImagePikachuY = parseFloat(tailleImagePikachu.top);
+                ImagePikachuY1 = parseFloat(tailleImagePikachu.height)+ImagePikachuY 
+              
+                // console.dir("X PIKACHU : "+ImagePikachuX )
+                // console.dir("X1 PIKACHU : "+ImagePikachuX1 )
+                // console.dir("Y PIKACHU : "+ImagePikachuY )
+                // console.dir("Y1 PIKACHU : "+ImagePikachuY1 )
+
+                if(((positionX1)>ImagePikachuX)&&((positionX1)<ImagePikachuX1)||((positionX)>ImagePikachuX)&&((positionX)<ImagePikachuX1))
+                {
+                  document.querySelector("#pikachu").style.display = "none"; 
+                  // setTimeout(appartitionPikachu,100)
+                  
+
+                }
+
+                if(((positionX1)>ImagePikachuXB)&&((positionX1)<ImagePikachuXB)||((positionX)>ImagePikachuXB)&&((positionX)<ImagePikachuX1B))
+                {
+                  document.querySelector("#pikachuB").style.display = "none"; 
+                  // setTimeout(appartitionPikachu,100)
+                  
+
+                }
+
+                if(((positionX1)>ImagePikachuXC)&&((positionX1)<ImagePikachuX1C)||((positionX)>ImagePikachuXC)&&((positionX)<ImagePikachuX1C))
+                {
+                  document.querySelector("#pikachuC").style.display = "none"; 
+                  // setTimeout(appartitionPikachu,100)
+                  
+
+                }
+
+              // console.dir("dplX"+dplX)
+              if(dplX<-1200){
+                dplX = 0;
+                dplImage.style.left = dplX + "px";
+              }
+
+              if(dplXGlobal<0){
+               // if(dplXGlobal>1650){
+                  dplXGlobal=1300
+                  dplImageGlobal.style.left=dplXGlobal+"px"
+                  // const newImg = document.createElement("img");
+                  // newImg.src="pikachu.png" 
+                }
+              
+              break;
+            case 38:
+              // *instructions*
+              alert("haut");
+
+              break;
+
+              
+              
+            case 39:
+                // setInterval((appartitionPikachu,2000))
+                //  document.querySelector("#pikachu").style.display = "block";
+                var dplImage=document.querySelector("#image")
+                var dplImageGlobal=document.querySelector("#container")
+                dplImage.style.transform=""
+                // console.dir(dplX)
+                dplXGlobal+=vitesse
+                dplX-=233
+                dplImage.style.left=dplX+"px"
+                dplImageGlobal.style.left=dplXGlobal+"px"
+
+                //recuperation des coordonnées des 4 coins de l'image Guerrier
+                var tailleImage = window.getComputedStyle(dplImageGlobal);
+                largeurImagePerso = parseFloat(tailleImage.width);
+                hauteurImagePerso = parseFloat(tailleImage.height);
+                //coordonnées y --> y+hauteur
+                coordonneesY = window.getComputedStyle(dplImageGlobal);
+                positionY = Math.round(parseFloat(coordonneesY.top));
+                // console.dir("coordonnées y0 Global : " + positionY);
+                positionY1 = positionY+ hauteurImagePerso
+                // console.dir("coordonnées y1 Global : " + positionY1);
+                //coordonnées x --> x+hauteur
+                coordonneesX = window.getComputedStyle(dplImageGlobal);
+                positionX = Math.round(parseFloat(coordonneesX.left));
+                console.dir("coordonnées x0 Global : " + positionX);
+                positionX1 = positionX+ largeurImagePerso
+                console.dir("coordonnées x1 Global : " + positionX1);
+                //---------------------------------------------------------
+
+                //recuperation des coordonnées des 4 coins de l'image Pikachu
+                var dplImagePikachu=document.querySelector("#pikachu")
+                var tailleImagePikachu = window.getComputedStyle(dplImagePikachu);
+                ImagePikachuX = parseFloat(tailleImagePikachu.left);
+                ImagePikachuX1 = parseFloat(tailleImagePikachu.width) + ImagePikachuX ;
+                ImagePikachuY = parseFloat(tailleImagePikachu.top);
+                ImagePikachuY1 = parseFloat(tailleImagePikachu.height)+ImagePikachuY 
+              
+                console.dir("X PIKACHU : "+ImagePikachuX )
+                console.dir("X1 PIKACHU : "+ImagePikachuX1 )
+                console.dir("Y PIKACHU : "+ImagePikachuY )
+                console.dir("Y1 PIKACHU : "+ImagePikachuY1 )
+
+                if(((positionX1)>ImagePikachuX)&&((positionX1)<ImagePikachuX1)||((positionX)>ImagePikachuX)&&((positionX)<ImagePikachuX1))
+                {
+                  document.querySelector("#pikachu").style.display = "none"; 
+                  // setTimeout((appartitionPikachu,500))
+                }
+               
+                if(dplX<-1200){
+                  dplX = 0;
+                  dplImage.style.left = dplX + "px";
+                }
+                //pour debugg
+                // document.querySelector("#pikachu").style.display = "block";
+
+                if(dplXGlobal>1310){
+               // if(dplXGlobal>1650){
+                  dplXGlobal=0
+                  dplImageGlobal.style.left=dplXGlobal+"px"
+                  // const newImg = document.createElement("img");
+                  // newImg.src="pikachu.png" 
+                } 
+              break;
+            case 40:
+              // *instructions*
+              alert("bas");
+              break;
+          }
+        };
+      };
+
+      /*
+        Ce document comporte une balise img dans une div. La div sert de masque pour le sprite chargé à l'aide de la balise img. Un sprite est une image qui présent les décompositions d'un mouvement.
+      */
+
+      /*
+        1. Cherchez un sprite sur Google. Chargez le sprite dans le document Web. Paramétrez les styles de la div "masque" pour qu'une seule décomposition de mouvement du sprite soit visible (utilisez la propriété de style overflow:hidden). La div doit être en position absolute. L'image dans la div doit être en position absolute.
+      */
+
+      /*
+        2. En utilisant comme base le code fourni, lorsque je presse une direction, déclenchez du code Javascript (dans la zone avec le sigle *instructions*) qui va déplacer de 2 px dans cette direction la div masque.
+      */
+
+      /*
+        3. En utilisant comme base le code fourni, lorsque je presse la même direction, déclenchez du code Javascript (dans la zone avec le sigle *instructions*) qui va déplacer l'image dans le masque de façon à afficher la décomposition suivante du mouvement.
+      */
+
+      /*
+        4. Reproduire cela pour les directions restantes.
+      */
+
+      /*
+        5. Trouvez le code numérique qui correspond à la touche "entrée". Dans le cas où l'utilisateur appuie sur la touche entrée, affichez un "mouvement spécial" de votre sprite (coup d'épée, explosion ou autre). L'événement contraire de onkeydown est onkeyup. Inspirez-vous du code fourni pour faire en sorte que lorsque l'utilisateur relâche la touche entrée, le sprite revienne à son état initial.
+      */
+     
+    </script>
+  </head>
+  <body>
+    <h1>Play !</h1>
+    <div >
+      <div id="container" class="masque">
+        <img src="exo16.png" id="image" class="sprite" alt="Animation" />
+      </div>
+      <div><img src="fond_3.png" class="fond"> </div>
+      <div><img src="pikachu.png" id="pikachu"> </div>
+    </div>
+    <noscript>
+      <p>Veuillez activer JavaScript</p>
+    </noscript>
+  </body>
+</html>

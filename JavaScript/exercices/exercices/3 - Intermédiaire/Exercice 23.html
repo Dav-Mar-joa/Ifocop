@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 23</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Réalisez le programme (algorithme) suivant :
+				Au chargement du document, demandez à l'utilisateur de saisir un nombre.
+				Tant qu'il ne l'a pas saisi, demandez-lui de saisir ce nombre.
+
+				Utilisez l'attribut d'événement onload, la fonction prompt(), la fonction parseFloat(), la fonction isNaN() et d'une boucle while.
+			*/
+			var function1 = function(){
+				var res = prompt("Veuillez entrez un chiffre :")
+				res = parseFloat(res)
+				while(isNaN(res)!=false){
+				var res = prompt("Veuillez entrez un chiffre :")
+				res = parseFloat(res)
+				}
+			alert("Merci d'avoir entré un chiffre ! "(+res))
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p onclick="function1()">Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

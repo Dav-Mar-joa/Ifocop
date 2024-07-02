@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 36</title>
+		<script type="text/javascript">
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				Une fonction peut accepter plusieurs arguments. Parmi les arguments, il est possible de fournir une fonction qui sera utilisée dans la fonction.
+
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+			** 1 **
+				Réalisez le programme (algorithme) suivant :
+				a) Créez un tableau contenant 4 nombres.
+				b) Créez deux fonctions. L'une retourne l'addition des arguments fournis en entrée et l'autre la multiplication des arguments fournis.
+				c) Une troisième fonction qui boucle le tableau utilise la fonction d'addition ou la fonction de multiplication qui lui est fournie.
+				d) Dans une Boite de dialogue, demandez à l'utilisateur s'il souhaite une addition ou une multiplication.
+				e) Affichez le résultat de l'opération dans une Boite de dialogue.
+
+				Utilisez une boucle for, un bloc if/else, les fonctions confirm() et alert().
+			*/
+			var tab=[13,10,1,9]
+
+			var addition=function(tab){
+			var add=0;
+				for(let i=0;i<tab.length;i++){
+					add+=tab[i]
+				}
+				return add
+			}
+
+			var multiplication=function(tab){
+			var multi=1;
+				for(let i=0;i<tab.length ;i++){
+					multi*=tab[i]
+				}
+				return multi
+			}
+
+			var demande = function(tab){
+				var operation_utilisateur = confirm("Vous souhaitez avoir le resultat de l'addition, sinon le resultat sera la multiplication")
+				var res = 0;
+				if(operation_utilisateur==true){
+					res = addition(tab)
+					alert("La somme = "+res)
+				}
+				else{
+					res = multiplication(tab)
+					alert("La multiplication = "+res)
+				}
+			}
+
+
+			/*
+			** 2 **
+				On peut connaître le nombre d'entrée d'un tableau de la façon suivante :
+				var monTableau = ['soleil',15,'pluie'];
+				alert(monTableau['length']); //affiche 3;
+				Modifiez la boucles de cet exercice en utilisant ['length'].
+			*/
+
+		</script>
+	</head>
+	<body onload="demande(tab)">
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

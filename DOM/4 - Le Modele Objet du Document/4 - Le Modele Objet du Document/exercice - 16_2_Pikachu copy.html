@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript & DOM : Le Modèle Objet du Document - Exercice 16</title>
+    <style>
+      .masque {
+        width: 220px;
+        height: 220px;
+        overflow: hidden;
+        position: relative;
+        /* transition: left 0.1s linear, top 0.1s linear; */
+        z-index: 1;
+        /* top: 450px; */
+        /* top: 48vh; */
+        top: 48vh;
+        border: 5px solid black;
+      }
+      .masque img {
+        position: absolute;
+        left: 0;
+        /* top: 48;  */
+      }
+
+      .fond {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+
+      #PikachuA {
+        width: 10%;
+        position: absolute;
+        top: 30vh;
+        left: 45vw;
+        z-index: 1;
+        display: block;
+      }
+
+      #PikachuB {
+        width: 10%;
+        position: absolute;
+        top: 30vh;
+        left: 65vw;
+        z-index: 1;
+        display: block;
+      }
+
+      #PikachuC {
+        width: 10%;
+
+        position: absolute;
+        top: 48vh;
+        left: 45vw;
+        z-index: 1;
+        display: block;
+      }
+    </style>
+    <script>
+      var dplX = 0;
+      var dplXGlobal = 0;
+      var vitesse = 10;
+      var largeurImagePerso = 0;
+      var hauteurImagePerso = 0;
+      var ImagePikachuXA = 0;
+      var ImagePikachuX1A = 0;
+      var ImagePikachuYA = 0;
+      var ImagePikachuY1A = 0;
+
+      var ImagePikachuXAB = 0;
+      var ImagePikachuX1B = 0;
+      var ImagePikachuYB = 0;
+      var ImagePikachuY1B = 0;
+
+      window.onload = function () {
+        window.onkeydown = function (event) {
+          var code = event.keyCode;
+
+          switch (code) {
+            case 37:
+              var dplImage = document.querySelector("#image");
+              var dplImageGlobal = document.querySelector("#container");
+              dplImage.style.transform = "scaleX(-1)";
+              dplXGlobal -= vitesse;
+              dplX -= 233;
+              dplImage.style.left = dplX + "px";
+              dplImageGlobal.style.left = dplXGlobal + "px";
+
+              // fantine rudent cv miaoutchi 2.0
+              // effet paralaxe
+
+              //---------------------------------------------------------
+
+              //recuperation des coordonnées des 4 coins de l'image
+              var tailleImage = window.getComputedStyle(dplImageGlobal);
+              largeurImagePerso = parseFloat(tailleImage.width);
+              hauteurImagePerso = parseFloat(tailleImage.height);
+              //coordonnées y --> y+hauteur
+              coordonneesY = window.getComputedStyle(dplImageGlobal);
+              positionY = Math.round(parseFloat(coordonneesY.top));
+              console.dir("coordonnées y0 Global : " + positionY);
+              positionY1 = positionY + hauteurImagePerso;
+              console.dir("coordonnées y1 Global : " + positionY1);
+              //coordonnées x --> x+largeur
+              coordonneesX = window.getComputedStyle(dplImageGlobal);
+              positionX = Math.round(parseFloat(coordonneesX.left));
+
+              positionX1 = positionX + largeurImagePerso;
+
+              //---------------------------------------------------------
+
+              //recuperation des coordonnées des 4 coins de l'image Pikachu
+              var dplImagePikachuA = document.querySelector("#PikachuA");
+              var tailleImagePikachuA =
+                window.getComputedStyle(dplImagePikachuA);
+              ImagePikachuXA = parseFloat(tailleImagePikachuA.left);
+              ImagePikachuX1A =
+                parseFloat(tailleImagePikachuA.width) + ImagePikachuXA;
+              ImagePikachuYA = parseFloat(tailleImagePikachuA.top);
+              ImagePikachuY1A =
+                parseFloat(tailleImagePikachuA.height) + ImagePikachuYA;
+
+              // console.dir("X PIKACHU : "+ImagePikachuX )
+              // console.dir("X1 PIKACHU : "+ImagePikachuX1 )
+              // console.dir("Y PIKACHU : "+ImagePikachuYA )
+              // console.dir("Y1 PIKACHU : "+ImagePikachuY1A )
+
+              if (
+                ((positionX1 > ImagePikachuXA &&
+                  positionX1 < ImagePikachuX1A) ||
+                  (positionX > ImagePikachuXA &&
+                    positionX < ImagePikachuX1A)) &&
+                (
+                  positionY < ImagePikachuY1A)
+              ) {
+                document.querySelector("#PikachuA").style.display = "none";
+                console.log("aaaaaaaaaaaaaaaaaa")
+              }
+
+              // console.dir("dplX"+dplX)
+              if (dplX < -1200) {
+                dplX = 0;
+                dplImage.style.left = dplX + "px";
+              }
+
+              if (dplXGlobal < 0) {
+                // if(dplXGlobal>1650){
+                dplXGlobal = 1020;
+                dplImageGlobal.style.left = dplXGlobal + "px";
+              }
+
+              break;
+            case 38:
+              // *instructions*
+              alert("haut");
+
+              break;
+            case 39:
+              //  document.querySelector("#pikachu").style.display = "block";
+              var dplImage = document.querySelector("#image");
+              var dplImageGlobal = document.querySelector("#container");
+              dplImage.style.transform = "";
+              // console.dir(dplX)
+              dplXGlobal += vitesse;
+              dplX -= 233;
+              dplImage.style.left = dplX + "px";
+              dplImageGlobal.style.left = dplXGlobal + "px";
+
+              //recuperation des coordonnées des 4 coins de l'image Guerrier
+              var tailleImage = window.getComputedStyle(dplImageGlobal);
+              largeurImagePerso = parseFloat(tailleImage.width);
+              hauteurImagePerso = parseFloat(tailleImage.height);
+              //coordonnées y --> y+hauteur
+              coordonneesY = window.getComputedStyle(dplImageGlobal);
+              positionY = Math.round(parseFloat(coordonneesY.top));
+              console.dir("coordonnées y0 Global : " + positionY);
+              positionY1 = positionY + hauteurImagePerso;
+              console.dir("coordonnées y1 Global : " + positionY1);
+              //coordonnées x --> x+hauteur
+              coordonneesX = window.getComputedStyle(dplImageGlobal);
+              positionX = Math.round(parseFloat(coordonneesX.left));
+
+              positionX1 = positionX + largeurImagePerso;
+
+              //---------------------------------------------------------
+
+              //recuperation des coordonnées des 4 coins de l'image Pikachu
+              var dplImagePikachuA = document.querySelector("#PikachuA");
+              var tailleImagePikachuA =
+                window.getComputedStyle(dplImagePikachuA);
+              ImagePikachuXA = parseFloat(tailleImagePikachuA.left);
+              ImagePikachuX1A =
+                parseFloat(tailleImagePikachuA.width) + ImagePikachuXA;
+              ImagePikachuYA = parseFloat(tailleImagePikachuA.top);
+              ImagePikachuY1A =
+                parseFloat(tailleImagePikachuA.height) + ImagePikachuYA;
+
+              // console.dir("X PIKACHU : "+ImagePikachuX )
+              // console.dir("X1 PIKACHU : "+ImagePikachuX1 )
+              console.dir("Y PIKACHU A : " + ImagePikachuYA);
+              console.dir("Y1 PIKACHU A : " + ImagePikachuY1A);
+
+              console.dir("Y PIKACHU B : " + ImagePikachuYB);
+              console.dir("Y1 PIKACHU B : " + ImagePikachuY1B);
+
+              // if((((positionX1)>ImagePikachuXA)&&((positionX1)<ImagePikachuX1A)||((positionX+80)>ImagePikachuXA)&&((positionX)<ImagePikachuX1A))&&(ImagePikachuY1A<positionY))
+              if (
+                ((positionX1 > ImagePikachuXA &&
+                  positionX1 < ImagePikachuX1A) ||
+                  (positionX> ImagePikachuXA &&
+                    positionX < ImagePikachuX1A)) &&
+                (positionY < ImagePikachuY1A )
+              ) {
+                document.querySelector("#PikachuA").style.display = "none";
+                console.log('dans if ligne')              }
+
+              if (dplX < -1200) {
+                dplX = 0;
+                dplImage.style.left = dplX + "px";
+              }
+              //pour debugg
+              // document.querySelector("#pikachu").style.display = "block";
+
+              if (dplXGlobal > 1000) {
+                // if(dplXGlobal>1650){
+                dplXGlobal = 0;
+                dplImageGlobal.style.left = dplXGlobal + "px";
+              }
+              break;
+            case 40:
+              // *instructions*
+              alert("bas");
+              break;
+
+            case 32:
+              var dplImage = document.querySelector("#image");
+              var dplImageGlobal = document.querySelector("#container");
+              dplImage.style.transform = "";
+              // console.dir(dplX)
+              dplImage.style.left = dplX + "px";
+              dplImageGlobal.style.left = dplXGlobal + "px";
+
+              //recuperation des coordonnées des 4 coins de l'image Guerrier
+              var tailleImage = window.getComputedStyle(dplImageGlobal);
+              largeurImagePerso = parseFloat(tailleImage.width);
+              hauteurImagePerso = parseFloat(tailleImage.height);
+              //coordonnées y --> y+hauteur
+              coordonneesY = window.getComputedStyle(dplImageGlobal);
+              positionY = Math.round(parseFloat(coordonneesY.top));
+              // console.dir("coordonnées y0 Global : " + positionY);
+              positionY1 = positionY + hauteurImagePerso;
+              // console.dir("coordonnées y1 Global : " + positionY1);
+              //coordonnées x --> x+hauteur
+              coordonneesX = window.getComputedStyle(dplImageGlobal);
+              positionX = Math.round(parseFloat(coordonneesX.left));
+
+              positionX1 = positionX + largeurImagePerso;
+              const hauteurInitiale = positionY;
+
+              // console.dir("hauteur initiale"+hauteurInitiale)
+
+              var hauteurSaut = 150; // Hauteur du saut
+              const hauteurFinale  = positionY - hauteurSaut;
+              console.dir("hauteur finale : " + hauteurFinale);
+              // Monter l'élément
+              dplImageGlobal.style.top = hauteurInitiale - hauteurSaut + "px";
+              //  console.dir("coordonnées y0 Global apres saut : " + dplImageGlobal.style.top);
+
+              //---------------------------------------------------------
+
+              //recuperation des coordonnées des 4 coins de l'image Pikachu
+              var dplImagePikachuA = document.querySelector("#PikachuA");
+              var tailleImagePikachuA =
+                window.getComputedStyle(dplImagePikachuA);
+              ImagePikachuXA = parseFloat(tailleImagePikachuA.left);
+              ImagePikachuX1A =
+                parseFloat(tailleImagePikachuA.width) + ImagePikachuXA;
+              ImagePikachuYA = parseFloat(tailleImagePikachuA.top);
+              ImagePikachuY1A =
+                parseFloat(tailleImagePikachuA.height) + ImagePikachuYA;
+
+              // console.dir("X PIKACHU : "+ImagePikachuXA )
+              // console.dir("X1 PIKACHU : "+ImagePikachuX1A )
+              // console.dir("Y PIKACHU : "+ImagePikachuYA )
+              // console.dir("Y1 PIKACHU : "+ImagePikachuY1A )
+
+              if (
+                ((positionX1 > ImagePikachuXA) && (positionX1 < ImagePikachuX1A) ||
+                  (positionX > ImagePikachuXA && positionX < ImagePikachuX1A)) &&
+                 hauteurFinale < ImagePikachuY1A
+              )
+              
+              // console.dir("debugg");
+              // console.dir("debugg");
+              // console.dir("positionX : " + positionX);
+              // console.dir("positionX1 : " + positionX1);
+              // console.dir("positionY: " + positionY);
+              // console.dir("positionY1 : " + positionY1);
+              // console.dir("ImagePikachuXA : " + ImagePikachuXA);
+              // console.dir("ImagePikachuX1A : " + ImagePikachuX1A);
+              // console.dir("hauteur finale dans if : " + hauteurFinale);
+              // console.dir("ImagePikachuYA : " + ImagePikachuYA);
+              // console.dir("ImagePikachuY1A : " + ImagePikachuY1A);
+              // console.dir("---------------");
+
+              {
+                console.log("sait ùùùùùùùùùùùùùùùù")
+                 document.querySelector("#PikachuA").style.display = "none";
+              }
+              setTimeout(function () {
+                dplImageGlobal.style.top = hauteurInitiale + "px";
+                dplImageGlobal.style.transition =
+                  "left 0.3s linear, top 0.3s linear;";
+              }, 300);
+              dplImageGlobal.style.transition = "";
+              break;
+          }
+        };
+      };
+    </script>
+  </head>
+  <body>
+    <h1 id="h1"></h1>
+    <div>
+      <div id="container" class="masque">
+        <img src="exo16.png" id="image" class="sprite" alt="Animation" />
+      </div>
+      <div><img src="fond_3.png" class="fond" /></div>
+      <div><img src="pikachu.png" id="PikachuA" /></div>
+    </div>
+    <noscript>
+      <p></p>
+    </noscript>
+  </body>
+</html>

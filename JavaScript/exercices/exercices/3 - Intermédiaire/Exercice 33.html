@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 33</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Réalisez le programme (algorithme) suivant :
+				Créer un tableau JavaScript contenant 5 urls.
+				Tant que l'ensemble du tableau n'a pas été parcouru, utilisez l'url contenue dans la case du tableau sur laquelle vous vous trouvez pour ouvrir une nouvelle fenêtre.
+				Utilisez une boucle while... avec un compteur de tours.
+			*/
+			var tableau_url=[]
+			tableau_url[0]="www.google.com"
+			tableau_url[1]="www.bing.com"
+			tableau_url[2]="www.youtube.com"
+			tableau_url[3]="www.apple.com"
+			tableau_url[4]="www.meteo.com"
+
+			var i=0
+			var function1=function(){
+			while(i<5){
+				open('http://'+tableau_url[i],'Window' + i,'directories=no,menubar=no');
+				i++
+			}
+			}
+
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p onclick="function1()">Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

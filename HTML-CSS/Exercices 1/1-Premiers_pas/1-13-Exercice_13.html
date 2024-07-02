@@ -1,0 +1,45 @@
+<!-----------------------------------------------------
+------------------  Exercice 1 - 13  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	Nous avons déjà vu des balises block (h1 à h6, p …) et des balises inline (em, strong …). Toutes les balises ont un rôle particulier permettant de préciser le type de contenu de la balise.
+Il existe deux balises générales dont le rôle peut varier en fonction de la situation :
+ _ une balise block : div
+ _ une balise inline : span
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Créez un document contenant trois div.
+	2 - Chaque div a une couleur de fond et une couleur de police différente.
+	3 - Dans chaque div changez la couleur d'une partie du texte (fond et police) grâce à la balise span.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-01-Exercice_13</title>
+	<style>
+		.type_div{
+			background-color: blueviolet;
+			font-family: 'Times New Roman';
+		}
+		.type_span{
+			background-color: rgb(216, 19, 19);
+			font-family: serif;
+		}
+	</style>
+  </head>
+  <body>
+    <div class ="type_div">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolores
+      provident, nemo deleniti, <span class="type_span">inventore ipsum itaque necessitatibus
+      suscipit consequatur culpa </span>  ut exercitationem? Mollitia necessitatibus
+      tempore in cupiditate
+    </div>
+  </body>
+</html>

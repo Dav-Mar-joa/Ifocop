@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 24</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Réalisez le programme (algorithme) suivant :
+				Quand l'utilisateur clique sur le deuxième paragraphe, obligez-le à saisir un nombre.
+				Puis obligez-le, à nouveau, à saisir un second nombre. Enfin, affichez une B.d.D avec le résultat du calcul de la somme des deux nombres.
+
+				Utilisez l'attribut d'événement onclick, la fonction prompt(), la fonction alert(), la fonction parseFloat(), la fonction isNaN() et des boucles while.
+			*/
+
+			var function1 = function(){
+				var res = prompt("Veuillez entrez un chiffre :123")
+				res = parseFloat(res)
+				while(isNaN(res)!=false){
+				var res = prompt("Veuillez entrez un chiffre :")
+				res = parseFloat(res)
+				}
+			alert("Merci d'avoir entré un chiffre ! "+res)
+
+			var res2 = prompt("Veuillez entrez un second chiffre :")
+				res2 = parseFloat(res2)
+				while(isNaN(res2)!=false){
+				var res2 = prompt("Veuillez entrez un secondchiffre :")
+				res2 = parseFloat(res2)
+				}
+			alert("Merci d'avoir entré un chiffre ! "+res)
+			alert("Somme de "+res+" + "+res2+" = "+(res+res2))
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p onclick="function1()">Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

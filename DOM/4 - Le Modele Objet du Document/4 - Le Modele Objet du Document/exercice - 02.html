@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript & DOM : Le Modèle Objet du Document - Exercice 2</title>
+    <script>
+      // Énoncé :
+      /*
+        En JavaScript, on a accès à des objets qui contiennent les informations relatives au navigateur : le DOM. L'objet qui permet d'accéder au DOM est l'objet window. Cet objet est l'objet de plus haut niveau en JavaScript. L'objet window contient des sous-objets que nous allons exploiter.
+
+        Un des sous-objets de l'objet window est l'objet navigator. On peut donc écrire window.navigator pour accéder à cet objet. Il contient un ensemble d'informations concernant le navigateur Internet qui exécute le programme. Ce sous-objet est documenté ici dans le MDN : https://developer.mozilla.org/fr/docs/Web/API/Window/navigator
+      */
+
+      /*
+      1. Affichez dans une boite de dialogue le contenu de la propriété appName de l'objet dans window.navigator. Puis affichez le contenu de la propriété userAgent dans une boite de dialogue.
+      
+      Qu'est-ce qui s'affiche sur Edge, Mozilla, Chrome ?
+
+      */
+   
+    alert("window.navigator.appName : "+window.navigator.appName)    
+     //  Edge   window.navigator.appName : Netscape
+
+      /*
+      2. Utilisez ces propriétés pour réaliser l'algorithme suivant : SI je démarre mon script sur Edge, j'affiche une boite de dialogue avec le texte 'So Lame !' à l'intérieur et j'ouvre une PoPUp vers le site de Mozilla Firefox, SINON SI je démarre mon script sur Chrome j'affiche une boite de dialogue avec le texte 'Spy On Me !' et j'ouvre une Popup vers la page Wikipédia de http://fr.wikipedia.org/wiki/Chromium_%28navigateur_web%29 SINON j'affiche une boite de dialogue avec le texte 'Freed from Desire'.
+      */
+      var nav= window.navigator.userAgent
+      alert(nav)
+     // edge:Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.
+     // 0.0
+     // chrome : Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36
+     // mozilla Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0
+
+     if(nav.includes("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36 Edg/126.0.0.0")){
+      alert("So Lame !")
+      window.open("https://www.mozilla.org/fr/")
+     }
+     if(nav.includes("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")){
+      alert("Spy On Me !")
+      window.open("http://fr.wikipedia.org/wiki/Chromium_%28navigateur_web%29")
+     }
+     if(nav.includes("rv:127.0")){
+      alert("Freed from Desire")
+     }
+    </script>
+  </head>
+  <body>
+    <h1>Titre principal</h1>
+    <ul>
+      <li>Premier point</li>
+      <li>Deuxième point</li>
+      <li>Troisième point</li>
+    </ul>
+    <div>
+      <h2><span>1.</span> Titre de la première section</h2>
+      <p><span>1.1.</span> Premier paragraphe de la première section.</p>
+      <p><span>1.2.</span> Deuxième paragraphe de la deuxième section.</p>
+    </div>
+    <div>
+      <h2><span>2.</span> Titre de la deuxième section</h2>
+      <p><span>2.1.</span> Premier paragraphe de la deuxième section.</p>
+      <p><span>2.2.</span> Deuxième paragraphe de la deuxième section.</p>
+    </div>
+    <div>
+      <h2><span>3.</span> Titre de la troisième section</h2>
+      <p><span>3.1.</span> Premier paragraphe de la troisième section.</p>
+      <p><span>3.2.</span> Deuxième paragraphe de la troisième section.</p>
+    </div>
+  </body>
+</html>

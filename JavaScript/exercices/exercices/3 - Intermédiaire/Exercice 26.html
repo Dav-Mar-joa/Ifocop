@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 26</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Nous avons vu dans l'exercice 7 la possibilité d'ajouter une entrée à un tableau.
+				
+				Réalisez le programme (algorithme) suivant :
+				Au chargement du document, obligez à l'utilisateur à saisir du texte à quatre reprises.
+				Pour ce faire, utilisez une boucle et stockez les réponses dans un tableau.
+				Affichez ensuite le contenu de ce tableau dans une B.d.D.
+				
+				Utilisez l'attribut d'événement onload, la fonction prompt(), une boucle for, une boucle while et la fonction alert().
+				
+			*/
+			var function1 = function(){
+				var res = prompt("Veuillez entrez un chiffre : ")
+				res = parseFloat(res);
+				while(isNaN(res)!=false){
+				var res = prompt("Veuillez entrez un chiffre : ")
+				res = parseFloat(res);
+				}
+			alert("Merci d'avoir entré un chiffre ! "+res);
+			return res;
+			}
+
+			var fonctionNbDemande=function(){
+				let nb=prompt("Entrez le nombre de demandes à faire :")
+				return nb
+			}
+
+			
+
+			var function2 = function(){
+			var nb=fonctionNbDemande()
+				var i =0;
+				var res = [];
+				while(i<nb){
+				res.push(function1())
+				i++
+				}
+			alert("Somme de : "+res)
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p onclick="function2()">Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

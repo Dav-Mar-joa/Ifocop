@@ -1,0 +1,56 @@
+pour Git = git bash
+
+pwd 
+ls
+ls -l 
+
+cd ..
+clear (efface les commandes visuellement)
+history (toutes les commandes tapées)
+
+mkdir toto création fichier toto
+
+rmdir toto suppression toto
+
+git --version
+
+git config --global user.name "David MARTINS"
+
+git init (dans le bon fichier)
+
+touch README.md 
+
+code .README.md pour ouvrir le document dans visual code studio
+
+git add fichier -->   new file:   README.md
+
+pour vim 
+------------------------------------------
+ligne qui commence par un # : commentaires
+touche i pour inserer des caractères !
+
+pour sortir du mode insertion touche échappe
+
+pour sauver et quitter :wq  (write - quit) 
+------------------------------------------
+
+git status = donne l'état et s'il y a des modifs enregistrées ou pas
+ git commit -m "message second modif"
+
+git diff --staged ficher.extension pour comparé un commit avec un état indexé :  git add .
+git diff ficher.extension pour comparé un commit avec un état dans espace de travail  : avant git add .
+
+git log ==> donne tous les commit 
+
+--------------------------------------------
+
+git branch toto pour son travail perso 
+git checkout ou git switch toto --> on est sur une nouvelle branche et non master ou main 
+
+git merge nom de la branche mais il faut etre sur la branche à laquelle on déplace les modifs
+
+$ git switch -c tutu création d'une nouvelle branche + on se place dessus 
+
+
+
+

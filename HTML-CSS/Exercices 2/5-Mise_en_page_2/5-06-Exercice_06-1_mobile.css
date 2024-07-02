@@ -1,0 +1,123 @@
+body {
+    width: 30%;
+    border-right: solid 1px black;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+h1 {
+    background-color: bisque;
+    color: orange;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 0;
+    border-bottom-left-radius: 0.6em;
+    border-bottom-right-radius: 0.6em;
+    border-left: solid 0.1em orange;
+    border-bottom: solid 0.1em orange;
+    border-right: solid 0.1em orange;
+}
+
+nav ul {
+    padding-left: 0;
+    margin-left: 0;
+    display: flex;
+    list-style-type: none;
+}
+
+ul {
+    justify-content: space-around;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+a {
+    background-color: orange;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    color: aliceblue;
+    border-radius: 1.2em;
+    text-decoration: none;
+}
+
+h2 {
+    color: orange;
+}
+
+.text {
+    text-align: center;
+    background-color: hsla(208, 100%, 97%, 0.667);
+}
+
+footer {
+    align-items: center;
+    text-align: center;
+    background-color: orange;
+}
+/* .un img, .deux img, .trois img, .quatre img {
+    width: 100%;
+} */
+
+/* .un, .deux, .trois, .quatre {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; 
+    flex-basis: 100%;
+    margin-bottom: 20px;
+} 
+
+/* .legende{
+    position :relative;
+    top:-2em;
+    background-color: hsl(180, 100%, 97%,60%);
+    height: 2em;
+    margin: 0;
+} */
+
+
+.conteneur{
+    position :relative
+}
+.image1{
+    background-image:url(5-06-Exercice_06-img/S1.JPG);
+    height : 20rem;
+    background-size:cover;
+    background-position:center;
+}
+.image2{
+    background-image:url(55-06-Exercice_06-img/symbioz.JPG);
+    height : 20rem;
+    background-size:cover;
+    background-position:center;
+}
+.image3{
+    background-image:url(5-06-Exercice_06-img/mercedes.JPG);
+    height : 20rem;
+    background-size:cover;
+    background-position:center;
+}
+.image4{
+    background-image:url(5-06-Exercice_06-img/e-legend.JPG);
+    height : 20rem;
+    background-size:cover;
+    background-position:center;
+}
+    
+.description{
+    position:absolute;
+    bottom:0; 
+    margin: 0;
+    left: 0;
+    right:0;
+    padding:0.3rem 0;
+    background-color: azure;
+}

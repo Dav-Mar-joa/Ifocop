@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exemple formulaire</h1>
+    <form>
+        <fieldset>
+            <legend>Identité</legend>
+        <label for="prenom">Prénom : </label>
+        <input type="text" name="prenom" id="prenom">
+        </label> 
+        <!-- ou -->
+         
+    <label> Nom
+    <input type="text" name="nom" placeholder="Entrez votre prénom">
+    </label>
+        </fieldset>
+        <fieldset>
+            <legend>Informations complémentaires</legend>
+    <label for="age">Age : </label>
+    <input type="number" name="age" id="age" Value="18">
+ 
+   
+    <label for="tel">Tel : </label>
+    <input type="tel" name="tel" id="tel">
+
+    <label for="oui">Deja inscrit : oui</label>
+    <input type="radio" name="demande" id="oui">
+
+    <label for="oui">Deja inscrit : non</label>
+    <input type="radio" name="demande" id="non" value="oui">
+
+    <label for="oui">Deja inscrit : non</label>
+    <input type="radio" name="demande" id="non" value="non" checked>
+
+    <label for="reponse">Une réponse par mail ?</label>
+    <input type="checkbox" name="reponse" id="reponse">
+        </fieldset>
+        
+        <label for="choix"></label>
+        <select name="choix" id ="choix">
+            <option value="---">-- Choisir --</option>
+            <option value="un">Un</option>
+            <option value="deux">deux</option>
+            <option value="trois" selected >trois</option>
+            <option value="quatre">quatre</option>
+        </select>
+    <label for="commentaire">Commentaire</label>
+    <textarea name="commentaire" id="commentaire">
+    </textarea>
+
+    <input type="submit" value="Transmettre">
+    </form>
+</body>
+</html>

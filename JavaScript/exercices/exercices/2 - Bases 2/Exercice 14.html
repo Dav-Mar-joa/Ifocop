@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 14</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+			** 1 **
+				Réalisez le programme (algorithme) suivant :
+				Au chargement du document, j'affiche une B.d.D contenant le message « Voulez vous continuer ? ». Si l'utilisateur clique sur OK, j'affiche une B.d.D avec le message « Vous avez  cliqué sur OK ! » sinon j'affiche une B.d.D avec le message « Vous avez choisi d'annuler ».
+
+				Utilisez l'attribut d'événement onload, la fonction confirm(), la fonction alert() et un bloc conditionnel if/else.
+			*/
+			var ConfirmationChoix = function(){
+				let res = confirm("Voulez vous continuer ?")
+					if(res == true){
+						alert("Vous avez  cliqué sur OK !")
+					}
+					else{
+						alert("Vous avez choisi d'annuler !")
+					}
+			}
+				
+			/*
+			** 2 **
+				Réalisez le programme (algorithme) suivant :
+				Quand l'utilisateur clique sur le premier paragraphe, j'affiche une B.d.D contenant le message « Voulez vous continuer ? ». Si l'utilisateur clique sur OK, j'affiche une B.d.D avec le message « Vous avez  cliqué sur OK ! » SINON j'affiche une B.d.D avec le message « Vous avez choisi d'annuler ».
+
+
+				Utilisez l'attribut d'événement onclick, la fonction confirm(),la fonction alert() et un bloc conditionnel if/else
+			*/
+			var ConfirmationParagraphe1 = function(){
+				let res = confirm("Voulez vous continuer ?")
+					if(res == true){
+						alert("Vous avez  cliqué sur OK !")
+					}
+					else{
+						alert("Vous avez choisi d'annuler !")
+					}
+			}
+
+			var ConfirmationParagraphe2 = function(){
+				let res = confirm("Voulez vous continuer ?")
+					if(res == true){
+						alert("Vous avez  cliqué sur OK !")
+					}
+					else{
+						alert("Vous avez choisi d'annuler !")
+					}
+			}
+				
+			/*
+			** 3 **
+				Réalisez le programme (algorithme) suivant :
+				Quand l'utilisateur survole le premier titre, j'affiche une B.d.D contenant le message « Voulez vous continuer ? ». Si l'utilisateur clique sur OK, j'affiche une B.d.D avec le message « Vous avez  cliqué sur OK ! » sinon j'affiche une B.d.D avec le message « Vous avez choisi d'annuler ».
+
+				
+				Utilisez l'attribut d'événement onmouseover, la fonction confirm(), la fonction alert() et un bloc conditionnel if/else.
+			*/
+		</script>
+	</head>
+	<body onload="ConfirmationChoix()">
+		<h1 >Mon nouveau document</h1>
+		<p onclick="ConfirmationParagraphe1()">Premier paragraphe</p>
+		<p onmouseover="ConfirmationParagraphe2()">Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

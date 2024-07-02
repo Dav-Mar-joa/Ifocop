@@ -1,0 +1,49 @@
+<!-----------------------------------------------------
+------------------  Exercice 1 - 14  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	La propriété display permet de changer le comportement d'une balise.
+	Ainsi, il est possible d'écrire display: block pour qu'une balise soit de type block ou bien display: inline.
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Reprenez le code de l'exercice précédent.
+	2 - Réalisez le même type d'affichage en inversant les div et les span (chaque span contient une div)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-01-Exercice_14</title>
+	<style>
+		.type_div{
+			background-color: blueviolet;
+			font-family: 'Times New Roman';
+		}
+		.type_span{
+			background-color: rgb(216, 19, 19);
+			font-family: serif;
+		}
+	</style>
+  </head>
+  <body>
+    <div span ="type_div">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolores
+      provident, nemo deleniti, <div class="type_span">inventore ipsum itaque necessitatibus
+      suscipit consequatur culpa </div>  ut exercitationem? Mollitia necessitatibus
+      tempore in cupiditate
+	  </span>
+	  <hr>
+	  <div class ="type_span">
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, dolores
+		provident, nemo deleniti, <span class="type_div">inventore ipsum itaque necessitatibus
+		suscipit consequatur culpa </span>  ut exercitationem? Mollitia necessitatibus
+		tempore in cupiditate
+	  </div>
+  </body>
+</html>

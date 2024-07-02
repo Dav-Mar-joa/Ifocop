@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 25</title>
+		<script>
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+				Dans l'exercice précédent, deux blocs de code se ressemblent beaucoup. Ce sont les parties du programme qui permettent d'obliger l'utilisateur à saisir un nombre.
+				On pourrait donc créer une fonction qui évite d'avoir à écrire à deux reprises des instructions quasi identiques.
+				Écrivez cette fonction.
+
+				Veillez aux trois points suivants pour l'écriture de cette fonction :
+				_ La fonction ne peut pas se terminer tant que l'utilisateur n'a pas saisi de nombre.
+				_ La fonction prend en argument le message qui s'affichera à l'utilisateur lors de la saisie. 
+				_ La fonction retourne le nombre saisi par l'utilisateur. 
+			*/
+			var function1 = function(){
+				var res = prompt("Veuillez entrez un chiffre : ")
+				res = parseFloat(res);
+				while(isNaN(res)!=false){
+				var res = prompt("Veuillez entrez un chiffre : ")
+				res = parseFloat(res);
+				}
+			alert("Merci d'avoir entré un chiffre ! "+res);
+			return res;
+			}
+
+			var fonctionNbDemande=function(){
+				let nb=prompt("Entrez le nombre de demandes à faire :")
+				return nb
+			}
+
+			
+
+			var function2 = function(){
+			var nb=fonctionNbDemande()
+				var i =0;
+				var res = 0;
+				while(i<nb){
+				res+=function1()
+				i++
+				}
+			alert("Somme de : "+res)
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p onclick="function2()">Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

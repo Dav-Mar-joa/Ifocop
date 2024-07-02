@@ -1,0 +1,61 @@
+<!-----------------------------------------------------
+------------------  Exercice 1 - 11  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	Les attributs de class et d'id permettent de mettre un nom sur une balise pour la viser précisément en CSS.
+
+    Par exemple, <p class="paragraphe-important">. Le sélecteur de class peut être utilisé plusieurs fois dans le même document contrairement à l'id qui doit être unique.
+
+    Pour les balises paires, il est toujours écrit dans la balise ouvrante.
+
+    Enfin, le nom ne doit pas contenir d'espace (lettre, chiffre ainsi que - et _ uniquement) et ne peut commencer que par une lettre.
+    Par exemple, class="mon_etiquette" id="Balise21".
+
+    En css, pour cibler l'attribut class="element" on écrit :
+    .element {
+
+    }
+
+    En css, pour cibler l'attribut id="cible" on écrit
+    #cible {
+
+    }
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Créez cinq binômes titre h2 - paragraphe.
+    2 - À l'aide de deux class, changez la couleur de police de deux titres et la couleur d'arrière plan de deux titres.
+    3 - À l'aide de deux class, changez la couleur de police de deux paragraphes et la couleur d'arrière plan de deux paragraphes.
+    4 - Grâce à deux id, changez la couleur d'arrière plan de l'un des titres visé par une class et la couleur de police de l'un des paragraphes visé par une class.
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-01-Exercice_11</title>
+    <link href="style_1-01-Exercice_11.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h2 class="police couleur_arriere_plan">Titre 2 1 coloré</h2>
+    <p class="police couleur_arriere_plan">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, facilis
+        saepe voluptatibus non fugiat perspiciatis perferendis, optio labore,
+        molestias at necessitatibus est dignissimos excepturi illum. Libero sed,
+        eos amet iusto sint facilis. Quam corporis dignissimos, quis voluptatem
+        nisi eveniet facere.
+      </p>
+      <h2 class="police couleur_arriere_plan" id="new_arriere_plan1">Titre 2 1 coloré</h2>
+
+    <p class="police couleur_arriere_plan" id="new_arriere_plan2">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, facilis
+      saepe voluptatibus non fugiat perspiciatis perferendis, optio labore,
+      molestias at necessitatibus est dignissimos excepturi illum. Libero sed,
+      eos amet iusto sint facilis. Quam corporis dignissimos, quis voluptatem
+      nisi eveniet facere.
+    </p>
+    
+  </body>
+</html>

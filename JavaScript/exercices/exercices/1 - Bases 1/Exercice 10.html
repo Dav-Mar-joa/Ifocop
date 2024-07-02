@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 10</title>
+		<script>
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				Fort heureusement, les fonctions ne sont pas fermées. On peut introduire un ou plusieurs argument en entrée.
+				1 - Un argument
+			*/
+				var fonctionAvecUnArgument = function(argument){
+					alert(argument);
+				};
+			/*
+				fonctionAvecUnArgument('Bonjour');
+				affichera « Bonjour ».
+				
+				2 - Deux arguments
+			*/
+				var fonctionAvecDeuxArguments = function(argumentUn, argumentDeux){
+					alert(argumentUn + argumentDeux);
+				};
+			/*
+				fonctionAvecDeuxArguments(45,16);
+				affichera 61;
+				
+				Bien entendu, on peut introduire plus d'arguments si nécessaire.
+			*/
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+			** 1 **
+				Créez une fonction avec un argument en entrée affichant un message dans une boite de dialogue.
+				Exécutez cette fonction avec une chaîne de caractères.
+			*/
+				var fonctionBoiteDial =function(message){
+					alert(message)
+				}
+				var fonctionMessage1=fonctionBoiteDial("Test fonction 1")
+			/*
+			** 2 **
+				Créez une seconde fonction avec deux arguments en entrée. Les deux arguments sont concaténés et affichés dans une boite de dialogue.
+				Exécutez cette fonction avec deux chaînes de caractères.
+			*/
+			var fonctionBoiteDial2 =function(message,message2){
+					alert(message+message2)
+				}
+				var fonctionMessage2=fonctionBoiteDial2("Test fonction 2","Test fonction 2bis")
+			
+			/*
+			** 3 **
+				Reprenez la précédente fonction. Réécrivez-la de telle façon à utiliser un seul argument en entrée tout en gardant la concaténation. Vous utilisez donc un tableau comme argument.
+				Exécutez cette fonction avec un tableau contenant deux chaînes de caractères.
+			*/
+
+			var fonctionBoiteDial2 =function(message){
+					alert(message[0]+message[1])
+				}
+				var messageTableau=[]
+				messageTableau[0]="MessageTableau1"
+				messageTableau[1]="MessageTableau2"
+				console.log(messageTableau)
+				var fonctionMessage2=fonctionBoiteDial2(messageTableau)
+			
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p>Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

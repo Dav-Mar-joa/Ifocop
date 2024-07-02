@@ -1,0 +1,59 @@
+<!-----------------------------------------------------
+------------------  Exercice 2 - 02  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+		Dans le fragment de page suivant,
+	<div>
+		<p>Un texte</p>
+	</div>
+	<div>
+		<a href="http://www.site.fr">
+			<p>Un autre texte</p>
+		</a>
+	</div>
+
+	Quand on écrit, par exemple,
+
+	div p{
+		color: red;
+	}
+
+	,tous les p auront la couleur du texte en rouge.
+	Si on écrit,
+
+	div>p{
+		color: red;
+	}
+
+	seul <p>Un texte</p> sera en rouge.
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Créez un document contenant un strong et deux p.
+	2 - Le premier p contient un strong.
+	3 - Le second p contient un cite qui contient un strong.
+	4 - Sans utiliser d'id ou de class ou de style écrit dans la balise, mettez une couleur différente sur chacun des strong.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="style_2-01-exercice_02.css" rel="stylesheet">
+	<title>2-01-exercice_02</title>
+</head>
+<body>
+	<div>
+		<p class="couleur">Lorem ipsum dolor sit amet consectetur, <strong>adipisicing elit</strong>. Ab, porro beatae <cite>dicta voluptate, quasi ipsum et aperiam minima debitis, modi </cite>quod adipisci officiis fugiat. Veniam?</p>
+	</div>
+	<div>
+		<a href="http://www.google.fr">
+			<p class="couleur">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto corrupti nihil vitae soluta sunt quia natus quos eaque amet. Eum impedit libero similique nesciunt, distinctio ducimus fugit aperiam, <cite>vitae, laboriosam reiciendis necessitatibus voluptatibus? Ducimus unde voluptas expedita </cite>veritatis aperiam doloribus minus dolor laudantium accusantium! Nihil rem unde mollitia iusto quaerat.</p>
+		</a>
+	</div>
+	
+</body>
+</html>

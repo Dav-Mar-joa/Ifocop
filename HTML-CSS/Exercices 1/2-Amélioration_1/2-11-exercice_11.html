@@ -1,0 +1,51 @@
+<!-----------------------------------------------------
+------------------  Exercice 2 - 11  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	Dans une liste non ordonnée ou ordonnée, on peut modifier l'apparence des li au moyen de la déclaration CSS list-style-type.
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Créez un document.
+	2 - Vous y insérez une liste à puce contenant cinq entrées.
+	3 - Dans la troisième entrée, vous insérez une autre liste à puce comprenant trois entrées.
+	4 - Changez le type de puce de cette dernière liste.
+	5 - Masquez la puce de la cinquième entrée de la liste.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		.liste-puce {
+    list-style-type: square; /* Changer le type de puce */
+}
+.masquer_puce{
+	list-style-type: none;
+
+}
+
+	</style>
+</head>
+<body>
+	<ul>
+		<li>Entrée 1</li>
+		<li>Entrée 2</li>
+		<li>
+			<ul class="liste-puce">
+				<li>Entrée secondaire 1</li>
+				<li>Entrée secondaire 2</li>
+				<li>Entrée secondaire 3</li>
+			</ul>
+		</li>
+		<li>Entrée 4</li>
+		<li class ="masquer_puce">Entrée 5</li>
+	</ul>
+	
+</body>
+</html>

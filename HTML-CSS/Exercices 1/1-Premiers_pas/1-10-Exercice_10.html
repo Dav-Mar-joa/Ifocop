@@ -1,0 +1,44 @@
+<!-----------------------------------------------------
+------------------  Exercice 1 - 10  ------------------
+------------------------------------------------------>
+
+<!----------------   Présentation   -------------------
+
+	Le plus souvent, le CSS est contenu dans un fichier externe.
+
+	Pour cela, on crée un fichier avec l'extension .css.
+	L'appel de ce fichier se fait depuis l'en-tête de la page de la façon suivante :
+	<link rel="stylesheet" type="text/css" href="nom_du_fichier.css">
+
+	Il est possible d'appeler plusieurs fichiers externes différents.
+-->
+
+<!----------------   Réalisation   -------------------
+
+	1 - Reprenez l'exercice 9.
+	2 - Copiez le CSS dans un fichier externe et faites référence à celui-ci dans votre fichier HTML de telle façon que les titres et paragraphes soient colorés comme vous le souhaitez (il ne doit pas y avoir la moindre déclaration de style dans votre fichier HTML).
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1-01-Exercice_10</title>
+	<link href="style_1-01-Exercice_10.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1>Titre 1 coloré</h1>
+	<div class="couleur_paragraphe">
+		<div>
+		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero iusto
+		perspiciatis sapiente.
+		</div>
+		<div>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, maiores
+		dignissimos. Minus iure nihil culpa quisquam id vero quidem magni. Beatae
+		id est vero quam.
+		</div>
+	</div>	
+  </body>
+</html>

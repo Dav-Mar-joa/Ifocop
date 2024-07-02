@@ -1,0 +1,19 @@
+
+.paragraphe_1:hover{
+    background-color: blue;
+}
+
+
+.paragraphe_2{
+    border: 4px solid transparent;
+}
+.paragraphe_2:hover{
+    border: 4px solid brown;
+}
+
+
+.paragraphe_3:hover{
+    width: 50%;
+    height: 50px;
+    overflow: hidden;
+}

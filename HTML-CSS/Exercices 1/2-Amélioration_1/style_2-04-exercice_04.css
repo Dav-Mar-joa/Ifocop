@@ -1,0 +1,25 @@
+/* .couleur_arriere_plan{
+    background-color: #11b334;
+}
+
+.police{
+    font-size: 15px;
+}
+
+#new_arriere_plan1{
+    background-color: #e62ad6;
+    font-size: 25px;
+}
+
+#new_arriere_plan2{
+    background-color: #e62ad6;
+    font-size: 25px;
+} */
+h2{
+    background-color: #11b334;
+    font-size: 15px;
+}
+p+h2{
+    background-color: #e62ad6;
+    font-size: 25px;
+}

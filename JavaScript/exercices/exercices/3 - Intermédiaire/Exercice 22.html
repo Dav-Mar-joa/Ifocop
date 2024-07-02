@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>JavaScript : Exercice 22</title>
+		<script>
+			/*********************************
+			***********PRESENTATION***********
+			**********************************
+				La fonction parseFloat(?) est une fonction qui prend entrée une information :
+				_ si cette information est un nombre, elle retourne le nombre correspondant.
+				_ sinon elle retourne un code d'erreur : NaN (Not A Number).
+				Cette fonction est fréquemment utilisée pour transformer des valeurs exprimées en px, em, %, … en nombres manipulables.
+				
+				La fonction isNaN(?) est une fonction qui prend entrée une variable :
+				_ Si cette variable n'est pas un nombre, la fonction retourne true.
+				_ Sinon elle retourne false.
+			*/
+
+			/*********************************
+			*************EXERCICE*************
+			**********************************
+			** 1 **
+				Réalisez le programme (algorithme) suivant :
+				Au chargement du document,  affichez une boite de dialogue (B.d.D) avec un champ de saisie à l'utilisateur.
+				Puis, utilisez la fonction parseFloat pour transformer la saisie utilisateur obtenue.
+				Affichez le résultat de la transformation dans une B.d.D.
+
+				Utilisez l'attribut d'événement onload(), la fonction prompt(), la fonction alert() et la fonction parseFloat().
+				
+				
+			*/
+			var function1=function(){
+				let res = prompt("Saisir un nombre")
+				res =parseFloat(res)
+				alert("Donées saisie : "+res)
+				if(isNaN(res)){
+					alert("Il s'agit d'un nombre")
+				}
+				else{
+					alerte("Entrez un nombre et non une chaine de caractère")
+				}
+
+			}
+			
+			/*
+			** 2 **
+				Améliorez le programme (algorithme) précédent :
+				Au CHARGEMENT du document, affichez une boite de dialogue (B.d.D) avec un champ de saisie à l'utilisateur.
+				Puis utilisez la fonction parseFloat pour transformer la saisie utilisateur obtenue.
+				Ensuite, utilisez la fonction isNaN() avec le résultat de cette transformation pour obtenir une valeur de vérification.
+				Affichez le résultat de cette valeur de vérification dans une B.d.D.
+
+				Utilisez l'attribut d'événement onload(), la fonction prompt(), la fonction alert(), la fonction parseFloat() et la fonction isNaN().
+			*/
+			
+			/*	
+			** 3 **
+				Réalisez le programme (algorithme) suivant :
+				Quand l'utilisateur clique sur le premier paragraphe, demandez-lui de saisir un nombre.
+				S'il n'a pas saisi un nombre, affichez le message « Vous devez saisir un nombre ».
+				Sinon, affichez le message «  ».
+
+				Utilisez l'attribut d'événement onclick, la fonction prompt(), la fonction alert(), la fonction parseFloat(), la fonction isNaN() et un bloc conditionnel if/else.			
+			*/
+
+			var function2=function(){
+				var res = prompt("Saisir un nombre")
+				res =parseFloat(res)
+				while(isNaN(res) != false){
+					res = prompt("Saisir un nombre")
+					res =parseFloat(res)
+				}
+				alert("Merci d'avoir saisi un nombre : "+res)}
+
+		</script>
+	</head>
+	<body>
+		<h1>Mon nouveau document</h1>
+		<p onclick="function2()">Premier paragraphe</p>
+		<p>Deuxième paragraphe</p>
+		<noscript>
+			<p>Veuillez activer JavaScript</p>
+		</noscript>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2{
+    text-align: right;
+}
+
+.barre{
+    text-decoration:line-through;
+}
+
+/* Espacement entre les lignes pour le second paragraphe */
+.large-espacement {
+    line-height: 2; /* Ajustez la valeur selon vos besoins */
+}
+
+/* Espacement des lettres pour le second h2 */
+.espacement {
+    letter-spacing: 2px; /* Ajustez la valeur selon vos besoins */
+}
+

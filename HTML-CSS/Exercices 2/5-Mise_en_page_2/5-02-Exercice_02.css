@@ -1,0 +1,13 @@
+body{
+    margin :0;
+    background-color: #447d9c;
+}
+head, nav{
+    background-color: #285068;
+}
+head,nav a{
+    color:#F79F67
+}
+HEAD{
+    text-align:center
+}

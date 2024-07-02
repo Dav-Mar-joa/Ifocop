@@ -1,0 +1,285 @@
+/**************************
+**********GÉNÉRAL**********
+**************************/
+@font-face {
+  font-family: "ambleregular";
+  src: url("../src/fonts/Amble-Regular-webfont.eot");
+  src: url("../src/fonts/Amble-Regular-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../src/fonts/Amble-Regular-webfont.woff") format("woff"),
+    url("../src/fonts/Amble-Regular-webfont.ttf") format("truetype"),
+    url("../src/fonts/Amble-Regular-webfont.svg#ambleregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "amblelight";
+  src: url("../src/fonts/Amble-Light-webfont.eot");
+  src: url("../src/fonts/Amble-Light-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../src/fonts/Amble-Light-webfont.woff") format("woff"),
+    url("../src/fonts/Amble-Light-webfont.ttf") format("truetype"),
+    url("../src/fonts/Amble-Light-webfont.svg#amblelight") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "amblebold";
+  src: url("../src/fonts/Amble-Bold-webfont.eot");
+  src: url("../src/fonts/Amble-Bold-webfont.eot?#iefix")
+      format("embedded-opentype"),
+    url("../src/fonts/Amble-Bold-webfont.woff") format("woff"),
+    url("../src/fonts/Amble-Bold-webfont.ttf") format("truetype"),
+    url("../src/fonts/Amble-Bold-webfont.svg#amblebold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*
+  couleurs :
+  vert #015F65
+  vert clair #83AEA1
+  vert - beige #CDC79D
+  crème #F2F0D8
+*/
+
+body {
+  background-color: #024a73;
+  font-family: ambleregular, Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+#page {
+  background-color: #f9f8ed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 10px 0 50px;
+  width: 80%;
+}
+
+h1,
+h2 {
+  color: #015f65;
+  font-family: amblebold, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+}
+
+a {
+  color: #83aea1;
+  padding: 5px;
+}
+p {
+  color: black;
+  font-family: amblelight, Arial, Helvetica, sans-serif;
+}
+
+/*************************
+**********HEADER**********
+*************************/
+
+header {
+  flex-basis: 100%;
+}
+
+header hgroup {
+  height: 500px;
+  text-align: center;
+}
+
+header a {
+  display: block;
+  text-decoration: none;
+}
+
+header h1,
+header h2 {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 5em;
+  height: 90px;
+  line-height: 90px;
+  vertical-align: baseline;
+}
+
+header h2 {
+  font-size: 2.5em;
+  font-style: italic;
+  font-weight: initial;
+  height: 30px;
+  line-height: 30px;
+  vertical-align: top;
+}
+nav {
+  margin: 15px 0 20px;
+  padding: 10px 0 0 0;
+}
+
+nav ul {
+  background-color: #cdc79d;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+}
+
+nav ul li {
+  list-style-type: none;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+nav > ul > li {
+  position: relative;
+}
+
+nav ul > li > ul {
+  display: none;
+  left: 0;
+  position: absolute;
+  top: 35px;
+  width: 120px;
+}
+nav ul > li:hover > ul {
+  display: block;
+  z-index: 5;
+}
+nav li > ul > li {
+  display: block;
+  text-transform: initial;
+}
+nav a {
+  color: #f2f0d8;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+nav li:hover {
+  background-color: #83aea1;
+}
+
+/**************************
+**********CORPS**********
+**************************/
+
+section,
+article {
+  text-align: left;
+  vertical-align: top;
+}
+
+section {
+  flex-basis: 60%;
+  position: relative;
+  width: 60%;
+}
+
+#message {
+  background-color: rgba(205, 199, 157, 0.6);
+  left: 15%;
+  position: absolute;
+  text-align: center;
+  top: -10px;
+  width: 70%;
+}
+
+section > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+section > div p {
+  flex-basis: 46%;
+  text-align: left;
+}
+
+article {
+  background-color: rgba(205, 199, 157, 0.6);
+  padding: 2%;
+  width: 25%;
+}
+
+article h2 {
+  margin: 0;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9em;
+  margin-top: 20px;
+  padding: 0 1%;
+  text-align: left;
+  width: 98%;
+}
+
+.form_div {
+  flex-basis: 49.5%;
+}
+
+fieldset {
+  border-color: #cdc79d;
+  border-width: 1px;
+}
+
+fieldset:nth-child(2) {
+  margin-top: 5px;
+}
+
+form label {
+  display: block;
+  font-style: italic;
+  margin-top: 3px;
+}
+
+form input {
+  width: 100%;
+}
+
+form .checkbox_form {
+  margin: 15px 0 0;
+  padding: 0 5%;
+  width: 90%;
+}
+
+input[type="checkbox"] {
+  display: inline-block;
+  width: 20px;
+}
+
+form .titre_radio {
+  display: inline-block;
+  margin: 0 2%;
+  width: 60px;
+}
+
+form .titre_radio input {
+  width: initial;
+}
+
+form input[type="submit"] {
+  background-color: #cdc79d;
+  border-width: 0px;
+  color: #015f65;
+  float: right;
+  font-size: 1em;
+  font-weight: bold;
+  margin-top: 5px;
+  margin: 20px 10px 0 0;
+  padding: 5px;
+  text-transform: uppercase;
+  width: initial;
+}
+
+form input[type="submit"]:hover {
+  background-color: #015f65;
+  color: white;
+}
