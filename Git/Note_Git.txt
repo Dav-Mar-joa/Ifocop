@@ -49,8 +49,45 @@ git checkout ou git switch toto --> on est sur une nouvelle branche et non maste
 
 git merge nom de la branche mais il faut etre sur la branche à laquelle on déplace les modifs
 
-$ git switch -c tutu création d'une nouvelle branche + on se place dessus 
+git switch -c tutu création d'une nouvelle branche + on se place dessus 
 
+git push origin nom de la branche origin est le nom par défaut commit -> serveur 
 
+git push -force --> force sur le push et meme suprime des documents A,B -push -force> A,B,C
 
+git pull origin nom de la branche origin est le nom par défaut commit  <- serveur
 
+git fetch mets a jour le depot local 
+
+git clone lien sur github ! http............
+
+git tag pour consulter la liste des tags
+
+git checkout + un numero de commit pris dans git log : qsdoighvnxoqnsdvmo
+
+git reset HEAD~+ numero de commit ==> reviens a l'état du numéro de commit ou nbre de commits a annulés / HEAD~1
+
+$ git remote -v
+$ git remote add origin git@github.com:Dav-Mar-joa/Ifocop_Back_up2.git
+
+git remote -v 
+
+ERROR
+--> $ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'
+
+ERROR
+
+git pull pour mettre a jour 
+git merge --abort arrete le merge
+
+git push -f --> force le push
+
+git stash --> enregirste dans WIP sur la master 
+le stash {0} est le dernier stach ajouté

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test XHR avec JSONPlaceholder</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <button id="get-data">Get data</button>
+    <button id="get-all-data">Get all data</button>
+    <br />
+    <br />
+    <form action="" id="get-post-form">
+      <label for="postId">Post ID: </label>
+      <input type="text" name="postId" id="postId" />
+      <label for="firstname">Name: </label>
+      <input type="text" name="firstname" id="firstname" />
+      <label for="pet-select">Choose a pet:</label>
+      <br /><br />
+      <fieldset>
+        <legend>Choose your interests</legend>
+        <div>
+          <input type="checkbox" id="coding" name="interest" value="coding" />
+          <label for="coding">Coding</label>
+        </div>
+        <div>
+          <input type="checkbox" id="music" name="interest" value="music" />
+          <label for="music">Music</label>
+        </div>
+      </fieldset>
+      <br />
+      <button type="submit">Get this post</button>
+    </form>
+    <br />
+    <form action="" id="post-data-form">
+      <label for="title">Titre : </label>
+      <input type="text" name="title" id="title" />
+      <label for="body">Message : </label>
+      <input type="text" name="body" id="body" />
+      <button type="submit">Envoyer</button>
+    </form>
+    <br />
+    <img src="./basket.svg" width="150" height="150" srcset="" />
+    <br />
+    <div id="display-data"></div>
+    <br />
+    <!-- <script src="animation.js"></script> -->
+    <!-- <canvas id="canvas" width="600" height="600" style="border: 1px solid"></canvas> -->
+    <!-- <script src="xhr-get.js"></script>
+  <script src="xhr-post.js"></script>
+  <script src="jquery-get.js"></script>
+  <script src="fetch.js"></script>
+  <script src="promise.js"></script> -->
+    <script src="./xhr.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+{
+  "firstname": "David",
+  "lastname": "Martins",
+  "isAdmin": false,
+  "address": {
+    "zipCode": 75005,
+    "city": "Paris",
+    "street": "Rue de la richesse",
+    "number": 42
+  },
+  "booksRead": [
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "author": "JR. Tolkien"
+    },
+    {
+      "title": "Harry Potter",
+      "author": "JK Rowling"
+    },
+    {
+      "title": "Bouquin numéro 3",
+      "author": "Someone"
+    }
+  ]
+}

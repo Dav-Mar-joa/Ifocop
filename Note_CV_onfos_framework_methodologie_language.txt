@@ -1,0 +1,4 @@
+ajax methodologie
+angular framewordk
+react et VueJs Jquery librairie
+nodeJs faire un serveur en théorie puis express pour aller plus vite 
