@@ -359,7 +359,7 @@
       .positionbouttons2 {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: right;
         /* gap: 10rem; */
       }
       .buttonIndex2 {
@@ -368,7 +368,7 @@
         padding-left: 4rem;
         padding-right: 4rem;
         font-family: "Permanent Marker", cursive;
-        font-size: 30px;
+        font-size: 50px;
         cursor: pointer;
         color: purple;
         border: 10px solid black;
@@ -399,6 +399,35 @@
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         border: 10px solid black;
       }
+      #indexRulesJumpContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .indexRules {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 3rem;
+        width: 40%;
+        margin: auto;
+        margin-top: 6rem;
+        margin-bottom: 4rem;
+        transform: scale(0.8);
+        background-color: rgb(210, 217, 202);
+        border-radius: 80px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        border: 10px solid black;
+      }
+      #indexRulesJump{
+        /* display: flex;
+        justify-content: center; */
+        text-align: center;
+        padding-bottom: 0;
+        padding-top: 0;
+        margin-top: 0;
+        margin-bottom:  0;
+      }
       .titreJeux {
         display: flex;
         align-items: center;
@@ -411,13 +440,41 @@
         z-index: 20;
       }
       .personnage {
-        border: 10px solid purple;
+        border: 15px solid transparent;
         border-radius: 300px;
         /* box-shadow: 2px 2px 2px black; */
         background-color: rgb(224, 63, 57);
         animation: rotateRightToLeftPerso 0.9s infinite,
           borderPulsePerso 0.7s infinite;
+        width: 25%;
+      }
+      .personnageRules {
+        margin-top: 20%;
+        border: 10px solid transparent;
+        border-radius: 300px;
+        /* box-shadow: 2px 2px 2px black; */
+        /* background-color: rgb(224, 63, 57); */
+        /* animation: rotateRightToLeftPerso 0.9s infinite,
+          borderPulsePerso 0.7s infinite; */
         width: 26%;
+      }
+      .touchesDirections {
+        margin-top: 0;
+        border: 10px solid transparent;
+        border-radius: 300px;
+        animation: borderPulsePerso 0.7s infinite;
+        width: 150%;
+      }
+      .personnageRulesInverse {
+        margin-top: 20%;
+        border: 10px solid transparent;
+        border-radius: 300px;
+        /* box-shadow: 2px 2px 2px black; */
+        /* background-color: rgb(224, 63, 57); */
+        /* animation: 
+          borderPulsePerso 0.7s infinite; */
+        width: 26%;
+        transform: scaleX(-1);
       }
       .commentaire {
         display: flex;
@@ -445,9 +502,11 @@
         /* width: 20%; */
       }
 
+
       #titreCompetences {
         font-size: 3em;
         font-family: "Permanent Marker", cursive;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
         background-color: rgb(210, 217, 202);
         border: 10px solid black;
         border-radius: 100px;
@@ -459,19 +518,29 @@
         top: 10vh;
         left: 10vw;
         z-index: 400;
+        width: 58%;
         
       }
 
       #javaScript,
       #typeScript,
+      #typeScript2,
       #html,
       #css,
+      #css2,
       #angular,
       #nodeJs,
+      #nodeJs2,
       #jQuery,
-      #git {
+      #git,
+      #git2,
+      #mongoDB,
+      #json,
+      #vueJS,
+      #react {
         width: 70%;
-        border: 6px solid gold;
+        border: 6px solid rgb(0, 0, 0);
+        box-shadow: 10px;
         border-radius: 10px;
         margin: 10px;
         display: none;
@@ -488,28 +557,52 @@
 
       }
       #containerToBeContinue {
-            display: none;
-            text-align: center;
-            justify-content: center;
-            position: fixed;
-            width: 20%;
-            left: 60%;
-            top: 60vh; /* Ajustement pour être centré verticalement */
-            z-index: 400;
+        display: none;
+        text-align: center;
+        justify-content: center;
+        position: fixed;
+        width: 20%;
+        left: 70%;
+        top: 60vh; /* Ajustement pour être centré verticalement */
+        z-index: 400;
+            
+        }
+        #containerToBeContinue2 {
+        display: none;
+        text-align: center;
+        justify-content: center;
+        position: fixed;
+        width: 20%;
+        left: 40%;
+        top: 40vh; /* Ajustement pour être centré verticalement */
+        z-index: 400;
         }
         #toBeContinue {
-            font-size: 2em;
-            font-family: "Permanent Marker", cursive;
-            background-color: rgb(210, 217, 202);
-            border: 10px solid black;
-            border-radius: 100px;
-            color: purple;
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            text-align: center;
+        font-size: 2em;
+        font-family: "Permanent Marker", cursive;
+        background-color: rgb(210, 217, 202);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        border: 10px solid black;
+        border-radius: 100px;
+        color: purple;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        margin-top: 3vh;
+        }
+        #toBeContinue2{
+          
+        transform: scaleX(-1);
+        transform: scale(0.4);
+        display: fixed;
+        justify-content: center;
+        align-items: center;
+        left: 50%;
+        width: 100%;
+        z-index: 500;
         }
 
       /* .third-div {
@@ -530,8 +623,8 @@
       } */
       .grid-container {
           display: grid;
-          grid-template-columns: repeat(2, 1fr); /* Deux colonnes égales */
-          grid-gap: 30px; /* Espacement entre les éléments */
+          grid-template-columns: repeat(3, 1fr); /* Deux colonnes égales */
+          grid-gap: 20px; /* Espacement entre les éléments */
           max-width: 20%;
       }
 
@@ -542,6 +635,8 @@
       .grid-item img {
           max-width: 100%; /* Assurez-vous que les images ne dépassent pas leur conteneur */
       }
+
+      
       
     </style>
     <script>
@@ -589,6 +684,39 @@
             window.open(pdfUrl, "_blank");
           });
 
+          var rules = document.querySelector("#rules");
+          rules.addEventListener("click", function () {
+            var titre = document.querySelector(".imageIndexPerso")
+            var titreDisplay = window.getComputedStyle(titre).getPropertyValue('display');
+            var regle = document.querySelector(".indexRules")
+            var regleDisplay = window.getComputedStyle(regle).getPropertyValue('display');
+            // console.log("titre : " +titre.style.display)
+            console.log("titre : "+titreDisplay)
+            console.log("regle : "+regleDisplay)
+
+            if(titreDisplay=="none"){
+                  titre.style.display="flex"
+            }
+            else{
+               titre.style.display="none"
+            }
+
+            if(regleDisplay=="none"){
+                  regle.style.display="flex"
+            }
+            else{
+               regle.style.display="none"
+            }
+              
+          });
+
+          // const music = document.getElementById('background-music');
+          //   if (music.paused) {
+          //       music.play().catch(error => {
+          //           console.log('Autoplay was prevented:', error);
+          //       });
+          //   }
+
           /////
           /// REQUEST ANIMATION FRAME
           ////////
@@ -609,13 +737,13 @@
           compteurDePoints.innerText = "Nb de skills : " + compteurDeClic;
           dplImageGlobal.style.bottom = 0.2 * hauteurEcran + "px";
 
-          // if (compteurDeClic > 4 && compteurDeClic < 8) {
-          //   fondJeux.src = "fond.png";
-          //   couleurOiseau.querySelector("img").src = "spriteBirds.png";
-          //   couleurOiseau2.querySelector("img").src = "spriteBirds.png";
-          // }
+          if (compteurDeClic > 4 && compteurDeClic < 8) {
+            fondJeux.src = "fond.png";
+            couleurOiseau.querySelector("img").src = "spriteBirds.png";
+            couleurOiseau2.querySelector("img").src = "spriteBirds.png";
+          }
 
-          if (compteurDeClic >= 2) {
+          if (compteurDeClic >= 8) {
             fondJeux.src = "fond_2.png";
               if(backgroundFinishItem==1){
               fondJeux.src = "backgroundFinish.png";
@@ -628,7 +756,6 @@
               // var itemsCompetences = document.querySelector("#itemsCompetences");
               // itemsCompetences.classList.add("itemsCompetencesVisible")
               itemsCompetences.style.display="block"
-              console.log("aaaaaaaaaaaaaaa"+itemsCompetences.classList)
               document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
               
             }
@@ -977,14 +1104,22 @@
           var itemsCompetences = document.querySelector("#itemsCompetences");
           var javaScript = document.querySelector("#javaScript");
           var typeScript = document.querySelector("#typeScript");
+          var typeScript2 = document.querySelector("#typeScript2");
           var html = document.querySelector("#html");
           var css = document.querySelector("#css");
+          var css2 = document.querySelector("#css2");
           var angular = document.querySelector("#angular");
           var nodeJs = document.querySelector("#nodeJs");
+          var nodeJs2 = document.querySelector("#nodeJs2");
           var jQuery = document.querySelector("#jQuery");
-          var git = document.querySelector("#git");
+          var git2 = document.querySelector("#git2");
+          var mongoDB=document.querySelector("#mongoDB")
+          var json=document.querySelector("#json")
+          var vueJS=document.querySelector("#vueJS")
+          var react=document.querySelector("#react")
           var titreCompetences=document.querySelector("#titreCompetences")
           var containerToBeContinue = document.querySelector("#containerToBeContinue")
+          var containerToBeContinue2 = document.querySelector("#containerToBeContinue2")
           var buttonIndex2 =document.querySelector("#buttonIndex2")
          
           
@@ -1004,6 +1139,7 @@
             dplImageGlobalOiseau2.style.display="none"
             compteurDePoints.style.display="none"
             titreCompetences.style.display="flex"
+            containerToBeContinue2.style.display = "block";
             // setTimeout(() => {
             //   // itemsCompetences.style.display="block"
               
@@ -1023,28 +1159,47 @@
               typeScript.style.display="block"
             }, 4000);
             setTimeout(() => {
-              html.style.display="block"
+              mongoDB.style.display="block"
             }, 5000);
+
+
             setTimeout(() => {
-              css.style.display="block"
+              html.style.display="block"
             }, 6000);
             setTimeout(() => {
-              angular.style.display="block"
+              css.style.display="block"
             }, 7000);
             setTimeout(() => {
-              nodeJs.style.display="block"
+              json.style.display="block"
             }, 8000);
+
+
             setTimeout(() => {
-              jQuery.style.display="block"
+              angular.style.display="block"
             }, 9000);
             setTimeout(() => {
+              nodeJs.style.display="block"
+            }, 10000);
+            setTimeout(() => {
+              vueJS.style.display="block"
+            }, 11000);
+
+
+            setTimeout(() => {
+              jQuery.style.display="block"
+            }, 12000);
+            setTimeout(() => {
+              react.style.display="block"
+            }, 13000);
+            setTimeout(() => {
               git.style.display="block"
-            },10000);
+            },14000);
             setTimeout(() => {
               containerToBeContinue.style.display = "block";
-              buttonIndex2.style.display="flex"
-            },11000);
-           
+              // containerToBeContinue2.style.display = "block";
+              
+            },15000);
+           buttonIndex2.style.display="flex"
           }
           
         }
@@ -1052,6 +1207,7 @@
     </script>
   </head>
   <body>
+    <!-- <audio id="background-music" src="./audio/SoundGame.mp3" autoplay loop></audio> -->
     <h1 id="h1"></h1>
     <div id="startingIndex">
         <div class="imageIndexPerso">
@@ -1062,10 +1218,20 @@
             Adventure
           </p>
         </div>
+        <!-- <p>Rules</p> -->
+        <div class="indexRules">
+          <img class="personnageRulesInverse" src="persoUniqueVert.png" />
+          <div id="indexRulesJumpContainer">
+            <p id="indexRulesJump">Saut</p>
+            <img class="touchesDirections" src="touchesDirections.png" />
+          </div>
+          <img class="personnageRules" src="persoUniqueVert.png" />
+        </div>
           <div class="commentaire">Select and press "Enter"</div>
           <div class="positionbouttons">
-            <button class="buttonIndex" id="game">Game</button>
+            <button class="buttonIndex" id="game">Jeux</button>
             <button class="buttonIndex" id="CV">CV</button>
+            <button class="buttonIndex" id="rules">Règles</button>
           </div>
     </div>
     <div>
@@ -1111,15 +1277,22 @@
       <div id="compteurDePoints"></div>
 
       <div id="containerToBeContinue">
-        <div id="toBeContinue">To be continue ...</div>
+        
+        <!-- <div id="toBeContinue2">
+          <img src="cosmonaute.png" alt="Cosmonaute">
+      </div> -->
+        <!-- <div id="persoFin" src="cosmonaute.png"></div> -->
         <div class="positionbouttons">
           <button class="buttonIndex2" id="CV2">CV</button>
         </div>
-        
+        <div id="toBeContinue">To be continued ...</div>
       </div>
 
-      
-   
+      <div id="containerToBeContinue2">
+        <div id="toBeContinue2">
+          <img src="cosmonaute2.PNG" alt="Cosmonaute">
+         </div>
+      </div>
 
       <div id="itemsCompetences">
         <div id="containerTitreCompetences">
@@ -1165,6 +1338,9 @@
         <div class="grid-item">
             <img id="typeScript" src="./items/TS.png" alt="TypeScript">
         </div>
+        <div class="grid-item">
+          <img id="mongoDB" src="./items/mongoDB.png" alt="TypeScript">
+      </div>
     
         <!-- Deuxième ligne -->
         <div class="grid-item">
@@ -1173,6 +1349,9 @@
         <div class="grid-item">
             <img id="css" src="./items/CSS.png" alt="CSS">
         </div>
+        <div class="grid-item">
+          <img id="json" src="./items/json.png" alt="CSS">
+      </div>
     
         <!-- Troisième ligne -->
         <div class="grid-item">
@@ -1181,14 +1360,20 @@
         <div class="grid-item">
             <img id="nodeJs" src="./items/nodeJs.png" alt="Node.js">
         </div>
+        <div class="grid-item">
+          <img id="vueJS" src="./items/vueJS.png" alt="Node.js">
+      </div>
     
         <!-- Quatrième ligne -->
         <div class="grid-item">
             <img id="jQuery" src="./items/jQuery.png" alt="jQuery">
         </div>
         <div class="grid-item">
-            <img id="git" src="./items/git.png" alt="Git">
+            <img id="react" src="./items/react.png" alt="Git">
         </div>
+        <div class="grid-item">
+          <img id="git" src="./items/git.png" alt="Git">
+      </div>
     </div>
     
       <!-- </div class="third-div">

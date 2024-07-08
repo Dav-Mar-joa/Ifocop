@@ -1,0 +1,13 @@
+var obj={
+myName:"toto",
+sayName(){
+	console.log('my name is this.myName);
+	return this
+	}
+	
+
+
+var objName = obj.Name 
+var {myName} = obj  on crée une variable nyName extraite de l'objet obj
+var objReference = obj; fait un lien entre les 2 et si obj change --> objReference change aussi 
+var objCopy={...obj} --> cré une copy mais si obj change objCopy ne change pas ! une sauvegarde
