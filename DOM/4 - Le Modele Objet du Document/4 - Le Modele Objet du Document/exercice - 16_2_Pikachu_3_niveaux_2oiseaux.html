@@ -356,6 +356,34 @@
         color: rgba(225, 217, 202, 0.8);
         text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
       }
+      .positionbouttons2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* gap: 10rem; */
+      }
+      .buttonIndex2 {
+        margin-top: 2rem;
+        display: block;
+        padding-left: 4rem;
+        padding-right: 4rem;
+        font-family: "Permanent Marker", cursive;
+        font-size: 30px;
+        cursor: pointer;
+        color: purple;
+        border: 10px solid black;
+        border-radius: 100px;
+        box-shadow: 10px;
+        background-color: rgb(210, 217, 202);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+        animation: borderPulseButton 0.7s infinite;
+      }
+      .buttonIndex2:hover {
+        background-color: rgba(0, 30, 255, 0.8);
+        font-weight: bold;
+        color: rgba(225, 217, 202, 0.8);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+      }
       .imageIndexPerso {
         display: flex;
         align-items: center;
@@ -428,6 +456,9 @@
         /* width: 20%; */
         justify-content: center;
         align-items: center;
+        top: 10vh;
+        left: 10vw;
+        z-index: 400;
         
       }
 
@@ -456,6 +487,30 @@
         left: 30%;
 
       }
+      #containerToBeContinue {
+            display: none;
+            text-align: center;
+            justify-content: center;
+            position: fixed;
+            width: 20%;
+            left: 60%;
+            top: 60vh; /* Ajustement pour être centré verticalement */
+            z-index: 400;
+        }
+        #toBeContinue {
+            font-size: 2em;
+            font-family: "Permanent Marker", cursive;
+            background-color: rgb(210, 217, 202);
+            border: 10px solid black;
+            border-radius: 100px;
+            color: purple;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            text-align: center;
+        }
 
       /* .third-div {
             display: none;
@@ -524,6 +579,12 @@
           });
           var cv = document.querySelector("#CV");
           cv.addEventListener("click", function () {
+            var pdfUrl = "DavidMartinsCV.pdf";
+            window.open(pdfUrl, "_blank");
+          });
+
+          var cv2 = document.querySelector("#CV2");
+          cv2.addEventListener("click", function () {
             var pdfUrl = "DavidMartinsCV.pdf";
             window.open(pdfUrl, "_blank");
           });
@@ -923,6 +984,9 @@
           var jQuery = document.querySelector("#jQuery");
           var git = document.querySelector("#git");
           var titreCompetences=document.querySelector("#titreCompetences")
+          var containerToBeContinue = document.querySelector("#containerToBeContinue")
+          var buttonIndex2 =document.querySelector("#buttonIndex2")
+         
           
 
           if (
@@ -940,11 +1004,11 @@
             dplImageGlobalOiseau2.style.display="none"
             compteurDePoints.style.display="none"
             titreCompetences.style.display="flex"
-            setTimeout(() => {
-              // itemsCompetences.style.display="block"
+            // setTimeout(() => {
+            //   // itemsCompetences.style.display="block"
               
-             // document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
-            }, 2000);
+            //  // document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
+            // }, 2000);
 
             // itemsCompetences.classList.add("itemsCompetencesVisible")
             setTimeout(() => {
@@ -976,6 +1040,10 @@
             setTimeout(() => {
               git.style.display="block"
             },10000);
+            setTimeout(() => {
+              containerToBeContinue.style.display = "block";
+              buttonIndex2.style.display="flex"
+            },11000);
            
           }
           
@@ -1039,23 +1107,25 @@
       <div><img src="coins.png" id="CoinsB" /></div>
       <div><img src="coins.png" id="CoinsC" /></div>
       <div><img src="coins.png" id="CoinsD" /></div>
-      <!-- <div><img src="JS.png" id="javaScript"/></div> -->
+
       <div id="compteurDePoints"></div>
-      <!-- <div id="itemsCompetences">
+
+      <div id="containerToBeContinue">
+        <div id="toBeContinue">To be continue ...</div>
+        <div class="positionbouttons">
+          <button class="buttonIndex2" id="CV2">CV</button>
+        </div>
         
-        <ul>
-          <li><div id="titreCompetences">Competences acquises</div></li>
-          <li><div><img src="./items/JS.png" id="javaScript"/></div></li>
-          <li><div><img src="./items/TS.png"  id="typeScript"/></div></li>
-          <li><div><img src="./items/HTML5.png"  id="html"/></div></li>
-          <li><div><img src="./items/CSS.png"  id="css"/></div></li>
-        </ul>
-      </div> -->
+      </div>
+
+      
+   
 
       <div id="itemsCompetences">
         <div id="containerTitreCompetences">
           <div id="titreCompetences">Compétences Acquises</div>
         </div>
+        
           <!-- <img id="javaScript" src="./items/JS.png" alt="JavaScript">
           <img id="typeScript" src="./items/TS.png"alt="TypeScript">
           <img id="html" src="./items/HTML5.png"alt="HTML">
