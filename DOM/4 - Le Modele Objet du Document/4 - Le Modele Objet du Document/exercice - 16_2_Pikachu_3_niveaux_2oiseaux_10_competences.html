@@ -56,13 +56,13 @@
       .masqueChaudronVisible{
         width: 180px;
         height: 280px;
-        transform: scale(0.5);
+        transform: scale(0.4);
         overflow: hidden;
         position: absolute;
         display: block;
-        bottom: 2vh;
-        left : 75vw;
-        z-index: 20;
+        bottom: 35vh;
+        left : 2vw;
+        z-index: 2;
         animation: borderPulseChaudron 0.7s infinite;
         border: gold 5px solid;
         border-radius: 80px;
@@ -193,6 +193,7 @@
       }
     
       #magicPotions {
+        display: none;
         width: 8%;
         animation: rotateRightToLeft 4s linear infinite,
           borderPulse 0.7s infinite;
@@ -206,6 +207,7 @@
       }
 
       #bouclier {
+        display: none;
         width: 8%;
         position: absolute;
         top: 32vh;
@@ -214,6 +216,7 @@
       }
 
       #papyrus2 {
+        display: none;
         width: 7%;
         position: absolute;
         top: 45vh;
@@ -221,6 +224,7 @@
         z-index: 2;
       }
       #fireBall {
+        display: none;
         width: 5%;
         position: absolute;
         top: 50vh;
@@ -228,6 +232,7 @@
         z-index: 2;
       }
       #sword {
+        display: none;
         width: 7%;
         position: absolute;
         top: 37vh;
@@ -235,6 +240,7 @@
         z-index: 2;
       }
       #CoinsA {
+        display: none;
         width: 3%;
         position: absolute;
         top: 50vh;
@@ -242,6 +248,7 @@
         z-index: 2;
       }
       #CoinsB {
+        display: none;
         width: 3%;
         position: absolute;
         top: 45vh;
@@ -249,6 +256,7 @@
         z-index: 2;
       }
       #CoinsD {
+        display: none;
         width: 6%;
         position: absolute;
         top: 30vh;
@@ -256,6 +264,7 @@
         z-index: 2;
       }
       #CoinsC {
+        display: none;
         width: 4%;
         position: absolute;
         top: 30vh;
@@ -267,6 +276,7 @@
       #papyrus2,
       #fireBall,
       #sword {
+        /* display: none; */
         border-radius: 50px;
         border: 2px solid rgb(255, 255, 255);
         animation: borderPulse 0.7s infinite;
@@ -274,6 +284,7 @@
         transform: scale(0.6);
       }
       #fireBall {
+        display: none;
         animation: rotateRightToLeft 4s linear infinite,
           borderPulse 0.7s infinite;
       }
@@ -282,6 +293,7 @@
       #CoinsB,
       #CoinsC,
       #CoinsD {
+        /* display: none; */
         border-radius: 80px;
         border: 2px solid gold;
         animation: borderPulseCoins 1.3s infinite;
@@ -406,12 +418,12 @@
       }
       .indexRules {
         display: none;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
+        /* align-items: center;
+        justify-content: center; */
+        /* gap: 3rem; */
         width: 40%;
         margin: auto;
-        margin-top: 6rem;
+        margin-top: 4rem;
         margin-bottom: 4rem;
         transform: scale(0.8);
         background-color: rgb(210, 217, 202);
@@ -428,6 +440,7 @@
         margin-top: 0;
         margin-bottom:  0;
       }
+      
       .titreJeux {
         display: flex;
         align-items: center;
@@ -449,33 +462,77 @@
         width: 25%;
       }
       .personnageRules {
-        margin-top: 20%;
+        margin-top: 0.1vh;
+      margin-bottom: 0.1vh;
         border: 10px solid transparent;
         border-radius: 300px;
         /* box-shadow: 2px 2px 2px black; */
         /* background-color: rgb(224, 63, 57); */
         /* animation: rotateRightToLeftPerso 0.9s infinite,
           borderPulsePerso 0.7s infinite; */
-        width: 26%;
+        width: 70%;
       }
       .touchesDirections {
         margin-top: 0;
-        border: 10px solid transparent;
+        /* border: 2px solid black; */
         border-radius: 300px;
-        animation: borderPulsePerso 0.7s infinite;
-        width: 150%;
+        /* animation: borderPulsePerso 0.7s infinite; */
+        width: 90%;
       }
       .personnageRulesInverse {
-        margin-top: 20%;
+        margin-top: 0.1vh;
+      margin-bottom: 0.1vh;
         border: 10px solid transparent;
         border-radius: 300px;
         /* box-shadow: 2px 2px 2px black; */
         /* background-color: rgb(224, 63, 57); */
         /* animation: 
           borderPulsePerso 0.7s infinite; */
-        width: 26%;
+        width: 70%;
         transform: scaleX(-1);
       }
+      /* .containerDoubleSaut{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        
+      }
+      .doubleSaut{
+        font-size: 2em;
+        font-family: "Permanent Marker", cursive;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+
+      } */
+      .container {
+      width: 100%;
+    }
+
+    .commentaireRegle {
+      width: 100%;
+      font-family: "Permanent Marker", cursive;
+      font-size: 0.6em;
+      color:purple;
+      text-align: center;
+      /* padding: 20px; */
+      margin-top: 0.0vh;
+      margin-bottom: 0.0vh;
+    }
+
+    .separationTroisColonnes {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.1vh;
+      margin-bottom: 0.1vh;
+      /* margin: 10px 0; */
+    }
+
+    .colonneImage {
+      width: 32%; /* Pour trois colonnes avec des marges entre elles */
+      text-align: center;
+      /* padding: 20px; */
+      /* box-sizing: border-box; */
+    }
+       
       .commentaire {
         display: flex;
         align-items: center;
@@ -671,6 +728,7 @@
           var game = document.querySelector("#game");
           game.addEventListener("click", function () {
             startingIndex.style.display = "none";
+            setInterval(itemVisible, 3000);
           });
           var cv = document.querySelector("#CV");
           cv.addEventListener("click", function () {
@@ -690,32 +748,29 @@
             var titreDisplay = window.getComputedStyle(titre).getPropertyValue('display');
             var regle = document.querySelector(".indexRules")
             var regleDisplay = window.getComputedStyle(regle).getPropertyValue('display');
-            // console.log("titre : " +titre.style.display)
-            console.log("titre : "+titreDisplay)
-            console.log("regle : "+regleDisplay)
 
             if(titreDisplay=="none"){
                   titre.style.display="flex"
             }
             else{
-               titre.style.display="none"
+                  titre.style.display="none"
             }
 
             if(regleDisplay=="none"){
-                  regle.style.display="flex"
+                  regle.style.display="block"
             }
             else{
-               regle.style.display="none"
+                  regle.style.display="none"
             }
               
           });
 
-          // const music = document.getElementById('background-music');
-          //   if (music.paused) {
-          //       music.play().catch(error => {
-          //           console.log('Autoplay was prevented:', error);
-          //       });
-          //   }
+          const music = document.getElementById('background-music');
+            if (music.paused) {
+                music.play().catch(error => {
+                    console.log('Autoplay was prevented:', error);
+                });
+            }
 
           /////
           /// REQUEST ANIMATION FRAME
@@ -821,6 +876,20 @@
             "#CoinsD",
             "#endGame",
           ];
+         
+          //   for(var i=0;i<objetCollision.length;i++){
+          //   // objetCollision.style.display="block"
+          //   console.log("bjetCollision.style.display",ObjetCollision.style.display)
+          // }
+          function itemVisible(){
+          var itemApparent = Math.floor(Math.random()*objetCollision.length)
+          var objetASaisir=document.querySelector(objetCollision[itemApparent])
+          objetASaisir.style.display="block"
+          setTimeout(() => {
+            objetASaisir.style.display="none"
+          }, 1000);
+          }
+
           for (var i = 0; i < objetCollision.length; i++) {
             checkCollision(
               dplImageGlobal,
@@ -916,7 +985,6 @@
           }
 
           dplImageGlobalOiseau.style.transition = "top 0.5s linear";
-
           dplImageOiseau.style.left = dplXOiseau + "px";
           dplImageGlobalOiseau.style.left = dplXGlobalOiseau + "px";
 
@@ -1184,7 +1252,6 @@
               vueJS.style.display="block"
             }, 11000);
 
-
             setTimeout(() => {
               jQuery.style.display="block"
             }, 12000);
@@ -1196,10 +1263,11 @@
             },14000);
             setTimeout(() => {
               containerToBeContinue.style.display = "block";
-              // containerToBeContinue2.style.display = "block";
+
+              // buttonIndex2.style.display="flex"
               
             },15000);
-           buttonIndex2.style.display="flex"
+           
           }
           
         }
@@ -1219,19 +1287,29 @@
           </p>
         </div>
         <!-- <p>Rules</p> -->
+        
+
         <div class="indexRules">
-          <img class="personnageRulesInverse" src="persoUniqueVert.png" />
-          <div id="indexRulesJumpContainer">
-            <p id="indexRulesJump">Saut</p>
-            <img class="touchesDirections" src="touchesDirections.png" />
+          <div class="commentaireRegle">Saut</div>
+          <div class="separationTroisColonnes">
+            <div class="colonneImage">
+              <img class="personnageRulesInverse" src="persoUniqueVert.png" />
+            </div>
+            <div class="colonneImage">
+              <img class="touchesDirections" src="touchesDirections.png" />
+            </div>
+            <div class="colonneImage">
+              <img class="personnageRules" src="persoUniqueVert.png" />
+            </div>
           </div>
-          <img class="personnageRules" src="persoUniqueVert.png" />
+          <div class="commentaireRegle">Touche "espace" : double saut</div>
         </div>
           <div class="commentaire">Select and press "Enter"</div>
           <div class="positionbouttons">
             <button class="buttonIndex" id="game">Jeux</button>
-            <button class="buttonIndex" id="CV">CV</button>
             <button class="buttonIndex" id="rules">Règles</button>
+            <button class="buttonIndex" id="CV">CV</button>
+            
           </div>
     </div>
     <div>

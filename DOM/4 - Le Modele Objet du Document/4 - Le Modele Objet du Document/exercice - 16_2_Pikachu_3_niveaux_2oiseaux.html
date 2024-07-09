@@ -56,13 +56,13 @@
       .masqueChaudronVisible{
         width: 180px;
         height: 280px;
-        transform: scale(0.5);
+        transform: scale(0.4);
         overflow: hidden;
         position: absolute;
         display: block;
-        bottom: 2vh;
-        left : 75vw;
-        z-index: 20;
+        bottom: 35vh;
+        left : 2vw;
+        z-index: 2;
         animation: borderPulseChaudron 0.7s infinite;
         border: gold 5px solid;
         border-radius: 80px;
@@ -193,6 +193,7 @@
       }
     
       #magicPotions {
+        display: none;
         width: 8%;
         animation: rotateRightToLeft 4s linear infinite,
           borderPulse 0.7s infinite;
@@ -206,6 +207,7 @@
       }
 
       #bouclier {
+        display: none;
         width: 8%;
         position: absolute;
         top: 32vh;
@@ -214,6 +216,7 @@
       }
 
       #papyrus2 {
+        display: none;
         width: 7%;
         position: absolute;
         top: 45vh;
@@ -221,6 +224,7 @@
         z-index: 2;
       }
       #fireBall {
+        display: none;
         width: 5%;
         position: absolute;
         top: 50vh;
@@ -228,6 +232,7 @@
         z-index: 2;
       }
       #sword {
+        display: none;
         width: 7%;
         position: absolute;
         top: 37vh;
@@ -235,20 +240,32 @@
         z-index: 2;
       }
       #CoinsA {
-        width: 3%;
+        display: none;
+        width: 8%;
         position: absolute;
         top: 50vh;
         left: 30vw;
         z-index: 2;
       }
       #CoinsB {
+        display: none;
         width: 3%;
         position: absolute;
         top: 45vh;
         left: 50vw;
         z-index: 2;
       }
+      #CoinsB1 {
+        display: none;
+        width: 6%;
+        position: absolute;
+        top: 45vh;
+        left: 12vw;
+        z-index: 2;
+      }
+
       #CoinsD {
+        display: none;
         width: 6%;
         position: absolute;
         top: 30vh;
@@ -256,6 +273,7 @@
         z-index: 2;
       }
       #CoinsC {
+        display: none;
         width: 4%;
         position: absolute;
         top: 30vh;
@@ -267,6 +285,7 @@
       #papyrus2,
       #fireBall,
       #sword {
+        /* display: none; */
         border-radius: 50px;
         border: 2px solid rgb(255, 255, 255);
         animation: borderPulse 0.7s infinite;
@@ -274,17 +293,27 @@
         transform: scale(0.6);
       }
       #fireBall {
+        display: none;
         animation: rotateRightToLeft 4s linear infinite,
           borderPulse 0.7s infinite;
       }
 
       #CoinsA,
-      #CoinsB,
       #CoinsC,
       #CoinsD {
+        /* display: none; */
         border-radius: 80px;
         border: 2px solid gold;
         animation: borderPulseCoins 1.3s infinite;
+        background: rgba(160, 82, 45, 0.863);
+      }
+  
+      #CoinsB,
+      #CoinsB1{
+        /* display: none; */
+        border-radius: 80px;
+        border: 12px solid rgb(255, 0, 0);
+        animation: borderPulseCoins 0.5s infinite;
         background: rgba(160, 82, 45, 0.863);
       }
 
@@ -321,7 +350,7 @@
         position: fixed;
         font-size: 50px;
         font-family: "Permanent Marker", cursive;
-        background-image: url("fond_3.png");
+        background-image: url("./fond/fond_3.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -406,12 +435,12 @@
       }
       .indexRules {
         display: none;
-        align-items: center;
-        justify-content: center;
-        gap: 3rem;
+        /* align-items: center;
+        justify-content: center; */
+        /* gap: 3rem; */
         width: 40%;
         margin: auto;
-        margin-top: 6rem;
+        margin-top: 4rem;
         margin-bottom: 4rem;
         transform: scale(0.8);
         background-color: rgb(210, 217, 202);
@@ -428,6 +457,7 @@
         margin-top: 0;
         margin-bottom:  0;
       }
+      
       .titreJeux {
         display: flex;
         align-items: center;
@@ -449,33 +479,77 @@
         width: 25%;
       }
       .personnageRules {
-        margin-top: 20%;
+        margin-top: 0.1vh;
+      margin-bottom: 0.1vh;
         border: 10px solid transparent;
         border-radius: 300px;
         /* box-shadow: 2px 2px 2px black; */
         /* background-color: rgb(224, 63, 57); */
         /* animation: rotateRightToLeftPerso 0.9s infinite,
           borderPulsePerso 0.7s infinite; */
-        width: 26%;
+        width: 70%;
       }
       .touchesDirections {
         margin-top: 0;
-        border: 10px solid transparent;
+        /* border: 2px solid black; */
         border-radius: 300px;
-        animation: borderPulsePerso 0.7s infinite;
-        width: 150%;
+        /* animation: borderPulsePerso 0.7s infinite; */
+        width: 90%;
       }
       .personnageRulesInverse {
-        margin-top: 20%;
+        margin-top: 0.1vh;
+      margin-bottom: 0.1vh;
         border: 10px solid transparent;
         border-radius: 300px;
         /* box-shadow: 2px 2px 2px black; */
         /* background-color: rgb(224, 63, 57); */
         /* animation: 
           borderPulsePerso 0.7s infinite; */
-        width: 26%;
+        width: 70%;
         transform: scaleX(-1);
       }
+      /* .containerDoubleSaut{
+        display:flex;
+        flex-direction: row;
+        align-items: center;
+        
+      }
+      .doubleSaut{
+        font-size: 2em;
+        font-family: "Permanent Marker", cursive;
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+
+      } */
+      .container {
+      width: 100%;
+    }
+
+    .commentaireRegle {
+      width: 100%;
+      font-family: "Permanent Marker", cursive;
+      font-size: 0.6em;
+      color:purple;
+      text-align: center;
+      /* padding: 20px; */
+      margin-top: 0.0vh;
+      margin-bottom: 0.0vh;
+    }
+
+    .separationTroisColonnes {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.1vh;
+      margin-bottom: 0.1vh;
+      /* margin: 10px 0; */
+    }
+
+    .colonneImage {
+      width: 32%; /* Pour trois colonnes avec des marges entre elles */
+      text-align: center;
+      /* padding: 20px; */
+      /* box-sizing: border-box; */
+    }
+       
       .commentaire {
         display: flex;
         align-items: center;
@@ -524,16 +598,12 @@
 
       #javaScript,
       #typeScript,
-      #typeScript2,
       #html,
       #css,
-      #css2,
       #angular,
       #nodeJs,
-      #nodeJs2,
       #jQuery,
       #git,
-      #git2,
       #mongoDB,
       #json,
       #vueJS,
@@ -669,20 +739,24 @@
           var code = event.keyCode;
           var startingIndex = document.querySelector("#startingIndex");
           var game = document.querySelector("#game");
-          game.addEventListener("click", function () {
-            startingIndex.style.display = "none";
-          });
-          var cv = document.querySelector("#CV");
-          cv.addEventListener("click", function () {
-            var pdfUrl = "DavidMartinsCV.pdf";
-            window.open(pdfUrl, "_blank");
-          });
+          if (code === 13) { 
+              game.addEventListener("click", function () {
+                startingIndex.style.display = "none";
+                setInterval(itemVisible, 2000);
+              });
+            }    
 
-          var cv2 = document.querySelector("#CV2");
-          cv2.addEventListener("click", function () {
-            var pdfUrl = "DavidMartinsCV.pdf";
-            window.open(pdfUrl, "_blank");
-          });
+          // var cv = document.querySelector("#CV");
+          // cv.addEventListener("click", function () {
+          //   var pdfUrl = "DavidMartinsCV.pdf";
+          //   window.open(pdfUrl, "_blank");
+          // });
+
+          // var cv2 = document.querySelector("#CV2");
+          // cv2.addEventListener("click", function () {
+          //   var pdfUrl = "DavidMartinsCV.pdf";
+          //   window.open(pdfUrl, "_blank");
+          // });
 
           var rules = document.querySelector("#rules");
           rules.addEventListener("click", function () {
@@ -690,22 +764,19 @@
             var titreDisplay = window.getComputedStyle(titre).getPropertyValue('display');
             var regle = document.querySelector(".indexRules")
             var regleDisplay = window.getComputedStyle(regle).getPropertyValue('display');
-            // console.log("titre : " +titre.style.display)
-            console.log("titre : "+titreDisplay)
-            console.log("regle : "+regleDisplay)
 
             if(titreDisplay=="none"){
                   titre.style.display="flex"
             }
             else{
-               titre.style.display="none"
+                  titre.style.display="none"
             }
 
             if(regleDisplay=="none"){
-                  regle.style.display="flex"
+                  regle.style.display="block"
             }
             else{
-               regle.style.display="none"
+                  regle.style.display="none"
             }
               
           });
@@ -737,16 +808,16 @@
           compteurDePoints.innerText = "Nb de skills : " + compteurDeClic;
           dplImageGlobal.style.bottom = 0.2 * hauteurEcran + "px";
 
-          if (compteurDeClic > 4 && compteurDeClic < 8) {
-            fondJeux.src = "fond.png";
-            couleurOiseau.querySelector("img").src = "spriteBirds.png";
-            couleurOiseau2.querySelector("img").src = "spriteBirds.png";
+          if (compteurDeClic > 7 && compteurDeClic < 15) {
+            fondJeux.src = "./fond/fond.png";
+            couleurOiseau.querySelector("img").src = "./sprite/spriteBirds.png";
+            couleurOiseau2.querySelector("img").src = "./sprite/spriteBirds.png";
           }
 
-          if (compteurDeClic >= 8) {
-            fondJeux.src = "fond_2.png";
+          if (compteurDeClic >= 15) {
+            fondJeux.src = "./fond/fond_2.png";
               if(backgroundFinishItem==1){
-              fondJeux.src = "backgroundFinish.png";
+              fondJeux.src = "./fond/backgroundFinish.png";
               console.log("dans la condition de fin")
               fondJeux.style.zIndex=300
               dplImageGlobal.classList.add("masqueInvisible")
@@ -817,20 +888,61 @@
             "#sword",
             "#CoinsA",
             "#CoinsB",
+            "#CoinsB1",
             "#CoinsC",
             "#CoinsD",
             "#endGame",
           ];
-          for (var i = 0; i < objetCollision.length; i++) {
-            checkCollision(
-              dplImageGlobal,
-              document.querySelector(objetCollision[i])
-            );
+         
+          //   for(var i=0;i<objetCollision.length;i++){
+          //   // objetCollision.style.display="block"
+          //   console.log("bjetCollision.style.display",ObjetCollision.style.display)
+          // }
+          function itemVisible(){
+          var itemApparent = Math.floor(Math.random()*objetCollision.length)
+          console.log("temApparent"+itemApparent)
+          var objetASaisir=document.querySelector(objetCollision[itemApparent])
+          objetASaisir.style.display="block"
+          setTimeout(() => {
+            objetASaisir.style.display="none"
+          }, 4000);
           }
+          // if(startingIndex.style.display = "none"){
+           
+          // }
+         
+          // objetASaisir.style.display="none"
+         
+          
+
+
+          for (var i = 0; i < objetCollision.length; i++) {
+            checkCollision(dplImageGlobal,
+              document.querySelector(objetCollision[i]));
+            }
 
           checkCollision2(dplImageGlobal,dplImageGlobalChaudron);
 
         };
+
+        // en dehors de la zone oneClick sinon si je garde en mémoire le nombre de touche appuyé sur le clavier puis il ouvre n fois le CV après appuye sur le boutton CV
+        var cv = document.querySelector("#CV");
+          cv.addEventListener("click", function () {
+            var linkedInUrl="https://www.linkedin.com/in/david-joaquim-martins/"
+            window.open(linkedInUrl, "_blank");
+            var pdfUrl = "./CV/DavidMartinsCV.pdf";
+            window.open(pdfUrl, "_blank");
+            
+          });
+
+          var cv2 = document.querySelector("#CV2");
+          cv2.addEventListener("click", function () {
+            var linkedInUrl="https://www.linkedin.com/in/david-joaquim-martins/"
+            window.open(linkedInUrl, "_blank");
+            var pdfUrl = "./CV/DavidMartinsCV.pdf";
+            window.open(pdfUrl, "_blank");
+            
+          });
         function moveChaudron() {
           var dplImageChaudron = document.querySelector("#imageChaudron");
           var dplImageGlobalChaudron =
@@ -916,7 +1028,6 @@
           }
 
           dplImageGlobalOiseau.style.transition = "top 0.5s linear";
-
           dplImageOiseau.style.left = dplXOiseau + "px";
           dplImageGlobalOiseau.style.left = dplXGlobalOiseau + "px";
 
@@ -1031,11 +1142,13 @@
           }
           // dplImageGlobal.style.transition = "top 0.6s linear";
         }
-
+      
         function jump(dplImageGlobal, dplImage) {
+ 
           var rect = dplImageGlobal.getBoundingClientRect();
           var dplImage = document.querySelector("#image");
           var initialTop = rect.top;
+          var initialTop2 = initialTop;
           // var jumpHeight = 600;
           var jumpHeight = 250;
           var finalTop = initialTop - jumpHeight;
@@ -1049,10 +1162,11 @@
             dplXGlobal += 4 * vitesse;
             dplImageGlobal.style.left = dplXGlobal + "px";
           }
-
           setTimeout(function () {
             dplImageGlobal.style.top = initialTop + "px";
+            
           }, 400);
+          // dplImageGlobal.style.top = initialTop + "px";
         }
 
         function jump2(dplImageGlobal, dplImage) {
@@ -1092,6 +1206,18 @@
           ) {
             dplImageX.style.display = "none";
             compteurDeClic += 1;
+            if(dplImageX.id=="CoinsB" || dplImageX.id=="CoinsB1")
+          {
+            compteurDeClic=0
+            setTimeout(() => {
+              var compteurDePoints = document.querySelector("#compteurDePoints");
+              compteurDePoints.style.background="red"
+              
+            }, 1000);
+            
+          }
+          compteurDePoints.style.background="black"
+            
           }
         }
 
@@ -1132,7 +1258,7 @@
           ) {
             dplImageGlobalChaudron.style.display = "none";
             var fondJeux = document.querySelector("#fond");
-            fondJeux.src = "backgroundFinish.png";
+            fondJeux.src = "./fond/backgroundFinish.png";
             backgroundFinishItem=1
             dplImageGlobal.style.display="none"
             dplImageGlobalOiseau.style.display="none"
@@ -1184,7 +1310,6 @@
               vueJS.style.display="block"
             }, 11000);
 
-
             setTimeout(() => {
               jQuery.style.display="block"
             }, 12000);
@@ -1196,10 +1321,11 @@
             },14000);
             setTimeout(() => {
               containerToBeContinue.style.display = "block";
-              // containerToBeContinue2.style.display = "block";
+
+              // buttonIndex2.style.display="flex"
               
             },15000);
-           buttonIndex2.style.display="flex"
+           
           }
           
         }
@@ -1211,7 +1337,7 @@
     <h1 id="h1"></h1>
     <div id="startingIndex">
         <div class="imageIndexPerso">
-          <img class="personnage" src="persoUniqueVert.png" />
+          <img class="personnage" src="./perso/persoUniqueVert.png" />
 
           <p classe="titreJeux">
             JavaScript's <br />
@@ -1219,28 +1345,38 @@
           </p>
         </div>
         <!-- <p>Rules</p> -->
+        
+
         <div class="indexRules">
-          <img class="personnageRulesInverse" src="persoUniqueVert.png" />
-          <div id="indexRulesJumpContainer">
-            <p id="indexRulesJump">Saut</p>
-            <img class="touchesDirections" src="touchesDirections.png" />
+          <div class="commentaireRegle">Saut</div>
+          <div class="separationTroisColonnes">
+            <div class="colonneImage">
+              <img class="personnageRulesInverse" src="./perso/persoUniqueVert.png" />
+            </div>
+            <div class="colonneImage">
+              <img class="touchesDirections" src="./clavier/touchesDirections.png" />
+            </div>
+            <div class="colonneImage">
+              <img class="personnageRules" src="./perso/persoUniqueVert.png" />
+            </div>
           </div>
-          <img class="personnageRules" src="persoUniqueVert.png" />
+          <div class="commentaireRegle">Touche "espace" : double saut</div>
         </div>
           <div class="commentaire">Select and press "Enter"</div>
           <div class="positionbouttons">
             <button class="buttonIndex" id="game">Jeux</button>
-            <button class="buttonIndex" id="CV">CV</button>
             <button class="buttonIndex" id="rules">Règles</button>
+            <button class="buttonIndex" id="CV">CV</button>
+            
           </div>
     </div>
     <div>
         <div id="container" class="masque">
-          <img src="exo16.png" id="image" class="sprite" alt="Animation" />
+          <img src="./sprite/spritePerso.png" id="image" class="sprite" alt="Animation" />
         </div>
         <div id="containerOiseau" class="masqueOiseau">
           <img
-            src="spriteBirdsRed.png"
+            src="./sprite/spriteBirdsRed.png"
             id="imageOiseau"
             class="sprite"
             alt="Animation"
@@ -1248,7 +1384,7 @@
         </div>
         <div id="containerOiseau2" class="masqueOiseau2">
           <img
-            src="spriteBirdsRed.png"
+            src="./sprite/spriteBirdsRed.png"
             id="imageOiseau2"
             class="sprite"
             alt="Animation"
@@ -1256,23 +1392,24 @@
         </div>
         <div id="containerChaudron" class="masqueChaudron">
           <img
-            src="chaudronSprite.PNG"
+            src="./sprite/chaudronSprite.PNG"
             id="imageChaudron"
             class="sprite"
             alt="Animation"
           />
         </div>
-      <div><img src="fond_3.png" class="fond" id="fond" /></div>
-      <div><img src="magicPotions.png" id="magicPotions" /></div>
-      <div><img src="endGame.png" id="endGame" /></div>
-      <div><img src="bracelet.png" id="bouclier" /></div>
-      <div><img src="papyrus2.png" id="papyrus2" /></div>
-      <div><img src="fireBall.png" id="fireBall" /></div>
-      <div><img src="sword.png" id="sword" /></div>
-      <div><img src="coins.png" id="CoinsA" /></div>
-      <div><img src="coins.png" id="CoinsB" /></div>
-      <div><img src="coins.png" id="CoinsC" /></div>
-      <div><img src="coins.png" id="CoinsD" /></div>
+      <div><img src="./fond/fond_3.png" class="fond" id="fond" /></div>
+      <div><img src="./itemsQuete/magicPotions.png" id="magicPotions" /></div>
+      <div><img src="./itemsQuete/endGame.png" id="endGame" /></div>
+      <div><img src="./itemsQuete/bouclier.png" id="bouclier" /></div>
+      <div><img src="./itemsQuete/papyrus2.png" id="papyrus2" /></div>
+      <div><img src="./itemsQuete/fireBall.png" id="fireBall" /></div>
+      <div><img src="./itemsQuete/sword.png" id="sword" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsA" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsB" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsB1" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsC" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsD" /></div>
 
       <div id="compteurDePoints"></div>
 
@@ -1290,7 +1427,7 @@
 
       <div id="containerToBeContinue2">
         <div id="toBeContinue2">
-          <img src="cosmonaute2.PNG" alt="Cosmonaute">
+          <img src="./perso/cosmonaute2.png" alt="Cosmonaute">
          </div>
       </div>
 
