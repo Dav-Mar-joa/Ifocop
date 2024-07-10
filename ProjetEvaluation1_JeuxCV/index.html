@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript's Adventure</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- <audio id="background-music" src="./audio/SoundGame.mp3" autoplay loop></audio> -->
+    <h1 id="h1"></h1>
+    <div id="startingIndex">
+        <div class="imageIndexPerso">
+          <img class="personnage" src="./perso/persoUniqueVert.png" />
+
+          <p classe="titreJeux">
+            JavaScript's <br />
+            Adventure
+          </p>
+        </div>
+        <!-- <p>Rules</p> -->
+        
+        <div class="indexRules">
+          <div class="commentaireRegle">Saut</div>
+          <div class="separationTroisColonnes">
+            <div class="colonneImage">
+              <img class="personnageRulesInverse" src="./perso/persoUniqueVert.png" />
+            </div>
+            <div class="colonneImage">
+              <img class="touchesDirections" src="./clavier/touchesDirections.png" />
+            </div>
+            <div class="colonneImage">
+              <img class="personnageRules" src="./perso/persoUniqueVert.png" />
+            </div>
+          </div>
+          <div class="commentaireRegle">Touche "espace" : double saut</div>
+        </div>
+          <div class="commentaire">Select and press "Enter"</div>
+          <div class="positionbouttons">
+            <button class="buttonIndex" id="game">Jeux</button>
+            <button class="buttonIndex" id="rules">Règles</button>
+            <button class="buttonIndex" id="CV">CV</button>
+            
+          </div>
+    </div>
+    <div>
+        <div id="container" class="masque">
+          <img src="./sprite/spritePerso.png" id="image" class="sprite" alt="Animation" />
+        </div>
+        <div id="containerOiseau" class="masqueOiseau">
+          <img
+            src="./sprite/spriteBirdsRed.png"
+            id="imageOiseau"
+            class="sprite"
+            alt="Animation"
+          />
+        </div>
+        <div id="containerOiseau2" class="masqueOiseau2">
+          <img
+            src="./sprite/spriteBirdsRed.png"
+            id="imageOiseau2"
+            class="sprite"
+            alt="Animation"
+          />
+        </div>
+        <div id="containerChaudron" class="masqueChaudron">
+          <img
+            src="./sprite/chaudronSprite.PNG"
+            id="imageChaudron"
+            class="sprite"
+            alt="Animation"
+          />
+        </div>
+      <div><img src="./fond/fond_3.png" class="fond" id="fond" /></div>
+      <div><img src="./itemsQuete/magicPotions.png" id="magicPotions" /></div>
+      <div><img src="./itemsQuete/endGame.png" id="endGame" /></div>
+      <div><img src="./itemsQuete/bouclier.png" id="bouclier" /></div>
+      <div><img src="./itemsQuete/papyrus2.png" id="papyrus2" /></div>
+      <div><img src="./itemsQuete/fireBall.png" id="fireBall" /></div>
+      <div><img src="./itemsQuete/sword.png" id="sword" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsA" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsB" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsB1" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsC" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsD" /></div>
+
+      <div id="compteurDePoints"></div>
+
+      <div id="containerToBeContinue">
+        
+        <!-- <div id="toBeContinue2">
+          <img src="cosmonaute.png" alt="Cosmonaute">
+      </div> -->
+        <!-- <div id="persoFin" src="cosmonaute.png"></div> -->
+        <div class="positionbouttons">
+          <button class="buttonIndex2" id="CV2">CV</button>
+        </div>
+        <div id="toBeContinue">To be continued ...</div>
+      </div>
+
+      <div id="containerToBeContinue2">
+        <div id="toBeContinue2">
+          <img src="./perso/cosmonaute2.png" alt="Cosmonaute">
+         </div>
+      </div>
+
+      <div id="itemsCompetences">
+        <div id="containerTitreCompetences">
+          <div id="titreCompetences">Compétences Acquises</div>
+        </div> 
+      <div class="grid-container">
+        <!-- Première ligne -->
+        <div class="grid-item">
+            <img id="javaScript" src="./items/JS.png" alt="JavaScript">
+        </div>
+        <div class="grid-item">
+            <img id="typeScript" src="./items/TS.png" alt="TypeScript">
+        </div>
+        <div class="grid-item">
+          <img id="mongoDB" src="./items/mongoDB.png" alt="TypeScript">
+      </div>
+        <!-- Deuxième ligne -->
+            <div class="grid-item">
+                <img id="html" src="./items/HTML5.png" alt="HTML">
+            </div>
+            <div class="grid-item">
+                <img id="css" src="./items/CSS.png" alt="CSS">
+            </div>
+            <div class="grid-item">
+              <img id="json" src="./items/json.png" alt="CSS">
+            </div>
+            <!-- Troisième ligne -->
+            <div class="grid-item">
+                <img id="angular" src="./items/Angular.png" alt="Angular">
+            </div>
+            <div class="grid-item">
+                <img id="nodeJs" src="./items/nodeJs.png" alt="Node.js">
+            </div>
+            <div class="grid-item">
+              <img id="vueJS" src="./items/vueJS.png" alt="Node.js">
+            </div>
+            <!-- Quatrième ligne -->
+            <div class="grid-item">
+                <img id="jQuery" src="./items/jQuery.png" alt="jQuery">
+            </div>
+            <div class="grid-item">
+                <img id="react" src="./items/react.png" alt="Git">
+            </div>
+            <div class="grid-item">
+              <img id="git" src="./items/git.png" alt="Git">
+            </div>
+        </div>
+    <noscript> </noscript>
+    <script src="jeux.js" type="module">
+    </script>
+  </body>
+</html>

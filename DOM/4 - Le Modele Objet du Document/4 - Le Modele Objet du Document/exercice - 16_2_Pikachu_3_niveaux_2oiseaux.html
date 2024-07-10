@@ -686,6 +686,31 @@
       }
     </style>
     <script>
+      var variables = {
+        dplX: 0,
+        dplXOiseau: 0,
+        dplXOiseau2: 0,
+        dplXGlobal: 0,
+        dplXGlobalOiseau: 0,
+        dplXGlobalOiseau2: 0,
+        vitesse: 30,
+        compteurDeClic: 0,
+        vitesseOiseau: 10,
+        vitesseOiseau2: 15,
+        direction: 0,
+        hauteur: 0,
+        direction2: 0,
+        hauteur2: 0,
+        largeurEcran: window.innerWidth,
+        hauteurEcran: window.innerHeight,
+        constanteAjustementhauteurEcran: window.innerHeight / window.innerWidth,
+        constanteAjustementLargeurEcran: 0.87,
+        constanteAjustementLargeurEcranOiseau: 0.92,
+        dplXChaudron: 0,
+        dplXGlobalChaudron: 0,
+        vitesseChaudron: 0,
+        backgroundFinishItem: 0
+      };
       var dplX = 0;
       var dplXOiseau = 0;
       var dplXOiseau2 = 0;
@@ -876,9 +901,9 @@
               moveRight(dplImage, dplImageGlobal);
               break;
             case 32: // saut barre espace
-              jump(dplImageGlobal);
+              jump(dplImageGlobal, dplImage);
             case 38: // saut touche du haut
-              jump2(dplImageGlobal);
+              jump2(dplImageGlobal, dplImage);
               break;
           }
           // var objetCollision = [
@@ -952,7 +977,7 @@
           //   "#endGame",
           // ];
 
-          function itemVisible(){
+        function itemVisible(){
           var itemApparent = Math.floor(Math.random()*objetCollision.length)
           var objetASaisir=document.querySelector(objetCollision[itemApparent])
           console.log('rrrrrrrrrrrr'+compteurDeClic)
@@ -1167,47 +1192,68 @@
           // dplImageGlobal.style.transition = "top 0.6s linear";
         }
       
+
         function jump(dplImageGlobal, dplImage) {
- 
           var rect = dplImageGlobal.getBoundingClientRect();
           var dplImage = document.querySelector("#image");
           var initialTop = rect.top;
           const initialTop2 = initialTop;
           // var jumpHeight = 600;
-          var jumpHeight = 250;
+          var jumpHeight = 450;
           var finalTop = initialTop2 - jumpHeight;
+
+          if (!isJumping) {
+            isJumping = true
 
           dplImageGlobal.style.top = finalTop + "px";
           if (dplImage.style.transform == "scaleX(-1)") {
             dplXGlobal -= 8 * vitesse;
             dplImageGlobal.style.left = dplXGlobal + "px";
+
+            if (dplXGlobal < 0) {
+            dplXGlobal = largeurEcran * constanteAjustementLargeurEcran;
+            dplImageGlobal.style.left = dplXGlobal + "px";
+          }
+
+
           }
           if (dplImage.style.transform == "") {
             dplXGlobal += 8 * vitesse;
             dplImageGlobal.style.left = dplXGlobal + "px";
+
+            if (dplXGlobal > largeurEcran * constanteAjustementLargeurEcran) {
+            dplXGlobal = 0;
+            // dplImageGlobal.style.top = "100px";
+            dplImageGlobal.style.left = dplXGlobal + "px";
+          }
+
           }
           setTimeout(function () {
             dplImageGlobal.style.top = initialTop2 + "px";
-            
+            isJumping=false
           }, 400);
+        }
           // dplImageGlobal.style.top = initialTop2 + "px";
         }
 
-        function jump2(dplImageGlobal, dplImage) {
+        var isJumping = false;
+        function jump2(dplImageGlobal) {
           var rect = dplImageGlobal.getBoundingClientRect();
-          var dplImage = document.querySelector("#image");
-          var initialTop = rect.top;
+          const initialTop = rect.top;
 
           var jumpHeight = 200;
           var finalTop = initialTop - jumpHeight;
-          dplImageGlobal.style.top = finalTop + "px";
-          setTimeout(function () {
-            dplImageGlobal.style.top = initialTop + "px";
-          }, 300);
+          if (!isJumping) {
+            isJumping = true;
+            dplImageGlobal.style.top = finalTop + "px";
+            setTimeout(function () {
+              dplImageGlobal.style.top = initialTop + "px";
+              isJumping = false;
+            }, 300);
+          }
         }
-        function jump3(dplImageGlobal, dplImage) {
+        function jump3(dplImageGlobal) {
           var rect = dplImageGlobal.getBoundingClientRect();
-          var dplImage = document.querySelector("#image");
           var initialTop = rect.top;
 
           var jumpHeight = 200;
