@@ -513,18 +513,7 @@
         width: 70%;
         transform: scaleX(-1);
       }
-      /* .containerDoubleSaut{
-        display:flex;
-        flex-direction: row;
-        align-items: center;
-        
-      }
-      .doubleSaut{
-        font-size: 2em;
-        font-family: "Permanent Marker", cursive;
-        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
 
-      } */
       .container {
       width: 100%;
     }
@@ -549,7 +538,7 @@
     }
 
     .colonneImage {
-      width: 32%; /* Pour trois colonnes avec des marges entre elles */
+      width: 32%; 
       text-align: center;
       /* padding: 20px; */
       /* box-sizing: border-box; */
@@ -638,10 +627,10 @@
         position: fixed;
         width: 20%;
         left: 70%;
-        top: 60vh; /* Ajustement pour être centré verticalement */
-        z-index: 400;
-            
+        top: 60vh; 
+        z-index: 400;  
         }
+
         #containerToBeContinue2 {
         display: none;
         text-align: center;
@@ -649,9 +638,10 @@
         position: fixed;
         width: 20%;
         left: 40%;
-        top: 40vh; /* Ajustement pour être centré verticalement */
+        top: 40vh; 
         z-index: 400;
         }
+
         #toBeContinue {
         font-size: 2em;
         font-family: "Permanent Marker", cursive;
@@ -668,8 +658,8 @@
         text-align: center;
         margin-top: 3vh;
         }
+
         #toBeContinue2{
-          
         transform: scaleX(-1);
         transform: scale(0.4);
         display: fixed;
@@ -680,22 +670,6 @@
         z-index: 500;
         }
 
-      /* .third-div {
-            display: none;
-            justify-content: space-between; 
-            border: 1px solid #000; 
-            padding: 10px;
-            margin-top: 50px;
-            z-index: 600;
-        }
-        .third-div > div {
-            border: 1px solid red; 
-            padding: 10px;
-        } */
-
-      /* .titreCompetencesVisible {
-        display: block; 
-      } */
       .grid-container {
           display: grid;
           grid-template-columns: repeat(3, 1fr); /* Deux colonnes égales */
@@ -710,9 +684,6 @@
       .grid-item img {
           max-width: 100%; /* Assurez-vous que les images ne dépassent pas leur conteneur */
       }
-
-      
-      
     </style>
     <script>
       var dplX = 0;
@@ -1208,11 +1179,11 @@
 
           dplImageGlobal.style.top = finalTop + "px";
           if (dplImage.style.transform == "scaleX(-1)") {
-            dplXGlobal -= 4 * vitesse;
+            dplXGlobal -= 8 * vitesse;
             dplImageGlobal.style.left = dplXGlobal + "px";
           }
           if (dplImage.style.transform == "") {
-            dplXGlobal += 4 * vitesse;
+            dplXGlobal += 8 * vitesse;
             dplImageGlobal.style.left = dplXGlobal + "px";
           }
           setTimeout(function () {
