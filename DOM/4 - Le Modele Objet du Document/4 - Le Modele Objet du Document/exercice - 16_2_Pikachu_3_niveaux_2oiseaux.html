@@ -318,22 +318,27 @@
       }
 
       #compteurDePoints {
-        background-color: rgb(4, 31, 31);
-        width: 10%;
+        /* background-color: rgb(4, 31, 31); */
+        background-color: rgb(210, 217, 202);
+        font-family: "Permanent Marker", cursive;
+        width: 30%;
         text-align: center;
-        color: aliceblue;
+        /* color: aliceblue; */
+        color: purple;
         position: absolute;
         top: 4vh;
         left: 4vw;
         height: 6vh;
-        font-size: 20px;
+        font-size: 32px;
         font-weight: bold;
-        border: 2px solid color white;
-        border-radius: 10px;
+        /* border: 2px solid color white; */
+        border: 10px solid black;
+        border-radius: 60px;
         z-index: 3;
         display: flex;
         justify-content: center;
         align-items: center;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
       #compteurDePointsInvisible{
         display: none;
@@ -718,6 +723,7 @@
       var dplXGlobalOiseau2 = 0;
       var vitesse = 30;
       var compteurDeClic = 0;
+      
       var vitesseOiseau = 10;
       var vitesseOiseau2 = 15;
       var direction = 0;
@@ -734,6 +740,20 @@
       var vitesseChaudron = 0;
       var backgroundFinishItem=0;
 
+      var objetCollision = [
+            "#magicPotions",
+            "#bouclier",
+            "#papyrus2",
+            "#fireBall",
+            "#sword",
+            "#CoinsA",
+            "#CoinsB",
+            "#CoinsB1",
+            "#CoinsC",
+            "#CoinsD",
+            "#endGame",
+          ];
+
       window.onload = function () {
         window.onkeydown = function (event) {
           var code = event.keyCode;
@@ -742,7 +762,14 @@
           if (code === 13) { 
               game.addEventListener("click", function () {
                 startingIndex.style.display = "none";
-                setInterval(itemVisible, 2000);
+                console.log("cpt clic"+compteurDeClic)
+                  // if(compteurDeClic <450){
+                  //aaaaaaaaa
+                    setInterval(itemVisible, 2000);
+                  // }
+
+
+                
               });
             }    
 
@@ -808,13 +835,13 @@
           compteurDePoints.innerText = "Nb de skills : " + compteurDeClic;
           dplImageGlobal.style.bottom = 0.2 * hauteurEcran + "px";
 
-          if (compteurDeClic > 7 && compteurDeClic < 15) {
+          if (compteurDeClic > 200 && compteurDeClic < 300) {
             fondJeux.src = "./fond/fond.png";
             couleurOiseau.querySelector("img").src = "./sprite/spriteBirds.png";
             couleurOiseau2.querySelector("img").src = "./sprite/spriteBirds.png";
           }
 
-          if (compteurDeClic >= 15) {
+          if (compteurDeClic >= 300) {
             fondJeux.src = "./fond/fond_2.png";
               if(backgroundFinishItem==1){
               fondJeux.src = "./fond/backgroundFinish.png";
@@ -831,7 +858,10 @@
               
             }
             fondJeux.style.transform = "scaleX(-1)";
-            dplImageGlobalChaudron.classList.add("masqueChaudronVisible")
+            if(compteurDeClic>450){
+              dplImageGlobalChaudron.classList.add("masqueChaudronVisible")
+            }
+            
             // endGame.classList.add("endGame")
             
             var dplGlobalPourcentage = Math.round(
@@ -880,41 +910,32 @@
               jump2(dplImageGlobal);
               break;
           }
-          var objetCollision = [
-            "#magicPotions",
-            "#bouclier",
-            "#papyrus2",
-            "#fireBall",
-            "#sword",
-            "#CoinsA",
-            "#CoinsB",
-            "#CoinsB1",
-            "#CoinsC",
-            "#CoinsD",
-            "#endGame",
-          ];
+          // var objetCollision = [
+          //   "#magicPotions",
+          //   "#bouclier",
+          //   "#papyrus2",
+          //   "#fireBall",
+          //   "#sword",
+          //   "#CoinsA",
+          //   "#CoinsB",
+          //   "#CoinsB1",
+          //   "#CoinsC",
+          //   "#CoinsD",
+          //   "#endGame",
+          // ];
          
           //   for(var i=0;i<objetCollision.length;i++){
           //   // objetCollision.style.display="block"
           //   console.log("bjetCollision.style.display",ObjetCollision.style.display)
           // }
-          function itemVisible(){
-          var itemApparent = Math.floor(Math.random()*objetCollision.length)
-          console.log("temApparent"+itemApparent)
-          var objetASaisir=document.querySelector(objetCollision[itemApparent])
-          objetASaisir.style.display="block"
-          setTimeout(() => {
-            objetASaisir.style.display="none"
-          }, 4000);
-          }
-          // if(startingIndex.style.display = "none"){
-           
+          // function itemVisible(){
+          // var itemApparent = Math.floor(Math.random()*objetCollision.length)
+          // var objetASaisir=document.querySelector(objetCollision[itemApparent])
+          //   objetASaisir.style.display="block"
+          //   setTimeout(() => {
+          //   objetASaisir.style.display="none"
+          //   }, 4000);
           // }
-         
-          // objetASaisir.style.display="none"
-         
-          
-
 
           for (var i = 0; i < objetCollision.length; i++) {
             checkCollision(dplImageGlobal,
@@ -924,6 +945,8 @@
           checkCollision2(dplImageGlobal,dplImageGlobalChaudron);
 
         };
+
+
 
         // en dehors de la zone oneClick sinon si je garde en mémoire le nombre de touche appuyé sur le clavier puis il ouvre n fois le CV après appuye sur le boutton CV
         var cv = document.querySelector("#CV");
@@ -943,6 +966,36 @@
             window.open(pdfUrl, "_blank");
             
           });
+
+          // var objetCollision = [
+          //   "#magicPotions",
+          //   "#bouclier",
+          //   "#papyrus2",
+          //   "#fireBall",
+          //   "#sword",
+          //   "#CoinsA",
+          //   "#CoinsB",
+          //   "#CoinsB1",
+          //   "#CoinsC",
+          //   "#CoinsD",
+          //   "#endGame",
+          // ];
+
+          function itemVisible(){
+          var itemApparent = Math.floor(Math.random()*objetCollision.length)
+          var objetASaisir=document.querySelector(objetCollision[itemApparent])
+          console.log('rrrrrrrrrrrr'+compteurDeClic)
+          if(compteurDeClic<450){
+           objetASaisir.style.display="block"
+            setTimeout(() => {
+            objetASaisir.style.display="none"
+            }, 4000); 
+          }
+          else{
+            objetASaisir.style.display="none"
+          }
+            
+          }
         function moveChaudron() {
           var dplImageChaudron = document.querySelector("#imageChaudron");
           var dplImageGlobalChaudron =
@@ -1148,10 +1201,10 @@
           var rect = dplImageGlobal.getBoundingClientRect();
           var dplImage = document.querySelector("#image");
           var initialTop = rect.top;
-          var initialTop2 = initialTop;
+          const initialTop2 = initialTop;
           // var jumpHeight = 600;
           var jumpHeight = 250;
-          var finalTop = initialTop - jumpHeight;
+          var finalTop = initialTop2 - jumpHeight;
 
           dplImageGlobal.style.top = finalTop + "px";
           if (dplImage.style.transform == "scaleX(-1)") {
@@ -1163,10 +1216,10 @@
             dplImageGlobal.style.left = dplXGlobal + "px";
           }
           setTimeout(function () {
-            dplImageGlobal.style.top = initialTop + "px";
+            dplImageGlobal.style.top = initialTop2 + "px";
             
           }, 400);
-          // dplImageGlobal.style.top = initialTop + "px";
+          // dplImageGlobal.style.top = initialTop2 + "px";
         }
 
         function jump2(dplImageGlobal, dplImage) {
@@ -1197,6 +1250,9 @@
         function checkCollision(dplImageGlobal, dplImageX) {
           var rect1 = dplImageGlobal.getBoundingClientRect();
           var rect2 = dplImageX.getBoundingClientRect();
+          console.log('zzzzzzzzzzzzzzz'+compteurDeClic)
+
+          
 
           if (
             rect1.left < rect2.right &&
@@ -1205,19 +1261,38 @@
             rect1.bottom > rect2.top
           ) {
             dplImageX.style.display = "none";
-            compteurDeClic += 1;
+            if(dplImageX.id=="CoinsA" || dplImageX.id=="CoinsC"|| dplImageX.id=="CoinsD"){
+              compteurDeClic += 1;
+            }
+
+            if(dplImageX.id=="sword" || dplImageX.id=="fireBall"){
+              compteurDeClic += 10;
+            }
+
+            if(dplImageX.id=="magicPotions" ){
+              compteurDeClic += 100;
+            }
+
+            if(dplImageX.id=="bouclier" || dplImageX.id=="papyrus2"){
+              compteurDeClic += 15;
+            }
+            
             if(dplImageX.id=="CoinsB" || dplImageX.id=="CoinsB1")
           {
             compteurDeClic=0
             setTimeout(() => {
               var compteurDePoints = document.querySelector("#compteurDePoints");
               compteurDePoints.style.background="red"
+              compteurDePoints.style.color="white"
+              compteurDePoints.style.animation="borderPulseButton 0.7s infinite"
               
-            }, 1000);
+            }, 10);
             
           }
-          compteurDePoints.style.background="black"
-            
+          compteurDePoints.style.background="rgb(210, 217, 202)"
+          compteurDePoints.style.color="purple"
+          compteurDePoints.style.animation=""
+         
           }
         }
 
@@ -1248,8 +1323,6 @@
           var containerToBeContinue2 = document.querySelector("#containerToBeContinue2")
           var buttonIndex2 =document.querySelector("#buttonIndex2")
          
-          
-
           if (
             rect1.left < rect2.right &&
             rect1.right > rect2.left &&
@@ -1266,17 +1339,10 @@
             compteurDePoints.style.display="none"
             titreCompetences.style.display="flex"
             containerToBeContinue2.style.display = "block";
-            // setTimeout(() => {
-            //   // itemsCompetences.style.display="block"
-              
-            //  // document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
-            // }, 2000);
 
-            // itemsCompetences.classList.add("itemsCompetencesVisible")
             setTimeout(() => {
               itemsCompetences.style.display="block"
               
-             // document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
             }, 2000);
             setTimeout(() => {
               javaScript.style.display="block"
@@ -1319,11 +1385,9 @@
             setTimeout(() => {
               git.style.display="block"
             },14000);
+
             setTimeout(() => {
               containerToBeContinue.style.display = "block";
-
-              // buttonIndex2.style.display="flex"
-              
             },15000);
            
           }
