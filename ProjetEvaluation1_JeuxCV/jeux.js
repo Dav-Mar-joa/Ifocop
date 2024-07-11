@@ -1,21 +1,29 @@
 
 import variables from './variables.js';
 console.log(variables)
-import * as qSelectors from './qSelectors.js';
+import qSelectors from './qSelectors.js';
 window.addEventListener('DOMContentLoaded', () => {
     
     window.onkeydown = function (event) {
       var code = event.keyCode;
       if (code === 13) { 
-          qSelectors.qSelectors.game.addEventListener("click", function () {
-            qSelectors.qSelectors.startingIndex.style.display = "none";
-            console.log("cpt clic"+variables.compteurDeClic)
+          qSelectors.game.addEventListener("click", function () {
+            qSelectors.startingIndex.style.display = "none";
                 setInterval(itemVisible, 2000);
           });
-        }    
+        }  
 
-      var rules = document.querySelector("#rules");
-      rules.addEventListener("click", function () {
+        var restart = document.querySelector("#restart")
+        restart.addEventListener("click",function () {
+            location.reload();
+        })
+
+        // const audioElement = document.getElementById('background-music');
+        // audioElement.loop = true; // Répète le son en boucle
+        // audioElement.play(); // Démarre la lecture du son
+        
+        var rules = document.querySelector("#rules");
+        rules.addEventListener("click", function () {
         var titre = document.querySelector(".imageIndexPerso")
         var titreDisplay = window.getComputedStyle(titre).getPropertyValue('display');
         var regle = document.querySelector(".indexRules")
@@ -36,91 +44,97 @@ window.addEventListener('DOMContentLoaded', () => {
         }
           
       });
+      qSelectors.fondJeux.src = "./fond/fond_3.png";
+      qSelectors.compteurDePoints.innerText = "Nb de skills : " + variables.compteurDeClic;
+      qSelectors.compteurDePointsRestant.innerText = "Niveau suivant "+" \u2794"+ " "+variables.level1
 
-      qSelectors.qSelectors.compteurDePoints.innerText = "Nb de skills : " + variables.compteurDeClic;
-      qSelectors.qSelectors.dplImageGlobal.style.bottom = 0.2 * variables.hauteurEcran + "px";
+      qSelectors.dplImageGlobal.style.bottom = 0.2 * variables.hauteurEcran + "px";
 
-      if (variables.compteurDeClic > 200 && variables.compteurDeClic < 300) {
-        qSelectors.qSelectors.fondJeux.src = "./fond/fond.png";
-        qSelectors.qSelectors.couleurOiseau.querySelector("img").src = "./sprite/spriteBirds.png";
-        qSelectors.qSelectors.couleurOiseau2.querySelector("img").src = "./sprite/spriteBirds.png";
+      if (variables.compteurDeClic > variables.level1 && variables.compteurDeClic < variables.level2) {
+        qSelectors.compteurDePointsRestant.innerText = "Niveau suivant  : " +variables.level2
+        qSelectors.fondJeux.src = "./fond/fond.png";
+        qSelectors.couleurOiseau.querySelector("img").src = "./sprite/spriteBirds.png";
+        qSelectors.couleurOiseau2.querySelector("img").src = "./sprite/spriteBirds.png";
       }
 
-      if (variables.compteurDeClic >= 300) {
-        qSelectors.qSelectors.fondJeux.src = "./fond/fond_2.png";
+      if (variables.compteurDeClic >= variables.level2) {
+        qSelectors.compteurDePointsRestant.innerText = "Niveau suivant  : " +variables.level2Fin
+        qSelectors.fondJeux.src = "./fond/fond_2.png";
           if(variables.backgroundFinishItem==1){
-          qSelectors.qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
+          qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
           console.log("dans la condition de fin")
-          qSelectors.qSelectors.fondJeux.style.zIndex=300
-          qSelectors.qSelectors.dplImageGlobal.classList.add("masqueInvisible")
-          couleurOiseau.classList.add("masqueOiseauInvisible")
-          couleurOiseau2.classList.add("masqueOiseauInvisible")
-          qSelectors.qSelectors.compteurDePoints.classList.add("compteurDePointsInvisible")
+          qSelectors.fondJeux.style.zIndex=300
+          qSelectors.dplImageGlobal.classList.add("masqueInvisible")
+          qSelectors.couleurOiseau.classList.add("masqueOiseauInvisible")
+          qSelectors.couleurOiseau2.classList.add("masqueOiseauInvisible")
+          qSelectors.compteurDePoints.classList.add("compteurDePointsInvisible")
 
-          qSelectors.qSelectors.itemsCompetences.style.display="block"
+          qSelectors.itemsCompetences.style.display="block"
           document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
           
         }
-        qSelectors.qSelectors.fondJeux.style.transform = "scaleX(-1)";
-        if(variables.compteurDeClic>450){
-          qSelectors.qSelectors.dplImageGlobalChaudron.classList.add("masqueChaudronVisible")
+        qSelectors.fondJeux.style.transform = "scaleX(-1)";
+        if(variables.compteurDeClic>variables.level2Fin){
+          qSelectors.dplImageGlobalChaudron.classList.add("masqueChaudronVisible")
         }
         
         var dplGlobalPourcentage = Math.round(
           (variables.dplXGlobal / variables.largeurEcran) * 100
         );
 
-        if (qSelectors.qSelectors.dplImage.style.transform == "") {
+        if (qSelectors.dplImage.style.transform == "") {
 
           if (dplGlobalPourcentage > -50 && dplGlobalPourcentage < 22) {
-            qSelectors.qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
+            qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
           }
           if (dplGlobalPourcentage >= 22 && dplGlobalPourcentage < 55) {
-            qSelectors.qSelectors.dplImageGlobal.style.top = 0.45 * variables.hauteurEcran + "px";
+            qSelectors.dplImageGlobal.style.top = 0.45 * variables.hauteurEcran + "px";
           }
 
           if (dplGlobalPourcentage >= 55 && dplGlobalPourcentage < 95 ) {
-            qSelectors.qSelectors.dplImageGlobal.style.top = 0.68 * variables.hauteurEcran + "px";
+            qSelectors.dplImageGlobal.style.top = 0.68 * variables.hauteurEcran + "px";
           }
           if (dplGlobalPourcentage >= 90 && dplGlobalPourcentage < 120 ) {
-            qSelectors.qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
+            qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
           }
         } else {
 
           if (dplGlobalPourcentage > -50 && dplGlobalPourcentage < 25) {
-            qSelectors.qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
+            qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
           }
           if (dplGlobalPourcentage >= 25 && dplGlobalPourcentage < 58) {
-            qSelectors.qSelectors.dplImageGlobal.style.top = 0.45 * variables.hauteurEcran + "px";
+            qSelectors.dplImageGlobal.style.top = 0.45 * variables.hauteurEcran + "px";
           }
           if (dplGlobalPourcentage >= 60 && dplGlobalPourcentage < 110) {
-            qSelectors.qSelectors.dplImageGlobal.style.top = 0.68 * variables.hauteurEcran + "px";
+            qSelectors.dplImageGlobal.style.top = 0.68 * variables.hauteurEcran + "px";
           }
         }
       }
 
       switch (code) {
         case 37: // gauche
-          moveLeft(qSelectors.qSelectors.dplImage, qSelectors.qSelectors.dplImageGlobal);
+          moveLeft(qSelectors.dplImage, qSelectors.dplImageGlobal);
           break;
         case 39: // droite
-          moveRight(qSelectors.qSelectors.dplImage, qSelectors.qSelectors.dplImageGlobal);
+          moveRight(qSelectors.dplImage, qSelectors.dplImageGlobal);
           break;
         case 32: // saut barre espace
-          jump(qSelectors.qSelectors.dplImageGlobal, qSelectors.qSelectors.dplImage);
+          jump(qSelectors.dplImageGlobal, qSelectors.dplImage);
         case 38: // saut touche du haut
-          jump2(qSelectors.qSelectors.dplImageGlobal, qSelectors.qSelectors.dplImage);
+          jump2(qSelectors.dplImageGlobal, qSelectors.dplImage);
           break;
       }
 
       for (var i = 0; i < variables.objetCollision.length; i++) {
-        checkCollision(qSelectors.qSelectors.dplImageGlobal,
+        checkCollision(qSelectors.dplImageGlobal,
           document.querySelector(variables.objetCollision[i]));
         }
 
-      checkCollision2(qSelectors.qSelectors.dplImageGlobal,qSelectors.qSelectors.dplImageGlobalChaudron);
+      checkCollision2(qSelectors.dplImageGlobal,qSelectors.dplImageGlobalChaudron);
 
     };
+
+   
 
 
     // en dehors de la zone oneClick sinon si je garde en mémoire le nombre de touche appuyé sur le clavier puis il ouvre n fois le CV après appuye sur le boutton CV
@@ -145,8 +159,14 @@ window.addEventListener('DOMContentLoaded', () => {
     function itemVisible(){
       var itemApparent = Math.floor(Math.random()*variables.objetCollision.length)
       var objetASaisir=document.querySelector(variables.objetCollision[itemApparent])
-      console.log('rrrrrrrrrrrr'+variables.compteurDeClic)
-      if(variables.compteurDeClic<450){
+
+      var top = Math.round(Math.random()*variables.hauteurEcran*0.7)
+      var left= Math.round(Math.random()*variables.largeurEcran -0.1*variables.largeurEcran)
+  
+      objetASaisir.style.top = top + 'px';
+      objetASaisir.style.left = left + 'px';
+    
+      if(variables.compteurDeClic<variables.level2Fin){
        objetASaisir.style.display="block"
         setTimeout(() => {
         objetASaisir.style.display="none"
@@ -164,11 +184,11 @@ window.addEventListener('DOMContentLoaded', () => {
       variables.dplXGlobalGlobal = 800;
       variables.dplXGlobalChaudron += variables.vitesseChaudron;
       variables.dplXChaudron -= 180;
-      qSelectors.qSelectors.dplImageGlobalChaudron.style.transition = "top 0.5s linear";
+      qSelectors.dplImageGlobalChaudron.style.transition = "top 0.5s linear";
 
       // Appliquer les positions mises à jour aux éléments
-      qSelectors.qSelectors.dplImageChaudron.style.left = variables.dplXChaudron + "px";
-      qSelectors.qSelectors.dplImageGlobalChaudron.style.right = variables.dplXGlobalChaudron + "px";
+      qSelectors.dplImageChaudron.style.left = variables.dplXChaudron + "px";
+      qSelectors.dplImageGlobalChaudron.style.right = variables.dplXGlobalChaudron + "px";
 
       // Réinitialisation lorsque l'oiseau sort de l'écran à gauche
       if (variables.dplXChaudron <= -620) {
@@ -211,24 +231,24 @@ window.addEventListener('DOMContentLoaded', () => {
       // var dplImageGlobalOiseau = document.querySelector("#containerOiseau");
 
       if (variables.direction % 2 == 0) {
-        qSelectors.qSelectors.dplImageOiseau.style.transform = "";
+        qSelectors.dplImageOiseau.style.transform = "";
         variables.dplXGlobalOiseau += variables.vitesseOiseau;
         variables.dplXOiseau -= 156;
       } else {
-        qSelectors.qSelectors.dplImageOiseau.style.transform = "scaleX(-1)";
+        qSelectors.dplImageOiseau.style.transform = "scaleX(-1)";
         variables.dplXGlobalOiseau -= variables.vitesseOiseau;
         variables.dplXOiseau -= 159;
       }
 
       if (variables.hauteur < 4) {
-        if (parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau.style.top) > 150) {
-          qSelectors.qSelectors.dplImageGlobalOiseau.style.top =
-            parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau.style.top || "0") -
+        if (parseFloat(qSelectors.dplImageGlobalOiseau.style.top) > 150) {
+          qSelectors.dplImageGlobalOiseau.style.top =
+            parseFloat(qSelectors.dplImageGlobalOiseau.style.top || "0") -
             0.2 * variables.hauteurEcran +
             "px";
         } else {
-          qSelectors.qSelectors.dplImageGlobalOiseau.style.top =
-            parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau.style.top || "0") +
+          qSelectors.dplImageGlobalOiseau.style.top =
+            parseFloat(qSelectors.dplImageGlobalOiseau.style.top || "0") +
             0.01 * variables.hauteurEcran +
             "px";
         }
@@ -236,14 +256,14 @@ window.addEventListener('DOMContentLoaded', () => {
       if (variables.hauteur >= 4 && variables.hauteur < 7) {
       }
       if (variables.hauteur > 9) {
-        qSelectors.qSelectors.dplImageGlobalOiseau.style.top =
-          parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau.style.top || "0") - 0.01 * variables.hauteurEcran +"px";
+        qSelectors.dplImageGlobalOiseau.style.top =
+          parseFloat(qSelectors.dplImageGlobalOiseau.style.top || "0") - 0.01 * variables.hauteurEcran +"px";
 
       }
 
-      qSelectors.qSelectors.dplImageGlobalOiseau.style.transition = "top 0.5s linear";
-      qSelectors.qSelectors.dplImageOiseau.style.left = variables.dplXOiseau + "px";
-      qSelectors.qSelectors.dplImageGlobalOiseau.style.left = variables.dplXGlobalOiseau + "px";
+      qSelectors.dplImageGlobalOiseau.style.transition = "top 0.5s linear";
+      qSelectors.dplImageOiseau.style.left = variables.dplXOiseau + "px";
+      qSelectors.dplImageGlobalOiseau.style.left = variables.dplXGlobalOiseau + "px";
 
       if (variables.dplXOiseau <= -950) {
         variables.dplXOiseau = 0;
@@ -254,13 +274,13 @@ window.addEventListener('DOMContentLoaded', () => {
         variables.largeurEcran * variables.constanteAjustementLargeurEcranOiseau
       ) {
         variables.dplXGlobalOiseau = 0;
-        qSelectors.qSelectors.dplImageGlobalOiseau.style.left = variables.dplXGlobalOiseau + "px";
+        qSelectors.dplImageGlobalOiseau.style.left = variables.dplXGlobalOiseau + "px";
       }
 
       if (variables.dplXGlobalOiseau < 0) {
         variables.dplXGlobalOiseau =
           variables.largeurEcran * variables.constanteAjustementLargeurEcranOiseau;
-        qSelectors.qSelectors.dplImageGlobalOiseau.style.right = variables.dplXGlobalOiseau + "px";
+        qSelectors.dplImageGlobalOiseau.style.right = variables.dplXGlobalOiseau + "px";
       }
     }
     setInterval(moveOiseau, 80);
@@ -271,24 +291,24 @@ window.addEventListener('DOMContentLoaded', () => {
       //   document.querySelector("#containerOiseau2");
 
       if (variables.direction2 % 2 == 0) {
-        qSelectors.qSelectors.dplImageOiseau2.style.transform = "";
+        qSelectors.dplImageOiseau2.style.transform = "";
         variables.dplXGlobalOiseau2 += variables.vitesseOiseau2;
         variables.dplXOiseau2 -= 156;
       } else {
-        qSelectors.qSelectors.dplImageOiseau2.style.transform = "scaleX(-1)";
+        qSelectors.dplImageOiseau2.style.transform = "scaleX(-1)";
         variables.dplXGlobalOiseau2 -= variables.vitesseOiseau2;
         variables.dplXOiseau2 -= 159;
       }
 
       if (variables.hauteur2 < 4) {
-        if (parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau2.style.top) > 250) {
-          qSelectors.qSelectors.dplImageGlobalOiseau2.style.top =
-            parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau2.style.top || "0") -
+        if (parseFloat(qSelectors.dplImageGlobalOiseau2.style.top) > 250) {
+          qSelectors.dplImageGlobalOiseau2.style.top =
+            parseFloat(qSelectors.dplImageGlobalOiseau2.style.top || "0") -
             0.1 * variables.hauteurEcran +
             "px";
         } else {
-          qSelectors.qSelectors.dplImageGlobalOiseau2.style.top =
-            parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau2.style.top || "0") +
+          qSelectors.dplImageGlobalOiseau2.style.top =
+            parseFloat(qSelectors.dplImageGlobalOiseau2.style.top || "0") +
             0.01 * variables.hauteurEcran +
             "px";
         }
@@ -296,16 +316,16 @@ window.addEventListener('DOMContentLoaded', () => {
       if (variables.hauteur2 >= 4 && variables.hauteur2 < 7) {
       }
       if (variables.hauteur2 > 9) {
-        qSelectors.qSelectors.dplImageGlobalOiseau2.style.top =
-          parseFloat(qSelectors.qSelectors.dplImageGlobalOiseau2.style.top || "0") -
+        qSelectors.dplImageGlobalOiseau2.style.top =
+          parseFloat(qSelectors.dplImageGlobalOiseau2.style.top || "0") -
           0.01 * variables.hauteurEcran +
           "px";
       }
 
-      qSelectors.qSelectors.dplImageGlobalOiseau2.style.transition = "top 0.5s linear";
+      qSelectors.dplImageGlobalOiseau2.style.transition = "top 0.5s linear";
 
-      qSelectors.qSelectors.dplImageOiseau2.style.left = variables.dplXOiseau2 + "px";
-      qSelectors.qSelectors.dplImageGlobalOiseau2.style.left = variables.dplXGlobalOiseau2 + "px";
+      qSelectors.dplImageOiseau2.style.left = variables.dplXOiseau2 + "px";
+      qSelectors.dplImageGlobalOiseau2.style.left = variables.dplXGlobalOiseau2 + "px";
 
       if (variables.dplXOiseau2 <= -950) {
         variables.dplXOiseau2 = 0;
@@ -316,13 +336,13 @@ window.addEventListener('DOMContentLoaded', () => {
         variables.largeurEcran * variables.constanteAjustementLargeurEcranOiseau
       ) {
         variables.dplXGlobalOiseau2 = 0;
-        qSelectors.qSelectors.dplImageGlobalOiseau2.style.left = variables.dplXGlobalOiseau2 + "px";
+        qSelectors.dplImageGlobalOiseau2.style.left = variables.dplXGlobalOiseau2 + "px";
       }
 
       if (variables.dplXGlobalOiseau2 < 0) {
         variables.dplXGlobalOiseau2 =
           variables.largeurEcran * variables.constanteAjustementLargeurEcranOiseau;
-        qSelectors.qSelectors.dplImageGlobalOiseau2.style.right = variables.dplXGlobalOiseau2 + "px";
+        qSelectors.dplImageGlobalOiseau2.style.right = variables.dplXGlobalOiseau2 + "px";
       }
     }
     function changeDirection2() {
@@ -431,9 +451,6 @@ window.addEventListener('DOMContentLoaded', () => {
     function checkCollision(dplImageGlobal, dplImageX) {
       var rect1 = dplImageGlobal.getBoundingClientRect();
       var rect2 = dplImageX.getBoundingClientRect();
-      console.log('zzzzzzzzzzzzzzz'+variables.compteurDeClic)
-
-      
 
       if (
         rect1.left < rect2.right &&
@@ -444,18 +461,26 @@ window.addEventListener('DOMContentLoaded', () => {
         dplImageX.style.display = "none";
         if(dplImageX.id=="CoinsA" || dplImageX.id=="CoinsC"|| dplImageX.id=="CoinsD"){
           variables.compteurDeClic += 1;
+          var coinsSound=document.getElementById("Points-music")
+          coinsSound.play()
         }
 
         if(dplImageX.id=="sword" || dplImageX.id=="fireBall"){
           variables.compteurDeClic += 10;
+          var swordSound=document.getElementById("Points-music")
+          swordSound.play()
         }
 
         if(dplImageX.id=="magicPotions" ){
           variables.compteurDeClic += 100;
+          var magicPotionsSound=document.getElementById("Points-music")
+          magicPotionsSound.play()
         }
 
         if(dplImageX.id=="bouclier" || dplImageX.id=="papyrus2"){
           variables.compteurDeClic += 15;
+          var bouclierSound=document.getElementById("Points-music")
+          bouclierSound.play()
         }
         
         if(dplImageX.id=="CoinsB" || dplImageX.id=="CoinsB1")
@@ -463,16 +488,18 @@ window.addEventListener('DOMContentLoaded', () => {
         variables.compteurDeClic=0
         setTimeout(() => {
           // var compteurDePoints = document.querySelector("#compteurDePoints");
-          qSelectors.qSelectors.compteurDePoints.style.background="red"
-          qSelectors.qSelectors.compteurDePoints.style.color="white"
-          qSelectors.qSelectors.compteurDePoints.style.animation="borderPulseButton 0.7s infinite"
+          qSelectors.compteurDePoints.style.background="red"
+          qSelectors.compteurDePoints.style.color="white"
+          qSelectors.compteurDePoints.style.animation="borderPulseButton 0.7s infinite"
+          var coinsBSound=document.getElementById("remisZero-music")
+          coinsBSound.play()
           
         }, 10);
         
       }
-      qSelectors.qSelectors.compteurDePoints.style.background="rgb(210, 217, 202)"
-      qSelectors.qSelectors.compteurDePoints.style.color="purple"
-      qSelectors.qSelectors.compteurDePoints.style.animation=""
+      qSelectors.compteurDePoints.style.background="rgb(210, 217, 202)"
+      qSelectors.compteurDePoints.style.color="purple"
+      qSelectors.compteurDePoints.style.animation=""
      
       }
     }
@@ -487,64 +514,67 @@ window.addEventListener('DOMContentLoaded', () => {
         rect1.top + 80 < rect2.bottom &&
         rect1.bottom > rect2.top
       ) {
-        qSelectors.qSelectors.dplImageGlobalChaudron.style.display = "none";
-        qSelectors.qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
+        var chaudronSound=document.getElementById("Points-music")
+        chaudronSound.play()
+        qSelectors.dplImageGlobalChaudron.style.display = "none";
+        qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
         variables.backgroundFinishItem=1
         dplImageGlobal.style.display="none"
-        qSelectors.qSelectors.dplImageGlobalOiseau.style.display="none"
-        qSelectors.qSelectors.dplImageGlobalOiseau2.style.display="none"
-        qSelectors.qSelectors.compteurDePoints.style.display="none"
-        qSelectors.qSelectors.titreCompetences.style.display="flex"
-        qSelectors.qSelectors.containerToBeContinue2.style.display = "block";
+        qSelectors.dplImageGlobalOiseau.style.display="none"
+        qSelectors.dplImageGlobalOiseau2.style.display="none"
+        qSelectors.compteurDePoints.style.display="none"
+        qSelectors.compteurDePointsRestant.style.display="none"
+        qSelectors.titreCompetences.style.display="flex"
+        qSelectors.containerToBeContinue2.style.display = "block";
 
         setTimeout(() => {
-          qSelectors.qSelectors.itemsCompetences.style.display="block"
+          qSelectors.itemsCompetences.style.display="block"
           
         }, 2000);
         setTimeout(() => {
-          qSelectors.qSelectors.javaScript.style.display="block"
+          qSelectors.javaScript.style.display="block"
         }, 3000);
         setTimeout(() => {
-          qSelectors.qSelectors.typeScript.style.display="block"
+          qSelectors.typeScript.style.display="block"
         }, 4000);
         setTimeout(() => {
-          qSelectors.qSelectors.mongoDB.style.display="block"
+          qSelectors.mongoDB.style.display="block"
         }, 5000);
 
 
         setTimeout(() => {
-          qSelectors.qSelectors.html.style.display="block"
+          qSelectors.html.style.display="block"
         }, 6000);
         setTimeout(() => {
-          qSelectors.qSelectors.css.style.display="block"
+          qSelectors.css.style.display="block"
         }, 7000);
         setTimeout(() => {
-          qSelectors.qSelectors.json.style.display="block"
+          qSelectors.json.style.display="block"
         }, 8000);
 
 
         setTimeout(() => {
-          qSelectors.qSelectors.angular.style.display="block"
+          qSelectors.angular.style.display="block"
         }, 9000);
         setTimeout(() => {
-          qSelectors.qSelectors.nodeJs.style.display="block"
+          qSelectors.nodeJs.style.display="block"
         }, 10000);
         setTimeout(() => {
-          qSelectors.qSelectors.vueJS.style.display="block"
+          qSelectors.vueJS.style.display="block"
         }, 11000);
 
         setTimeout(() => {
-          qSelectors.qSelectors.jQuery.style.display="block"
+          qSelectors.jQuery.style.display="block"
         }, 12000);
         setTimeout(() => {
-          qSelectors.qSelectors.react.style.display="block"
+          qSelectors.react.style.display="block"
         }, 13000);
         setTimeout(() => {
-          qSelectors.qSelectors.git.style.display="block"
+          qSelectors.git.style.display="block"
         },14000);
 
         setTimeout(() => {
-          qSelectors.qSelectors.containerToBeContinue.style.display = "block";
+          qSelectors.containerToBeContinue.style.display = "block";
         },15000);
        
       }

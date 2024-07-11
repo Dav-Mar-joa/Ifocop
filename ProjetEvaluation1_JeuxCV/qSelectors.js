@@ -1,4 +1,4 @@
-export var qSelectors = {
+const qSelectors = {
     startingIndex : document.querySelector("#startingIndex"),
     game : document.querySelector("#game"),
     // rules : document.querySelector("#rules"),
@@ -7,7 +7,7 @@ export var qSelectors = {
     // regle : document.querySelector(".indexRules"),
     // regleDisplay : window.getComputedStyle(document.querySelector(".indexRules")).getPropertyValue('display'),
     dplImageGlobal : document.querySelector("#container"),
-
+    // restart: document.querySelector('#restart'),
     fondJeux : document.querySelector("#fond"),
     items:document.querySelector("#itemsCompetences"),
     couleurOiseau : document.querySelector("#containerOiseau"),
@@ -22,7 +22,8 @@ export var qSelectors = {
     dplImage : document.querySelector("#image"),
     dplImageGlobalOiseau : document.querySelector("#containerOiseau"),
     dplImageGlobalOiseau2 : document.querySelector("#containerOiseau2"),
-    compteurDePoints : document.querySelector("#compteurDePoints"),
+    compteurDePoints : document.querySelector("#compteurDePointsRestant"),
+    compteurDePointsRestant : document.querySelector("#compteurDePoints"),
     itemsCompetences : document.querySelector("#itemsCompetences"),
     javaScript : document.querySelector("#javaScript"),
     typeScript : document.querySelector("#typeScript"),
@@ -41,3 +42,5 @@ export var qSelectors = {
     containerToBeContinue2 : document.querySelector("#containerToBeContinue2"),
     buttonIndex2 :document.querySelector("#buttonIndex2")
   }
+
+  export default qSelectors;

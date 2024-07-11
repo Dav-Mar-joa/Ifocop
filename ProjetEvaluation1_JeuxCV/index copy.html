@@ -7,38 +7,36 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <audio id="background-music" src="./audio/SoundGame.mp3" autoplay loop></audio>
-    <audio id="remisZero-music" src="./audio/objectBreakSoundEffects.mp3" ></audio>
-    <audio id="Points-music" src="./audio/okSound.mp3" ></audio>
+    <!-- <audio id="background-music" src="./audio/SoundGame.mp3" autoplay loop></audio> -->
     <h1 id="h1"></h1>
     <div id="startingIndex">
         <div class="imageIndexPerso">
           <img class="personnage" src="./perso/persoUniqueVert.png" />
 
-          <p class="titreJeux">
+          <p classe="titreJeux">
             JavaScript's <br />
             Adventure
           </p>
         </div>
         <!-- <p>Rules</p> -->
-        <div id="indexRulesContainer">
-          <div class="indexRules">
-              <div class="commentaireRegle">Saut</div>
+        
+        <div class="indexRules">
+          <div class="commentaireRegle">Saut</div>
               <div class="separationTroisColonnes">
-                  <div class="colonneImage">
-                    <img class="personnageRulesInverse" src="./perso/persoUniqueVert.png" />
-                  </div>
-                  <div class="colonneImage">
-                    <img class="touchesDirections" src="./clavier/touchesDirections.png" />
-                  </div>
-                  <div class="colonneImage">
-                    <img class="personnageRules" src="./perso/persoUniqueVert.png" />
-                  </div>
+                <div class="colonneImage">
+                  <img class="personnageRulesInverse" src="./perso/persoUniqueVert.png" />
                 </div>
+                <div class="colonneImage">
+                  <img class="touchesDirections" src="./clavier/touchesDirections.png" />
+                </div>
+                <div class="colonneImage">
+                  <img class="personnageRules" src="./perso/persoUniqueVert.png" />
+                </div>
+              </div>
               <div class="commentaireRegle">Touche "espace" : double saut</div>
             </div>
-        </div>
 
+            
           <div class="commentaire">Select and press "Enter"</div>
           <div class="positionbouttons">
             <button class="buttonIndex" id="game">Jeux</button>
@@ -83,13 +81,12 @@
       <div><img src="./itemsQuete/fireBall.png" id="fireBall" /></div>
       <div><img src="./itemsQuete/sword.png" id="sword" /></div>
       <div><img src="./itemsQuete/coins.png" id="CoinsA" /></div>
-      <div><img src="./itemsQuete/skull.png" id="CoinsB" /></div>
-      <div><img src="./itemsQuete/skull.png" id="CoinsB1" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsB" /></div>
+      <div><img src="./itemsQuete/coins.png" id="CoinsB1" /></div>
       <div><img src="./itemsQuete/coins.png" id="CoinsC" /></div>
       <div><img src="./itemsQuete/coins.png" id="CoinsD" /></div>
 
       <div id="compteurDePoints"></div>
-      <div id="compteurDePointsRestant"></div>
 
       <div id="containerToBeContinue">
         
@@ -100,8 +97,7 @@
         <div class="positionbouttons">
           <button class="buttonIndex2" id="CV2">CV</button>
         </div>
-        <!-- <div id="toBeContinue">To be continued ...</div> -->
-        <button id="restart">Restart</button>
+        <div id="toBeContinue">To be continued ...</div>
       </div>
 
       <div id="containerToBeContinue2">
