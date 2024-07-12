@@ -23,7 +23,7 @@ const variables = {
     vitesseChaudron: 0,
     level1:120,
     level2:290,
-    level2Fin:380,
+    level2Fin:350,
     isJumping : false,
     backgroundFinishItem: 0,
     objetCollision: [
