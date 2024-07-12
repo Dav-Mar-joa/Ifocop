@@ -22,7 +22,7 @@ const variables = {
     dplXGlobalChaudron: 0,
     vitesseChaudron: 0,
     level1:120,
-    level2:250,
+    level2:290,
     level2Fin:380,
     isJumping : false,
     backgroundFinishItem: 0,
