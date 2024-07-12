@@ -15,6 +15,7 @@ const qSelectors = {
     // compteurDePoints : document.querySelector("#compteurDePoints"),
     endGame : document.querySelector("#endGame"),
     // itemsCompetences : document.querySelector("#itemsCompetences"),
+    restart : document.querySelector("#restart"),
     dplImageChaudron : document.querySelector("#imageChaudron"),
     dplImageGlobalChaudron :document.querySelector("#containerChaudron"),
     dplImageOiseau : document.querySelector("#imageOiseau"),

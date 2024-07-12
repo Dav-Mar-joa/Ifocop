@@ -3,188 +3,27 @@ import variables from './variables.js';
 console.log(variables)
 import qSelectors from './qSelectors.js';
 window.addEventListener('DOMContentLoaded', () => {
-let seconds = 0;    
+    
     window.onkeydown = function (event) {
       var code = event.keyCode;
-
-    if (code === 13) { 
-          debutJeux()
+      if (code === 13) { 
+          qSelectors.game.addEventListener("click", function () {
+            qSelectors.startingIndex.style.display = "none";
+                setInterval(itemVisible, 2000);
+          });
         }  
-    // Fonction restart qui rafraichit la page pour recommencer le jeux 
 
-    restartGame()
-
-    // Affichage du titre et lors du clic sur "Règle" affichcage des règles à la place (toggle) 
-
-    affichageDesRegles()
-
-    // Premiertableau avec les data à afficher 
-
-    conditionInitales()
-
-    // Second tableau avec les data à afficher + changement de la couleur des oiseaux 
-
-    conditionLevel2()
-
-    // Troisième tableau avec les data à afficher 
-
-    conditionLevel3()
-
-      switch (code) {
-        case 37: // gauche
-          moveLeft(qSelectors.dplImage, qSelectors.dplImageGlobal);
-          break;
-        case 39: // droite
-          moveRight(qSelectors.dplImage, qSelectors.dplImageGlobal);
-          break;
-        case 32: // saut barre espace
-          jump(qSelectors.dplImageGlobal, qSelectors.dplImage);
-        case 38: // saut touche du haut
-          jump2(qSelectors.dplImageGlobal, qSelectors.dplImage);
-          break;
-      }
-
-    collison()
-
-    };
-
-    function debutJeux () {
-      qSelectors.game.addEventListener("click", function () {
-        qSelectors.startingIndex.style.display = "none";
-
-        var timer = setInterval(function() {
-          seconds++;
-          if(seconds<60){
-            document.getElementById('timer').innerText = "Temps : " + seconds + " sec";
-          }
-          else{
-            let minutes = Math.floor(seconds / 60);
-            let secondsBis = seconds % 60;
-            document.getElementById('timer').innerText = "Temps : " +minutes+" min "+ secondsBis + " sec";
-          }
-      }, 1000);
-    // Génération des coordonnées X et Y des itmes à afficher avc intervalle toutes les 2sc
-              setInterval(itemVisible, 2000);
-        });
-    }
-
-    function restartGame (){
-      qSelectors.restart.addEventListener("click",function () {
+        var restart = document.querySelector("#restart")
+        restart.addEventListener("click",function () {
             location.reload();
         })
-    }
 
-    function conditionInitales(){
-      qSelectors.dplImageGlobal.style.top = 0.49 * variables.hauteurEcran + "px";
-    // Premier tableau avec les data à afficher
-      qSelectors.fondJeux.src = "./fond/fond_3.png";
-      qSelectors.compteurDePoints.innerText = "Nb de skills : " + variables.compteurDeClic;
-      qSelectors.compteurDePointsRestant.innerText = "Niveau suivant "+" \u2794"+ " "+variables.level1
-      qSelectors.dplImageGlobal.style.bottom = 0.2 * variables.hauteurEcran + "px";
-    }
-
-    function conditionLevel2(){
-      if (variables.compteurDeClic > variables.level1 && variables.compteurDeClic < variables.level2) {
-        qSelectors.compteurDePointsRestant.innerText = "Niveau suivant  : " +variables.level2
-        qSelectors.fondJeux.src = "./fond/fond.png";
-        qSelectors.couleurOiseau.querySelector("img").src = "./sprite/spriteBirds.png";
-        qSelectors.couleurOiseau2.querySelector("img").src = "./sprite/spriteBirds.png";
-      }
-    }
-
-    function conditionLevel3(){
-      
-      if (variables.compteurDeClic >= variables.level2) {
-        qSelectors.compteurDePointsRestant.innerText = "Niveau suivant  : " +variables.level2Fin
-         qSelectors.fondJeux.src = "./fond/fond_2.png"
-       ;
-          if(variables.backgroundFinishItem==1){
-          qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
-          qSelectors.fondJeux.style.zIndex=300
-          qSelectors.dplImageGlobal.classList.add("masqueInvisible")
-          qSelectors.couleurOiseau.classList.add("masqueOiseauInvisible")
-          qSelectors.couleurOiseau2.classList.add("masqueOiseauInvisible")
-          qSelectors.compteurDePoints.classList.add("compteurDePointsInvisible")
-
-          qSelectors.itemsCompetences.style.display="block"
-          document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
-          
-        }
-        qSelectors.fondJeux.style.transform = "scaleX(-1)";
-    //Arrivé a un stade de points affiche du chaudron final 
-        if(variables.compteurDeClic>variables.level2Fin){
-          qSelectors.dplImageGlobalChaudron.classList.add("masqueChaudronVisible")
-        }
+        // const audioElement = document.getElementById('background-music');
+        // audioElement.loop = true; // Répète le son en boucle
+        // audioElement.play(); // Démarre la lecture du son
         
-        var dplGlobalPourcentage = Math.round(
-          (variables.dplXGlobal / variables.largeurEcran) * 100
-        );
-
-    // Determination des conditions limites en Y en fonction de la postions du personnage
-
-        if (qSelectors.dplImage.style.transform == "") {
-
-          if (dplGlobalPourcentage > -50 && dplGlobalPourcentage < 22) {
-            qSelectors.dplImageGlobal.style.top = 0.25 * variables.hauteurEcran + "px";
-          }
-          if (dplGlobalPourcentage >= 22 && dplGlobalPourcentage < 55) {
-            qSelectors.dplImageGlobal.style.top = 0.41 * variables.hauteurEcran + "px";
-          }
-
-          if (dplGlobalPourcentage >= 55 && dplGlobalPourcentage < 95 ) {
-            qSelectors.dplImageGlobal.style.top = 0.62 * variables.hauteurEcran + "px";
-          }
-          if (dplGlobalPourcentage >= 90 && dplGlobalPourcentage < 120 ) {
-            qSelectors.dplImageGlobal.style.top = 0.25 * variables.hauteurEcran + "px";
-          }
-        } else {
-
-          if (dplGlobalPourcentage > -50 && dplGlobalPourcentage < 25) {
-            qSelectors.dplImageGlobal.style.top = 0.25 * variables.hauteurEcran + "px";
-          }
-          if (dplGlobalPourcentage >= 25 && dplGlobalPourcentage < 58) {
-            qSelectors.dplImageGlobal.style.top = 0.41 * variables.hauteurEcran + "px";
-          }
-          if (dplGlobalPourcentage >= 60 && dplGlobalPourcentage < 110) {
-            qSelectors.dplImageGlobal.style.top = 0.62 * variables.hauteurEcran + "px";
-          }
-        }
-      }
-    }
-    
-    function collison(){
-      for (var i = 0; i < variables.objetCollision.length; i++) {
-        checkCollision(qSelectors.dplImageGlobal,
-          document.querySelector(variables.objetCollision[i]));
-        }
-
-      checkCollision2(qSelectors.dplImageGlobal,qSelectors.dplImageGlobalChaudron);
-    }
-
-    // En dehors de la zone oneClick sinon on garde en mémoire le nombre n de touche appuyée sur le clavier puis il ouvre n fois le CV après avant appuyé sur le boutton CV
-    var cv = document.querySelector("#CV");
-      cv.addEventListener("click", function () {
-        var linkedInUrl="https://www.linkedin.com/in/david-joaquim-martins/"
-        window.open(linkedInUrl, "_blank");
-        var pdfUrl = "./CV/DavidMartinsCV.pdf";
-        window.open(pdfUrl, "_blank");
-        
-      });
-
-      var cv2 = document.querySelector("#CV2");
-      cv2.addEventListener("click", function () {
-        var linkedInUrl="https://www.linkedin.com/in/david-joaquim-martins/"
-        window.open(linkedInUrl, "_blank");
-        var pdfUrl = "./CV/DavidMartinsCV.pdf";
-        window.open(pdfUrl, "_blank");
-        
-      });
-
-    // Affichage du titre et lors du clic sur "Règle" affichcage des règles à la place (toggle) 
-
-    function affichageDesRegles(){
-      var rules = document.querySelector("#rules");
-      rules.addEventListener("click", function () {
+        var rules = document.querySelector("#rules");
+        rules.addEventListener("click", function () {
         var titre = document.querySelector(".imageIndexPerso")
         var titreDisplay = window.getComputedStyle(titre).getPropertyValue('display');
         var regle = document.querySelector(".indexRules")
@@ -205,9 +44,117 @@ let seconds = 0;
         }
           
       });
-    }
+      qSelectors.fondJeux.src = "./fond/fond_3.png";
+      qSelectors.compteurDePoints.innerText = "Nb de skills : " + variables.compteurDeClic;
+      qSelectors.compteurDePointsRestant.innerText = "Niveau suivant "+" \u2794"+ " "+variables.level1
 
-    // Fonction d'affichage "ramdom" des items + "ramdom" position en X et "ramdom" position en Y
+      qSelectors.dplImageGlobal.style.bottom = 0.2 * variables.hauteurEcran + "px";
+
+      if (variables.compteurDeClic > variables.level1 && variables.compteurDeClic < variables.level2) {
+        qSelectors.compteurDePointsRestant.innerText = "Niveau suivant  : " +variables.level2
+        qSelectors.fondJeux.src = "./fond/fond.png";
+        qSelectors.couleurOiseau.querySelector("img").src = "./sprite/spriteBirds.png";
+        qSelectors.couleurOiseau2.querySelector("img").src = "./sprite/spriteBirds.png";
+      }
+
+      if (variables.compteurDeClic >= variables.level2) {
+        qSelectors.compteurDePointsRestant.innerText = "Niveau suivant  : " +variables.level2Fin
+        qSelectors.fondJeux.src = "./fond/fond_2.png";
+          if(variables.backgroundFinishItem==1){
+          qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
+          console.log("dans la condition de fin")
+          qSelectors.fondJeux.style.zIndex=300
+          qSelectors.dplImageGlobal.classList.add("masqueInvisible")
+          qSelectors.couleurOiseau.classList.add("masqueOiseauInvisible")
+          qSelectors.couleurOiseau2.classList.add("masqueOiseauInvisible")
+          qSelectors.compteurDePoints.classList.add("compteurDePointsInvisible")
+
+          qSelectors.itemsCompetences.style.display="block"
+          document.querySelector("#titreCompetences").classList.add("titreCompetencesVisible");
+          
+        }
+        qSelectors.fondJeux.style.transform = "scaleX(-1)";
+        if(variables.compteurDeClic>variables.level2Fin){
+          qSelectors.dplImageGlobalChaudron.classList.add("masqueChaudronVisible")
+        }
+        
+        var dplGlobalPourcentage = Math.round(
+          (variables.dplXGlobal / variables.largeurEcran) * 100
+        );
+
+        if (qSelectors.dplImage.style.transform == "") {
+
+          if (dplGlobalPourcentage > -50 && dplGlobalPourcentage < 22) {
+            qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
+          }
+          if (dplGlobalPourcentage >= 22 && dplGlobalPourcentage < 55) {
+            qSelectors.dplImageGlobal.style.top = 0.45 * variables.hauteurEcran + "px";
+          }
+
+          if (dplGlobalPourcentage >= 55 && dplGlobalPourcentage < 95 ) {
+            qSelectors.dplImageGlobal.style.top = 0.68 * variables.hauteurEcran + "px";
+          }
+          if (dplGlobalPourcentage >= 90 && dplGlobalPourcentage < 120 ) {
+            qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
+          }
+        } else {
+
+          if (dplGlobalPourcentage > -50 && dplGlobalPourcentage < 25) {
+            qSelectors.dplImageGlobal.style.top = 0.3 * variables.hauteurEcran + "px";
+          }
+          if (dplGlobalPourcentage >= 25 && dplGlobalPourcentage < 58) {
+            qSelectors.dplImageGlobal.style.top = 0.45 * variables.hauteurEcran + "px";
+          }
+          if (dplGlobalPourcentage >= 60 && dplGlobalPourcentage < 110) {
+            qSelectors.dplImageGlobal.style.top = 0.68 * variables.hauteurEcran + "px";
+          }
+        }
+      }
+
+      switch (code) {
+        case 37: // gauche
+          moveLeft(qSelectors.dplImage, qSelectors.dplImageGlobal);
+          break;
+        case 39: // droite
+          moveRight(qSelectors.dplImage, qSelectors.dplImageGlobal);
+          break;
+        case 32: // saut barre espace
+          jump(qSelectors.dplImageGlobal, qSelectors.dplImage);
+        case 38: // saut touche du haut
+          jump2(qSelectors.dplImageGlobal, qSelectors.dplImage);
+          break;
+      }
+
+      for (var i = 0; i < variables.objetCollision.length; i++) {
+        checkCollision(qSelectors.dplImageGlobal,
+          document.querySelector(variables.objetCollision[i]));
+        }
+
+      checkCollision2(qSelectors.dplImageGlobal,qSelectors.dplImageGlobalChaudron);
+
+    };
+
+   
+
+
+    // en dehors de la zone oneClick sinon si je garde en mémoire le nombre de touche appuyé sur le clavier puis il ouvre n fois le CV après appuye sur le boutton CV
+    var cv = document.querySelector("#CV");
+      cv.addEventListener("click", function () {
+        var linkedInUrl="https://www.linkedin.com/in/david-joaquim-martins/"
+        window.open(linkedInUrl, "_blank");
+        var pdfUrl = "./CV/DavidMartinsCV.pdf";
+        window.open(pdfUrl, "_blank");
+        
+      });
+
+      var cv2 = document.querySelector("#CV2");
+      cv2.addEventListener("click", function () {
+        var linkedInUrl="https://www.linkedin.com/in/david-joaquim-martins/"
+        window.open(linkedInUrl, "_blank");
+        var pdfUrl = "./CV/DavidMartinsCV.pdf";
+        window.open(pdfUrl, "_blank");
+        
+      });
 
     function itemVisible(){
       var itemApparent = Math.floor(Math.random()*variables.objetCollision.length)
@@ -230,28 +177,26 @@ let seconds = 0;
       }
         
       }
-
-    //  Fonction sprite pour l'item final après obtention d'un nimbre de points définis pour finir la partie
     function moveChaudron() {
+      // var dplImageChaudron = document.querySelector("#imageChaudron");
+      // var dplImageGlobalChaudron =
+      //   document.querySelector("#containerChaudron");
       variables.dplXGlobalGlobal = 800;
       variables.dplXGlobalChaudron += variables.vitesseChaudron;
       variables.dplXChaudron -= 180;
       qSelectors.dplImageGlobalChaudron.style.transition = "top 0.5s linear";
 
-    //  Appliquer les positions mises à jour aux éléments
+      // Appliquer les positions mises à jour aux éléments
       qSelectors.dplImageChaudron.style.left = variables.dplXChaudron + "px";
       qSelectors.dplImageGlobalChaudron.style.right = variables.dplXGlobalChaudron + "px";
 
+      // Réinitialisation lorsque l'oiseau sort de l'écran à gauche
       if (variables.dplXChaudron <= -620) {
         variables.dplXChaudron = 0;
       }
     }
 
-    // évolution continue du sprite 
-
     setInterval(moveChaudron, 80);
-
-    // fonction mouvement de gauche   
 
     function moveLeft(dplImage, dplImageGlobal) {
       dplImage.style.transform = "scaleX(-1)";
@@ -265,35 +210,26 @@ let seconds = 0;
         dplImage.style.left = variables.dplX + "px";
       }
 
-    // Si dépacement du de la largeur de l'écran -*> personnage arrive coté droit avec une constante d'ajustement
-
       if (variables.dplXGlobal < 0) {
         variables.dplXGlobal = variables.largeurEcran * variables.constanteAjustementLargeurEcran;
         dplImageGlobal.style.left = variables.dplXGlobal + "px";
       }
     }
 
-    // Fonction pour créer une entrée pour gérer un mouvement aléatoire droite  / gauche de l'oiseau 1 
-
     function changeDirection() {
       variables.direction = Math.floor(Math.random() * 100);
     }
-
-    // Génération toute les 2sc de l'entrée pourle mouvement droite / gauche de l'oiseau 1
     setInterval(changeDirection, 2000);
-
-    // Fonction pour créer une entrée pour gérer un mouvement aléatoire haut / constant / bas de l'oiseau 1 
 
     function changeHauteur() {
       variables.hauteur = Math.floor(Math.random() * 10);
     }
-    // Génération toute les 0.5 sc de l'entrée pour le mouvement haut / constant / bas de l'oiseau 1  
     setInterval(changeHauteur, 500);
 
-    // Fonction du mouveau du sprite oiseau ( avec mouvement aléatoire haut -> bas et inversement + droite / gauche)  
-
     function moveOiseau() {
- 
+      // var dplImageOiseau = document.querySelector("#imageOiseau");
+      // var dplImageGlobalOiseau = document.querySelector("#containerOiseau");
+
       if (variables.direction % 2 == 0) {
         qSelectors.dplImageOiseau.style.transform = "";
         variables.dplXGlobalOiseau += variables.vitesseOiseau;
@@ -350,6 +286,9 @@ let seconds = 0;
     setInterval(moveOiseau, 80);
 
     function moveOiseau2() {
+      // var dplImageOiseau2 = document.querySelector("#imageOiseau2");
+      // var dplImageGlobalOiseau2 =
+      //   document.querySelector("#containerOiseau2");
 
       if (variables.direction2 % 2 == 0) {
         qSelectors.dplImageOiseau2.style.transform = "";
@@ -432,10 +371,13 @@ let seconds = 0;
 
       if (variables.dplXGlobal > variables.largeurEcran * variables.constanteAjustementLargeurEcran) {
         variables.dplXGlobal = 0;
+        // dplImageGlobal.style.top = "100px";
         dplImageGlobal.style.left = variables.dplXGlobal + "px";
       }
+      // dplImageGlobal.style.transition = "top 0.6s linear";
     }
   
+
     function jump(dplImageGlobal, dplImage) {
       var rect = dplImageGlobal.getBoundingClientRect();
       var dplImage = document.querySelector("#image");
@@ -445,8 +387,8 @@ let seconds = 0;
       var jumpHeight = 450;
       var finalTop = initialTop2 - jumpHeight;
 
-      if (!variables.isJumping) {
-        variables.isJumping = true
+      if (!isJumping) {
+        isJumping = true
 
       dplImageGlobal.style.top = finalTop + "px";
       if (dplImage.style.transform == "scaleX(-1)") {
@@ -472,26 +414,38 @@ let seconds = 0;
       }
       setTimeout(function () {
         dplImageGlobal.style.top = initialTop2 + "px";
-        variables.isJumping=false
+        isJumping=false
       }, 400);
     }
       // dplImageGlobal.style.top = initialTop2 + "px";
     }
 
+    var isJumping = false;
     function jump2(dplImageGlobal) {
       var rect = dplImageGlobal.getBoundingClientRect();
       const initialTop = rect.top;
 
       var jumpHeight = 200;
       var finalTop = initialTop - jumpHeight;
-      if (!variables.isJumping) {
-        variables.isJumping = true;
+      if (!isJumping) {
+        isJumping = true;
         dplImageGlobal.style.top = finalTop + "px";
         setTimeout(function () {
           dplImageGlobal.style.top = initialTop + "px";
-          variables.isJumping = false;
+          isJumping = false;
         }, 300);
       }
+    }
+    function jump3(dplImageGlobal) {
+      var rect = dplImageGlobal.getBoundingClientRect();
+      var initialTop = rect.top;
+
+      var jumpHeight = 200;
+      var finalTop = initialTop - jumpHeight;
+      dplImageGlobal.style.top = finalTop + "px";
+      setTimeout(function () {
+        dplImageGlobal.style.top = initialTop + "px";
+      }, 300);
     }
 
     function checkCollision(dplImageGlobal, dplImageX) {
@@ -503,11 +457,7 @@ let seconds = 0;
         rect1.right > rect2.left &&
         rect1.top + 80 < rect2.bottom &&
         rect1.bottom > rect2.top
-      ) 
-
-      // Compteurs des points en fonction de la collision du personnage avec  l'Id + sons  
-      
-      {
+      ) {
         dplImageX.style.display = "none";
         if(dplImageX.id=="CoinsA" || dplImageX.id=="CoinsC"|| dplImageX.id=="CoinsD"){
           variables.compteurDeClic += 1;
@@ -537,9 +487,7 @@ let seconds = 0;
       {
         variables.compteurDeClic=0
         setTimeout(() => {
-
-      // Modification du visuel "compteurs de points " avec collision avec les 2 items " remise a zéros des points"
-
+          // var compteurDePoints = document.querySelector("#compteurDePoints");
           qSelectors.compteurDePoints.style.background="red"
           qSelectors.compteurDePoints.style.color="white"
           qSelectors.compteurDePoints.style.animation="borderPulseButton 0.7s infinite"
@@ -559,8 +507,6 @@ let seconds = 0;
     function checkCollision2(dplImageGlobal, dplImageGlobalChaudron) {
       var rect1 = dplImageGlobal.getBoundingClientRect();
       var rect2 = dplImageGlobalChaudron.getBoundingClientRect();
-
-    // Fonction collision avec le chaudron 
      
       if (
         rect1.left < rect2.right &&
@@ -568,10 +514,7 @@ let seconds = 0;
         rect1.top + 80 < rect2.bottom &&
         rect1.bottom > rect2.top
       ) {
-
-      // Après collision avec le chaudron "point final" du jeu --> 
-        // Changement du décor + non affichage des oiseaux / nb score / etc ...
-        var chaudronSound=document.getElementById("remisZero-music")
+        var chaudronSound=document.getElementById("Points-music")
         chaudronSound.play()
         qSelectors.dplImageGlobalChaudron.style.display = "none";
         qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
@@ -581,11 +524,8 @@ let seconds = 0;
         qSelectors.dplImageGlobalOiseau2.style.display="none"
         qSelectors.compteurDePoints.style.display="none"
         qSelectors.compteurDePointsRestant.style.display="none"
-        timer.style.display="none"
         qSelectors.titreCompetences.style.display="flex"
         qSelectors.containerToBeContinue2.style.display = "block";
-
-      // Affichage temporisé des différents items language / méthodologue / etc ...
 
         setTimeout(() => {
           qSelectors.itemsCompetences.style.display="block"

@@ -93,10 +93,9 @@ let seconds = 0;
     }
 
     function conditionLevel3(){
-      
+      qSelectors.fondJeux.src = "./fond/fond_2.png"
       if (variables.compteurDeClic >= variables.level2) {
         qSelectors.compteurDePointsRestant.innerText = "Niveau suivant  : " +variables.level2Fin
-         qSelectors.fondJeux.src = "./fond/fond_2.png"
        ;
           if(variables.backgroundFinishItem==1){
           qSelectors.fondJeux.src = "./fond/backgroundFinish.png";
@@ -571,7 +570,7 @@ let seconds = 0;
 
       // Après collision avec le chaudron "point final" du jeu --> 
         // Changement du décor + non affichage des oiseaux / nb score / etc ...
-        var chaudronSound=document.getElementById("remisZero-music")
+        var chaudronSound=document.getElementById("Points-music")
         chaudronSound.play()
         qSelectors.dplImageGlobalChaudron.style.display = "none";
         qSelectors.fondJeux.src = "./fond/backgroundFinish.png";

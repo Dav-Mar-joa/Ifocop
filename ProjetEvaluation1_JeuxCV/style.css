@@ -81,6 +81,28 @@
       transform: rotate(-30deg);
     }
   }
+  @keyframes rotateRightToLeftSkullRight {
+    0% {
+      transform: rotate(-12deg);
+    }
+    50% {
+      transform: rotate(12deg);
+    }
+    100% {
+      transform: rotate(-12deg);
+    }
+  }
+  @keyframes rotateRightToLeftSkulLeft {
+    0% {
+      transform: rotate(12deg);
+    }
+    50% {
+      transform: rotate(-12deg);
+    }
+    100% {
+      transform: rotate(12deg);
+    }
+  }
   @keyframes rotateRightToLeftPerso {
     0% {
       transform: rotate(-2deg);
@@ -347,59 +369,79 @@
     background: rgba(160, 82, 45, 0.863);
   }
 
-  #compteurDePoints {
-    /* background-color: rgb(4, 31, 31); */
-    background-color: rgb(210, 217, 202);
-    font-family: "Permanent Marker", cursive;
-    width: 30%;
-    text-align: center;
-    /* color: aliceblue; */
-    color: purple;
-    position: absolute;
-    top: 4vh;
-    left: 4vw;
-    height: 6vh;
-    font-size: 32px;
-    font-weight: bold;
-    /* border: 2px solid color white; */
-    border: 10px solid black;
-    border-radius: 60px;
-    z-index: 3;
+  #bandeauHaut {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  #compteurDePointsInvisible{
-    display: none;
-  }
+    width: 90%;
+    padding: 0 4vw; /* Ajoute de l'espace sur les côtés */
+    position: absolute;
+    top: 2vh;
+}
 
-  #compteurDePointsRestant {
-    /* background-color: rgb(4, 31, 31); */
+#compteurDePoints {
     background-color: rgb(210, 217, 202);
     font-family: "Permanent Marker", cursive;
-    width: 30%;
+    width: 32%;
     text-align: center;
-    /* color: aliceblue; */
     color: purple;
-    position: absolute;
-    top: 4vh;
-    right: 4vw;
     height: 6vh;
     font-size: 32px;
     font-weight: bold;
-    /* border: 2px solid color white; */
     border: 10px solid black;
     border-radius: 60px;
-    z-index: 3;
     display: flex;
     justify-content: center;
     align-items: center;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  #compteurDePointsRestantInvisible{
+    z-index: 3;
+    order: 3; /* Changez l'ordre ici */
+}
+
+#timer {
+    background-color: rgba(0, 30, 255, 0.8);
+    color: black;
+    font-family: "Permanent Marker", cursive;
+    width: 20%; /* Ajustez la largeur selon vos besoins */
+    text-align: center;
+    height: 6vh;
+    font-size: 20px;
+    font-weight: bold;
+    border: 10px solid black;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    order: 2; /* Changez l'ordre ici */
+}
+
+#compteurDePointsRestant {
+    background-color: rgb(210, 217, 202);
+    font-family: "Permanent Marker", cursive;
+    width: 32%;
+    text-align: center;
+    color: purple;
+    height: 6vh;
+    font-size: 32px;
+    font-weight: bold;
+    border: 10px solid black;
+    border-radius: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    order: 1; /* Changez l'ordre ici */
+}
+
+/* Invisibles */
+#compteurDePointsInvisible, #compteurDePointsRestantInvisible, #timerInvisible {
     display: none;
-  }
+}
+
+
 
   #startingIndex {
     height: 100%;
@@ -425,6 +467,7 @@
     justify-content: center;
     gap: 10rem;
   }
+  
   .buttonIndex {
     margin-top: 2rem;
     display: flex;
@@ -491,11 +534,37 @@
     border: 10px solid black;
   }
 
+  .personnageRulesSkull{
+    animation : rotateRightToLeftSkulLeft 0.9s infinite;
+    margin-top: 0.1vh;
+    margin-bottom: 0.1vh;
+      border: 2px solid gray;
+      border-radius: 100px;
+      box-shadow: 12px 12px 20px rgba(92, 91, 91, 1);/* box-shadow: 2px 2px 2px black; */
+      /* background-color: rgb(224, 63, 57); */
+      /* animation: rotateRightToLeftPerso 0.9s infinite,
+        borderPulsePerso 0.7s infinite; */
+        width: 70%;
+  }
+  .personnageRulesSkullInverse{
+    animation : rotateRightToLeftSkullRight 0.9s infinite;
+    margin-top: 0.1vh;
+    margin-bottom: 0.1vh;
+      border: 2px solid gray;
+      border-radius: 100px;
+      box-shadow: 12px 12px 20px rgba(92, 91, 91, 1);
+      /* box-shadow: 2px 2px 2px black; */
+      /* background-color: rgb(224, 63, 57); */
+      /* animation: rotateRightToLeftPerso 0.9s infinite,
+        borderPulsePerso 0.7s infinite; */
+        width: 70%;
+  }
+
   #indexRulesContainer {
     display: flex;
     justify-content: space-around; /* Distribute space around the items */
     width: 100%; /* Adjust the width as necessary */
-    margin-top: 3rem;
+    margin-top: 0rem;
     margin-bottom: 2rem;
   }
   
@@ -510,9 +579,9 @@
     justify-content: center; */
     /* gap: 3rem; */
     flex-direction: column;
-    width: 40%;
+    width: 80%;
     margin: auto;
-    margin-top: 4rem;
+    margin-top: 2rem;
     margin-bottom: 4rem;
     transform: scale(0.8);
     background-color: rgb(210, 217, 202);
@@ -611,7 +680,7 @@
 
 
   .colonneImage {
-    width:  32%; 
+    width:  20%; 
     text-align: center;
     /* padding: 20px; */
     /* box-sizing: border-box; */

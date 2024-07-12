@@ -10,6 +10,7 @@
     <audio id="background-music" src="./audio/SoundGame.mp3" autoplay loop></audio>
     <audio id="remisZero-music" src="./audio/objectBreakSoundEffects.mp3" ></audio>
     <audio id="Points-music" src="./audio/okSound.mp3" ></audio>
+    <audio id="final-music" src="./audio/fireworkExplosion.mp3" ></audio>
     <h1 id="h1"></h1>
     <div id="startingIndex">
         <div class="imageIndexPerso">
@@ -25,6 +26,9 @@
           <div class="indexRules">
               <div class="commentaireRegle">Saut</div>
               <div class="separationTroisColonnes">
+                <div class="colonneImage">
+                  <img class="personnageRulesSkullInverse" src="./itemsQuete/skull.png" />
+                </div>
                   <div class="colonneImage">
                     <img class="personnageRulesInverse" src="./perso/persoUniqueVert.png" />
                   </div>
@@ -34,8 +38,13 @@
                   <div class="colonneImage">
                     <img class="personnageRules" src="./perso/persoUniqueVert.png" />
                   </div>
+                  <div class="colonneImage">
+                    <img class="personnageRulesSkull" src="./itemsQuete/skull.png" />
+                  </div>
+                  
                 </div>
-              <div class="commentaireRegle">Touche "espace" : double saut</div>
+                
+              <div class="commentaireRegle">Touche "espace" : double saut parabolique</div>
             </div>
         </div>
 
@@ -88,8 +97,12 @@
       <div><img src="./itemsQuete/coins.png" id="CoinsC" /></div>
       <div><img src="./itemsQuete/coins.png" id="CoinsD" /></div>
 
-      <div id="compteurDePoints"></div>
-      <div id="compteurDePointsRestant"></div>
+        <div id="bandeauHaut">
+          <div id="compteurDePoints"></div>
+          <div id="compteurDePointsRestant"></div>
+          <div id="timer">Temps : 0 secondes</div>
+        </div>
+
 
       <div id="containerToBeContinue">
         

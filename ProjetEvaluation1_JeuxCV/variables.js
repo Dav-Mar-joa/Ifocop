@@ -21,10 +21,10 @@ const variables = {
     dplXChaudron: 0,
     dplXGlobalChaudron: 0,
     vitesseChaudron: 0,
-    level1:50,
-    level2:150,
-    level2Fin:200,
-
+    level1:120,
+    level2:250,
+    level2Fin:380,
+    isJumping : false,
     backgroundFinishItem: 0,
     objetCollision: [
       "#magicPotions",
@@ -36,10 +36,11 @@ const variables = {
       "#CoinsB",
       "#CoinsB1",
       "#CoinsB",
+      "#magicPotions",
       "#CoinsB1",
+      "#papyrus2",
       "#CoinsC",
-      "#CoinsD",
-      "#endGame"
+      "#CoinsD"
     ]
   };
 
