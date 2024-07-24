@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>Heure du jour</h1>
+    <p>Il est : {heureDuJour}</p>
+  </body>
+</html>

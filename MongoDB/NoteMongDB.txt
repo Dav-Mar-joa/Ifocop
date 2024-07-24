@@ -1,0 +1,62 @@
+PORT 27017
+
+show dbs
+
+use name_dbs pour créer une dbs
+
+il faut etre dans mongo.sh
+
+pour importer un json --> il faut etre dans un nouveau terminal !! et ajouter l'option --jsonArray
+
+mongoimport --db paris --collection piscines --file "C:\Users\850_G5\Documents\Formation_Dot_Net\Ifocop\MongoDB\piscines_paris.json" --jsonArray 
+
+Pipelines d'Aggrégations : 
+
+- 1 $match {}
+- 2 $group
+- 3 $sort
+- 4 $limit 
+
+
+pour integrer des fonctions dans mongo, on peut charger des functions des le démarage 
+sinon on copie la function dans mongosh
+
+mongoAtlas --> base de données en ligne
+
+Configuration de MongoDBAtlas
+
+create
+
+MO Free / name :  MyCluster/DM
+Decocher preload
+laisser cocher Automate
+
+AWS Paris eu-west-3
+
+créer depoyement
+
+Create a database user 
+
+username + Password
+
+create databaseUser
+
+choose shell pour avoir a ligne de code 
+
+security :
+
+database access
+
+network access : adress ip 0000 pour faciliter l'acces au jeux 
+
+mongosh "mongodb+srv://clusterd.gllspzx.mongodb.net/" --apiVersion 1 --username davidjoaquimmartins --password a écrire
+
+mongoexport --db paris --collection velib --out mesvelib.json  si je le fais dans le terminal sur C:\Users\850_G5 ---> IL VA ETRE DANS C:\Users\850_G5 
+
+
+sur mongoDB --> on peut créer des graph qui évolue 
+
+--- en haut puis selectionnez embed puis ettings 
+
+iframe
+on copie le <iframe> dans une page web 

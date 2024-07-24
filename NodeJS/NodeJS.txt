@@ -1,0 +1,13 @@
+LTS  : 20.15 --> long terme support 
+
+Version pair --> experimentale 
+
+node -v pour connaitre la version
+
+dans la console : node --> on est dans node 
+objet de base : global ( window dans un html)
+
+buffer = tableau d'octets 
+
+dans le module principal : const variable = require(chemin du module)
+dans le module secondaire :  modul.exports = const variable

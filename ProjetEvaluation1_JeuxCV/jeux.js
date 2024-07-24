@@ -81,6 +81,8 @@ let seconds = 0;
       qSelectors.compteurDePoints.innerText = "Nb de skills : " + variables.compteurDeClic;
       qSelectors.compteurDePointsRestant.innerText = "Niveau suivant "+" \u2794"+ " "+variables.level1
       qSelectors.dplImageGlobal.style.bottom = 0.2 * variables.hauteurEcran + "px";
+      qSelectors.couleurOiseau.querySelector("img").src = "./sprite/spriteBirdsRed.png";
+        qSelectors.couleurOiseau2.querySelector("img").src = "./sprite/spriteBirdsRed.png";
     }
 
     function conditionLevel2(){
