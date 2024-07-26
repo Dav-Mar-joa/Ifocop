@@ -25,6 +25,12 @@ myServer.on('request', function(requestHTTP, responseHTTP) {
   let texte = '';
   var nouvelleRequette=""
   var laRequeteExiste = false
+
+  responseOctets = fs.readFileSync('./404.html');
+      texte = responseOctets.toString('utf-8');
+      responseOctets = Buffer.from(texte);
+      Code = 404;
+      console.log(requestHTTP.url)
   
   switch(requestHTTP.url) {
     case '/index.html':
@@ -68,6 +74,7 @@ myServer.on('request', function(requestHTTP, responseHTTP) {
     console.log("nouvelle requete : "+nouvelleRequette)
     nouvelleRequette=path.normalize(nouvelleRequette)
     console.log("nouvelle requete normalisée : "+nouvelleRequette)
+
 
     var extension = path.extname(nouvelleRequette)
     if(extension=="") extension="html"

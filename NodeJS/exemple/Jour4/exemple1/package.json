@@ -1,0 +1,19 @@
+{
+  "name": "exemple1",
+  "version": "1.0.0",
+  "main": "exemple.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {
+    "uud": "^0.0.0",
+    "uuid": "^10.0.0"
+  }
+}

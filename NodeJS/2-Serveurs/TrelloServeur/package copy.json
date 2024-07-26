@@ -1,0 +1,21 @@
+{
+  "name": "exemple1",
+  "version": "1.0.0",
+  "main": "exemple.js",
+  "scripts": {
+    "start": "echo \"Démarrage du serveur\" && nodemon exemple.js 1234",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lancement": "nodemon exemple.js",
+    "lister": "dir",
+    "choucroute": "echo \"vive le choux braisé !\""
+  },
+  "keywords": [],
+  "author": "Sami Radi",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

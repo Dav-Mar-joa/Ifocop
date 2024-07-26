@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <h1>Profile</h1>
+    <ul>
+      <li><a href="/home">Accueil</a></li>
+      <li><a href="/login">Connexion</a></li>
+      <li><a href="/profile">Profile</a></li>
+    </ul>
+    <form action="/login" method="POST">
+      <!-- CREATON D4UNE REQUETE !! -->
+      <!-- pour avoir le infos dans l'url -->
+      <!-- http://localhost/login?username=AAA&password=ZZZZZ APRES AVOIR REMPLI LE FORMULAIRE ET CLICER QUE CONNEXION -->
+      <!-- <form action="/login" method="POST">
+        DANS LE PAYLOAD LES INFOS DE LA CONNEXION -->
+      <p>Nom d'utilisateur<input type="text" name="username"/></p>
+      <p>Mot de passe<input type="password" name="password"/></p>
+      <p><input type="submit" value="Connexion"/></p>
+    </form>
+  </body>
+</html>

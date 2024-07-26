@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <h1>Accueil</h1>
+    <ul>
+      <li><a href="/">Envoyer une requête au serveur pour qu'il m'envoie la page d'accueil</a></li>
+      <li><a href="/toto.html">Envoyer une requête au serveur pour qu'il m'envoie toto.html</a></li>
+      <li><a href="/titi.html">Envoyer une requête au serveur pour qu'il m'envoie titi.html</a></li>
+      <li><a href="/tonton/tuytuy?prenom=@prenom@&nom=@nom@&age=#age#">Envoyer une requête au serveur pour qu'il m'envoie une page personnalisée basée sur le fichier fichiers/riri.fifi</a></li>
+    </ul>
+    <p>Bienvenue @prenom@ sur mon site Oueb Dynamique</p>
+    <p>Mon nom est @nom@ et mon age est #age# ans</p>
+  </body>
+</html>
